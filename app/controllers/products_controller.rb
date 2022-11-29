@@ -1,5 +1,8 @@
 class ProductsController < ApplicationController
-  def index
+  def drinks
+  end
+
+  def meals
   end
 
   def new
@@ -26,17 +29,23 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
   end
 
   def update
+    @product = Product.find(params[:id])
+    @product.update(product_params)
+    redirect_to dashboard_admin_path
   end
 
   def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
   end
 
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :allergies, :category, :product_type, allergy_ids: [])
+    params.require(:product).permit(:name, :description, :price, :allergies, :category, :photo, :product_type, allergy_ids: [])
   end
 end

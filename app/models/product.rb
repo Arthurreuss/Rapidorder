@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   has_many :reviews
   has_many :product_allergies, dependent: :destroy
   has_many :allergies, through: :product_allergies
+  has_one_attached :photo
 
   validates :name, :price, presence: true
   validates :description, presence: true, length: { minimum: 5 }
