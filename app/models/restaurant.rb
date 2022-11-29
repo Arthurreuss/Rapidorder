@@ -9,4 +9,9 @@ class Restaurant < ApplicationRecord
   def show
     @restaurant = Restaurant.find(params[:id])
   end
+
+  def create
+    @restaurant = Restaurant.new(params[:name, :description, :address])
+    @restaurant.save
+  end
 end

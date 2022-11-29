@@ -1,12 +1,39 @@
-.restaurant-logo {
-
+.show-restaurant-special-offer-card{
+  width: 85vw;
+  height: 12vh;
+  background-color: lightgrey;
 }
 
-.restaurant-banner {
-
+.show-restaurant-categories-card{
+  background-color: lightgrey;
 }
 
-.restaurant-table {
+// .show-restaurant-categories{
+//   width: 85vw
+// }
 
+.show-restaurant-categories-card{
+  width: 85vw;
+  height: 11vh;
 }
 
+.swiper-slide{
+  // background-image: url("https://source.unsplash.com/xBFTjrMIC0c");
+  background-color: black;
+  // background-size: cover;
+  height: 7vh;
+  min-width: 30vw;
+}
+
+.swiper-wrapper{
+  overflow-x: auto;
+}
+
+.show-category-title{
+  width: 85vw;
+}
+
+.special-offer-price{
+  background-color: $project-red;
+  width: 25vw;
+}
