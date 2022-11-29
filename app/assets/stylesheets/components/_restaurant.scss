@@ -1,5 +1,9 @@
+.wrapper{
+  background-color: $project-background;
+}
+
 .show-restaurant-special-offer-card{
-  width: 85vw;
+  width: 90vw;
   height: 12vh;
   background-color: lightgrey;
 }
@@ -34,6 +38,9 @@
 }
 
 .special-offer-price{
+
   background-color: $project-red;
   width: 25vw;
 }
+
+// footer
