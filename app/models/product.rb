@@ -7,6 +7,7 @@ class Product < ApplicationRecord
 
   validates :name, :price, presence: true
   validates :description, presence: true, length: { minimum: 5 }
-  validates :category, presence: true, inclusion: { in: %w(Burger Pasta Tapas Pizza) }
+  validates :category, presence: true, inclusion: { in: %w(Softdrinks Beer Wine Cocktails Pizza Burgers Pasta Tapas) }
   validates :product_type, presence: true, inclusion: { in: %w(Drink Meal) }
+
 end
