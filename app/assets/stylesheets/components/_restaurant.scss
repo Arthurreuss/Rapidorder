@@ -26,7 +26,7 @@
   background-color: black;
   // background-size: cover;
   height: 7vh;
-  min-width: 30vw;
+  min-width: 25vw;
 }
 
 .swiper-wrapper{
@@ -38,7 +38,9 @@
 }
 
 .special-offer-price{
-
+  position: relative;
+  top: -1vh;
+  left: 55vw;
   background-color: $project-red;
   width: 25vw;
 }
