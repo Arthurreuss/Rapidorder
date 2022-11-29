@@ -39,8 +39,9 @@
 
 .special-offer-price{
   position: relative;
-  top: -1vh;
-  left: 55vw;
+  // top: -1vh;
+  // left: 55vw;
+  float: right;
   background-color: $project-red;
   width: 25vw;
 }
