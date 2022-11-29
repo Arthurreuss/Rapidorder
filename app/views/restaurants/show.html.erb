@@ -1,2 +1,41 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+<div class="wrapper">
+  <div class="show-restaurant-banner" >
+    <div class="show-restaurant-logo"></div>
+    <div class="show-restaurant-title p-2">
+        <h3>Restaurant test</h3>
+        <div class="restaurant-table rounded p-1 text-center"> Table C2 </div>
+    </div>
+  </div>
+
+  <div class="show-restaurant-special-offer-card mt-4 p-2 mx-auto rounded text-end">
+    <h3 class="p-2">Daily Menu</h3>
+    <p class="special-offer-price rounded p-1" > € 12,50 </p>
+  </div>
+
+  <div class="show-restaurant-categories mt-4 p-2">
+    <h3 class="show-category-title p-2 m-auto">Drinks</h3>
+    <div class="show-restaurant-categories-card m-auto swiper-container" data-controller="carousel">
+      <div class="swiper-wrapper d-flex justify-content-center align-items-center h-100">
+        <%#= link_to products restaurant_products_path(product_id) %>
+        <div class="swiper-slide p-2 me-2" id="slide-1"></div>
+        <div class="swiper-slide p-2 me-2"></div>
+        <div class="swiper-slide p-2 me-2"></div>
+        <div class="swiper-slide p-2 me-2"></div>
+        <div class="swiper-slide p-2 me-2"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="show-restaurant-categories mt-4 p-2">
+    <h3 class="show-category-title p-2 m-auto">Food</h3>
+    <div class="show-restaurant-categories-card m-auto swiper-container" data-controller="carousel">
+      <div class="swiper-wrapper d-flex justify-content-center align-items-center h-100">
+        <div class="swiper-slide p-2 me-2"></div>
+        <div class="swiper-slide p-2 me-2"></div>
+        <div class="swiper-slide p-2 me-2"></div>
+        <div class="swiper-slide p-2 me-2"></div>
+        <div class="swiper-slide p-2 me-2"></div>
+      </div>
+    </div>
+  </div>
+</div>
