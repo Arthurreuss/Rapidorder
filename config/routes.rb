@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :restaurants, only: %i[new create show edit update destroy] do
     resources :products, only: %i[new create update edit index]
   end
+   get "cart", to: "pages#cart"
   # Defines the root path route ("/")
   # root "articles#index"
 end
