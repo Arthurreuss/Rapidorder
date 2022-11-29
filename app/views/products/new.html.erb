@@ -1,17 +1,16 @@
 <h1>Products#new</h1>
 <p>Find me in app/views/products/new.html.erb</p>
-  <%= simple_form_for [@restaurant, @product] do |f| %>
-      <%= f.error_notification %>
-      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-      <%= f.input :name %>
-      <%= f.input :price %>
-      <%= f.input :description %>
-      <%= f.label "Allergies  " %>
-      <%= f.collection_check_boxes :allergy_ids, Allergy.all, :id, :name%>
-      <%#= f.association :product_allergies, as: :checkboxes  %>
-      <%= f.input :category, collection: ["Burger", "Pasta", "Tapas", "Pizza"] %>
-      <%= f.input :product_type, collection: ["Meal", "Drink"] %>
-
-      <%= f.button :submit %>
-
-    <% end %>
+<%= simple_form_for [@restaurant, @product] do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <%= f.input :name %>
+    <%= f.input :price %>
+    <%= f.input :description %>
+    <%= f.label "Allergies  " %>
+    <%= f.collection_check_boxes :allergy_ids, Allergy.all, :id, :name%>
+    <%#= f.association :product_allergies, as: :checkboxes  %>
+    <%= f.input :category, collection: ["Burger", "Pasta", "Tapas", "Pizza"] %>
+    <%= f.input :product_type, collection: ["Meal", "Drink"] %>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit %>
+<% end %>

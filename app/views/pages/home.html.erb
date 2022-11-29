@@ -1,5 +1,6 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<%= link_to 'Create New Restaurant', new_restaurant_path %>
 <% @restaurants.each do |restaurant| %>
-<%= link_to 'Show Restaurant', restaurant_products_path(restaurant) %>
+<%= link_to 'Show Restaurant', restaurant_dashboard_admin_path(restaurant) %>
 <% end %>
