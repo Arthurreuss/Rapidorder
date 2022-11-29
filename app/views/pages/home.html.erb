@@ -1,14 +1,7 @@
-<div class="restaurant-banner">
-<div class="restaurant-logo"></div>
-<div>
-<h1>Restaurant</h1>
-<h2>since 1964</h2>
-</div>
-<h2 class="restaurant-table">table</h2>
-</div>
-  <div class="special-offer-card">
-    <div>
-      <h2>Daily Menue</h2>
-      <h2>Price 12.50€</h2>
-    </div>
-  </div>
+
+<h1>Pages#home</h1>
+<p>Find me in app/views/pages/home.html.erb</p>
+<% @restaurants.each do |restaurant| %>
+<%= link_to 'Show Restaurant', restaurant_products_path(restaurant) %>
+<% end %>
+

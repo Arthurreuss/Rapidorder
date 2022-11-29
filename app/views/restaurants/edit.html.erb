@@ -1,2 +1,16 @@
 <h1>Restaurants#edit</h1>
 <p>Find me in app/views/restaurants/edit.html.erb</p>
+<%= simple_form_for(@restaurant) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+        <div class="form-new">
+          <%= f.input :name %>
+          <%= f.input :description %>
+          <%= f.input :address %>
+          <%= f.input :tables %>
+          <p>*Use spaces to seperate your tables names</p>
+          <%#= f.input :photo, as: :file %>
+        </div>
+
+        <%= f.submit %>
+    <% end %>

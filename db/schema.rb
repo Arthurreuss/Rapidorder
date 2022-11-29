@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_155526) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_143725) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_155526) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "allergies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string "table_id"
     t.boolean "status"
@@ -52,13 +58,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_155526) do
     t.index ["product_id"], name: "index_orders_on_product_id"
   end
 
+  create_table "product_allergies", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "allergy_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["allergy_id"], name: "index_product_allergies_on_allergy_id"
+    t.index ["product_id"], name: "index_product_allergies_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.float "price"
     t.text "description"
-    t.text "allergies"
     t.string "category"
-    t.string "type"
+    t.string "product_type"
     t.bigint "restaurant_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -72,6 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_155526) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tables"
     t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
 
@@ -81,6 +96,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_155526) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_reviews_on_product_id"
+  end
+
+  create_table "tables", force: :cascade do |t|
+    t.string "name"
+    t.bigint "restaurant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_tables_on_restaurant_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -100,7 +123,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_155526) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "orders", "products"
+  add_foreign_key "product_allergies", "allergies"
+  add_foreign_key "product_allergies", "products"
   add_foreign_key "products", "restaurants"
   add_foreign_key "restaurants", "users"
   add_foreign_key "reviews", "products"
+  add_foreign_key "tables", "restaurants"
 end
