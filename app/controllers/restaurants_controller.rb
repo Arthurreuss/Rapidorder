@@ -11,7 +11,7 @@ class RestaurantsController < ApplicationController
     @restaurant.user = current_user
     respond_to do |format|
       if @restaurant.save
-        format.html { redirect_to restaurant_path(@restaurant), notice: "Successfully created Pet" }
+        format.html { redirect_to restaurant_path(@restaurant), notice: "Successfully created Restaurant" }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
