@@ -11,6 +11,11 @@ class RestaurantsController < ApplicationController
     @restaurant.user = current_user
     respond_to do |format|
       if @restaurant.save
+        @restaurant.table_names.split.each do |name|
+          @table = Table.new({ name: name })
+          @table.restaurant = @restaurant
+          @table.save
+        end
         format.html { redirect_to restaurant_path(@restaurant), notice: "Successfully created Restaurant" }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -37,6 +42,6 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :description, :address, :tables)
+    params.require(:restaurant).permit(:name, :description, :address, :table_names)
   end
 end
