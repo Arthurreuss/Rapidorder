@@ -1,11 +1,11 @@
-<div class="wrapper">
+<div class="wrapper" >
   <div class="product-title d-flex justify-content-between p-2">
     <div class="previous ms-2"><</div>
     <h2>Drinks</h2>
     <div class="next me-2">></div>
   </div>
   <%#= render "shared/productcard_drinks" %>
-  <div class="accordion" id="accordionExample">
+  <div class="accordion" id="accordionExample" data-controller="cart">
     <div class="item text-center">
       <h2 class="test" id="beers">
         <button class=" categories-card rounded text-center <%= @category != 'beers' ? 'collapsed' : '' %>" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="<%= @category != 'beers' ? 'false' : 'true' %>" aria-controls="collapseOne">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="rating w-100">
                   <p><% 5.times do %> ⭐ <% end %></p>
-                  <div class="btn rounded btn-product text-end"><i class="fa-solid fa-plus fa-xl"></i></div>
+                  <div class="btn rounded btn-product text-end"><i class="fa-solid fa-plus fa-xl" data-action="click->cart#update"></i></div>
                 </div>
               </div>
             <% end %>
@@ -62,4 +62,3 @@
       </div>
   </div>
 </div>
->>>>>>> Stashed changes
