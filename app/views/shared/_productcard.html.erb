@@ -10,3 +10,63 @@
     <div class="btn rounded btn-product"><i class="fa-solid fa-plus"></i></div>
   </div>
 </div>
+
+
+
+ <div class="accordion accordion-flush" id="accordionExmple" <%# data-controller="select-category"%>>
+    <div class="accordion-item text-center">
+      <h2 class="test" id="beers" >
+        <button class="accordion-button categories-card rounded text-center collapsed" data-select-category-target="beers" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Beers
+        </button>
+      </h2>
+      <div id="collapseOne" class=" collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExampl">
+        <div class="accordion-body my-2">
+          <% @beers = @drinks.where(category: "Beer") %>
+          <% @beers.each do |beer| %>
+            <%#= render "shared/productcard" %>
+            <div class="accordion-body">
+            <div class="categories-drink-card d-flex justify-content-between p-2">
+              <div class="drink-image"></div>
+              <div>
+                <h2><%= beer.name %></h2>
+                <p><%= beer.description %></p>
+                <h3 class="price">€ <%= beer.price %></h3>
+              </div>
+              <div class="rating w-100">
+                <p><% 5.times do %> ⭐ <% end %></p>
+                <div class="btn rounded btn-product text-end"><i class="fa-solid fa-plus fa-xl"></i></div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+<%# TO SAVE FOR NOW  %>
+    <div class="accordion-item text-center">
+      <h2 class="test" id="softdrinks">
+        <button class="categories-card rounded text-center collapsed" data-select-category-target="softdrinks" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Softdrinks
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExampl">
+        <div class="accordion-body">
+        </div>
+      </div>
+    </div>
+    <div class="">
+      <h2 class="test" id="cocktails">
+        <button class="categories-card rounded text-center collapsed" data-select-category-target="cocktails" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Cocktails
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExampl">
+        <div class="accordion-body">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

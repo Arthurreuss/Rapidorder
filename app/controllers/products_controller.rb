@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   def drinks
-    @products = Product.all
-    @drinks =@products.where(product_type: 'Drink')
+    @category = params[:category]
+    @drinks = Product.all.where(product_type: 'Drink')
   end
 
   def meals
