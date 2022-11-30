@@ -103,6 +103,54 @@ product = Product.new(
     p product.errors.messages
   end
 
+file = File.open(File.join(__dir__, './images_seed/croquetas.jpg'))
+#file = file.read
+
+product = Product.new(
+  name: 'Croquetas',
+  price: 12,
+  description: '8 ham croquetas',
+  category: 'Tapas',
+  product_type: 'Meal',
+  restaurant_id: 1
+)
+  product.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+  unless product.save
+    p product.errors.messages
+  end
+
+file = File.open(File.join(__dir__, './images_seed/patatasbravas.jpg'))
+#file = file.read
+
+product = Product.new(
+  name: 'Patatas bravas',
+  price: 8,
+  description: 'Potatoes with sauce',
+  category: 'Tapas',
+  product_type: 'Meal',
+  restaurant_id: 1
+)
+  product.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+  unless product.save
+    p product.errors.messages
+  end
+
+file = File.open(File.join(__dir__, './images_seed/calamares.jpg'))
+#file = file.read
+
+product = Product.new(
+  name: 'Calamares',
+  price: 18,
+  description: 'Fried calamari',
+  category: 'Tapas',
+  product_type: 'Meal',
+  restaurant_id: 1
+)
+  product.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+  unless product.save
+    p product.errors.messages
+  end
+
 file = File.open(File.join(__dir__, './images_seed/burgerpic.jpg'))
         #file = file.read
 
@@ -110,7 +158,7 @@ product = Product.new(
   name: 'Cheeseburger',
   price: 14,
   description: "Burger with cheese and bacon",
-  category: 'Burger',
+  category: 'Burgers',
   product_type: 'Meal',
   restaurant_id: 1
 )
@@ -133,6 +181,54 @@ product = Product.new(
   product.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product.save
   p product.errors.messages
+end
+
+file = File.open(File.join(__dir__, './images_seed/sprite.jpg'))
+#file = file.read
+
+product = Product.new(
+  name: 'Sprite',
+  price: 2,
+  description: 'Sprite',
+  category: 'Softdrinks',
+  product_type: 'Drink',
+  restaurant_id: 1
+)
+  product.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+  unless product.save
+    p product.errors.messages
+  end
+
+file = File.open(File.join(__dir__, './images_seed/fanta.jpg'))
+#file = file.read
+
+product = Product.new(
+  name: 'Fanta',
+  price: 2,
+  description: 'Lemon fanta',
+  category: 'Softdrinks',
+  product_type: 'Drink',
+  restaurant_id: 1
+)
+  product.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+  unless product.save
+    p product.errors.messages
+  end
+
+file = File.open(File.join(__dir__, './images_seed/aquarius.jpg'))
+#file = file.read
+
+product = Product.new(
+  name: 'Aquarius',
+  price: 2,
+  description: 'Lemon aquarius',
+  category: 'Softdrinks',
+  product_type: 'Drink',
+  restaurant_id: 1
+)
+  product.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+  unless product.save
+    p product.errors.messages
   end
 
 file = File.open(File.join(__dir__, './images_seed/mojito.jpg'))
@@ -141,8 +237,56 @@ file = File.open(File.join(__dir__, './images_seed/mojito.jpg'))
 product = Product.new(
   name: 'Mojito',
   price: 11,
-  description: "Cocktail with rum, lemon and mint",
-  category: 'Cocktail',
+  description: "Rum, lime juice, cane sugar and mint",
+  category: 'Cocktails',
+  product_type: 'Drink',
+  restaurant_id: 1
+)
+  product.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+  unless product.save
+    p product.errors.messages
+  end
+
+file = File.open(File.join(__dir__, './images_seed/negroni.jpg'))
+#file = file.read
+
+product = Product.new(
+  name: 'Negroni',
+  price: 12,
+  description: "Gin, campari and vermouth",
+  category: 'Cocktails',
+  product_type: 'Drink',
+  restaurant_id: 1
+)
+  product.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+  unless product.save
+    p product.errors.messages
+  end
+
+file = File.open(File.join(__dir__, './images_seed/daiquiri.jpg'))
+#file = file.read
+
+product = Product.new(
+  name: 'Daiquiri',
+  price: 12,
+  description: "White rum, lime juice and syrup",
+  category: 'Cocktails',
+  product_type: 'Drink',
+  restaurant_id: 1
+)
+  product.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+  unless product.save
+    p product.errors.messages
+  end
+
+file = File.open(File.join(__dir__, './images_seed/aperolspritz.jpg'))
+#file = file.read
+
+product = Product.new(
+  name: 'Aperol Spritz',
+  price: 10,
+  description: "Prosecco, Aperol and soda",
+  category: 'Cocktails',
   product_type: 'Drink',
   restaurant_id: 1
 )
