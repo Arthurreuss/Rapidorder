@@ -6,10 +6,12 @@ class PagesController < ApplicationController
   end
 
   def dashboard_admin
-    generate_qr_codes
+    # generate_qr_codes
   end
 
   def dashboard_user
+    @tables = Table.where(restaurant_id: params[:restaurant_id])
+    @tables = @tables.select { |table| table.orders.present? }
   end
 
   def generate_qr_codes
