@@ -2,7 +2,8 @@
   <div class="show-restaurant-banner" >
     <div class="show-restaurant-logo"></div>
     <div class="show-restaurant-title p-2">
-        <h3><%#= @restaurant.name %>Title</h3>
+        <h3><%= @restaurant.name %></h3>
+
         <div class="restaurant-table rounded p-1 text-center"> Table: C12 </div>
     </div>
   </div>
@@ -14,36 +15,46 @@
 
   <div class="show-restaurant-categories mt-4 p-2">
     <h3 class="show-category-title p-2 m-auto">Drinks</h3>
-    <div class="show-restaurant-categories-card m-auto swiper-container" data-controller="carousel" data-carousel-options-value= '{
-      "pagination": { "el": "swiper-pagination",
-                    "dynamicBullets": "true" },
-      "navigation": { "nextEl": ".swiper-button-next",
-                    "prevEl": ".swiper-button-prev"}}'>
-      <%# <div class="swiper-pagination"></div> %>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-
+    <div class="show-restaurant-categories-card m-auto">
       <div class="swiper-wrapper d-flex justify-content-center align-items-center h-100">
-        <%#= link_to products restaurant_products_path(product_id) %>
-        <div class="swiper-slide p-2 me-2" id="slide-1"></div>
-        <div class="swiper-slide p-2 me-2"></div>
-        <div class="swiper-slide p-2 me-2"></div>
-        <div class="swiper-slide p-2 me-2"></div>
-        <div class="swiper-slide p-2 me-2"></div>
-        <div class="swiper-slide p-2 me-2"></div>
+        <%= link_to restaurant_restaurant_drinks_path(@restaurant, { category: 'beers'}) do%>
+          <div class="swiper-slide p-2 me-2" id="beers"></div>
+        <% end %>
+        <%= link_to restaurant_restaurant_drinks_path(@restaurant, { category: 'softdrinks' }) do%>
+          <div class="swiper-slide p-2 me-2" id="softdrinks"></div>
+        <% end %>
+        <%= link_to restaurant_restaurant_drinks_path(@restaurant, { category: 'beers' }) do%>
+          <div class="swiper-slide p-2 me-2" id="cocktails"></div>
+        <% end %>
+        <%= link_to restaurant_restaurant_drinks_path(@restaurant) do%>
+          <div class="swiper-slide p-2 me-2"></div>
+        <% end %>
+        <%= link_to restaurant_restaurant_drinks_path(@restaurant) do%>
+          <div class="swiper-slide p-2 me-2"></div>
+        <% end %>
       </div>
     </div>
   </div>
 
   <div class="show-restaurant-categories mt-4 p-2">
     <h3 class="show-category-title p-2 m-auto">Food</h3>
-    <div class="show-restaurant-categories-card m-auto swiper-container" data-controller="carousel">
+    <div class="show-restaurant-categories-card m-auto">
       <div class="swiper-wrapper d-flex justify-content-center align-items-center h-100">
-        <div class="swiper-slide p-2 me-2"></div>
-        <div class="swiper-slide p-2 me-2"></div>
-        <div class="swiper-slide p-2 me-2"></div>
-        <div class="swiper-slide p-2 me-2"></div>
-        <div class="swiper-slide p-2 me-2"></div>
+        <%= link_to restaurant_restaurant_meals_path(@restaurant) do%>
+          <div class="swiper-slide p-2 me-2" id="drink-1"></div>
+        <% end %>
+        <%= link_to restaurant_restaurant_meals_path(@restaurant) do%>
+          <div class="swiper-slide p-2 me-2"></div>
+        <% end %>
+        <%= link_to restaurant_restaurant_meals_path(@restaurant) do%>
+          <div class="swiper-slide p-2 me-2"></div>
+        <% end %>
+        <%= link_to restaurant_restaurant_meals_path(@restaurant) do%>
+          <div class="swiper-slide p-2 me-2"></div>
+        <% end %>
+        <%= link_to restaurant_restaurant_meals_path(@restaurant) do%>
+          <div class="swiper-slide p-2 me-2"></div>
+        <% end %>
       </div>
     </div>
   </div>

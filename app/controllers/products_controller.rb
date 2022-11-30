@@ -1,5 +1,11 @@
 class ProductsController < ApplicationController
   def drinks
+    @category = params[:category]
+    @drinks = Product.all.where(product_type: 'Drink')
+
+    respond_to do |format|
+      format.html { render partial: "products/productcard_drinks", locals: {drinks: @drinks}, formats: [:html] }
+    end
   end
 
   def meals
@@ -21,7 +27,7 @@ class ProductsController < ApplicationController
     end
     respond_to do |format|
       if @product.save
-        format.html { redirect_to restaurant_products_path, notice: "Successfully created Product" }
+        format.html { redirect_to restaurant_restaurant_drinks_path, notice: "Successfully created Product" }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
