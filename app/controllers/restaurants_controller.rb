@@ -29,7 +29,16 @@ class RestaurantsController < ApplicationController
 
   def update
     @restaurant = Restaurant.find(params[:id])
+    @table_names = restaurant_params[:table_names]
     @restaurant.update(restaurant_params)
+    unless @table_names != @restaurant.table_names
+      Table.where(restaurant_id: @restaurant.id).each { |t| t.destroy }
+      @restaurant.table_names.split.each do |name|
+        @table = Table.new({ name: name })
+        @table.restaurant = @restaurant
+        @table.save
+      end
+    end
     redirect_to restaurant_path(@restaurant)
   end
 
