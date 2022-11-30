@@ -1,5 +1,12 @@
 class ProductsController < ApplicationController
   def drinks
+    @category = params[:category]
+    @drinks = Product.all.where(product_type: 'Drink')
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: "products/productcard_drinks", locals: {drinks: @drinks}, formats: [:html] }
+    end
   end
 
   def meals
