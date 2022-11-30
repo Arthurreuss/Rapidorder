@@ -9,3 +9,6 @@ application.register("carousel", CarouselController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import CounterController from "./counter_controller"
+application.register("counter", CounterController)
