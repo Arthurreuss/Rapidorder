@@ -3,10 +3,9 @@
 // ./bin/rails generate stimulus controllerName
 
 import { application } from "./application"
-import Carousel from 'stimulus-carousel'
+
+import CarouselController from "./carousel_controller"
+application.register("carousel", CarouselController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
-
-const application = Application.start()
-application.register('carousel', Carousel)

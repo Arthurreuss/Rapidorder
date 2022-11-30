@@ -14,7 +14,15 @@
 
   <div class="show-restaurant-categories mt-4 p-2">
     <h3 class="show-category-title p-2 m-auto">Drinks</h3>
-    <div class="show-restaurant-categories-card m-auto swiper-container" data-controller="carousel">
+    <div class="show-restaurant-categories-card m-auto swiper-container" data-controller="carousel" data-carousel-options-value= '{
+      "pagination": { "el": "swiper-pagination",
+                    "dynamicBullets": "true" },
+      "navigation": { "nextEl": ".swiper-button-next",
+                    "prevEl": ".swiper-button-prev"}}'>
+      <%# <div class="swiper-pagination"></div> %>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
       <div class="swiper-wrapper d-flex justify-content-center align-items-center h-100">
         <%#= link_to products restaurant_products_path(product_id) %>
         <div class="swiper-slide p-2 me-2" id="slide-1"></div>
