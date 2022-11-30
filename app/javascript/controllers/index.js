@@ -10,6 +10,11 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+
 import SelectCategoryController from "./select_category_controller"
 application.register("select-category", SelectCategoryController)
+
+
+import CounterController from "./counter_controller"
+application.register("counter", CounterController)
 

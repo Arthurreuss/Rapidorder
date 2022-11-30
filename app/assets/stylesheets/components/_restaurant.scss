@@ -1,20 +1,21 @@
 .wrapper{
-  background-color: $project-background;
+  // background-color: $project-background;
 }
 
 .show-restaurant-special-offer-card{
   width: 90vw;
-  height: 12vh;
+  height: 20vh;
   background-color: lightgrey;
 }
 
 .show-restaurant-categories-card{
-  background-color: lightgrey;
+  // background-color: lightgrey;
 }
 
-// .show-restaurant-categories{
-//   width: 85vw
-// }
+.show-restaurant-categories{
+  // width: 85vw
+  // height: 100%;
+}
 
 .show-restaurant-categories-card{
   width: 85vw;
@@ -25,8 +26,9 @@
   // background-image: url("https://source.unsplash.com/xBFTjrMIC0c");
   background-color: black;
   // background-size: cover;
-  height: 7vh;
+  height: 100%;
   min-width: 25vw;
+  border-radius: 10px;
 }
 
 // #drink-1{
