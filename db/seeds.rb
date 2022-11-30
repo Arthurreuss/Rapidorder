@@ -20,3 +20,154 @@ Allergy.create(name: "Mustard", url: "https://get.apicbase.com/wp-content/upload
 Allergy.create(name: "Tree Nuts", url: "https://get.apicbase.com/wp-content/uploads/2020/04/tree-nuts.svg")
 Allergy.create(name: "Sesame Seeds", url: "https://get.apicbase.com/wp-content/uploads/2020/04/sesame-seeds.svg")
 Allergy.create(name: "Sulphur Dioxide", url: "https://get.apicbase.com/wp-content/uploads/2020/04/sulphur-dioxide.svg")
+
+Restaurant.create(name:'Ginos', description:'The best italian in Madrid', address:'Doctor Izquierdo 70' , user_id:1 )
+
+file = File.open(File.join(__dir__, './images_seed/pizzamargarita.jpg'))
+#file = file.read
+
+product = Product.new(
+  name: 'Pizza Margarita',
+  price: 12,
+  description: "The best pizza in Madrid",
+  category: 'Pizza',
+  product_type: 'Meal',
+  restaurant_id: 1
+)
+  product.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+  unless product.save
+    p product.errors.messages
+  end
+
+file = File.open(File.join(__dir__, './images_seed/mahou.jpg'))
+#file = file.read
+
+product = Product.new(
+  name: 'Mahou',
+  price: 3,
+  description: "Light Spanish beer",
+  category: 'Beer',
+  product_type: 'Drink',
+  restaurant_id: 1
+)
+  product.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+  unless product.save
+    p product.errors.messages
+  end
+
+file = File.open(File.join(__dir__, './images_seed/carbonara.jpg'))
+  #file = file.read
+
+product = Product.new(
+  name: 'Spaguetti Carbonara',
+  price: 16,
+  description: "Spaguetti with bacon, egg and cheese",
+  category: 'Pasta',
+  product_type: 'Meal',
+  restaurant_id: 1
+)
+  product.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+  unless product.save
+    p product.errors.messages
+  end
+
+file = File.open(File.join(__dir__, './images_seed/glassrioja.jpg'))
+    #file = file.read
+
+product = Product.new(
+  name: 'Glass of wine',
+  price: 5,
+  description: "Glass of La Rioja wine",
+  category: 'Wine',
+  product_type: 'Drink',
+  restaurant_id: 1
+)
+  product.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+  unless product.save
+    p product.errors.messages
+  end
+
+file = File.open(File.join(__dir__, './images_seed/tortillapatata.jpg'))
+      #file = file.read
+
+product = Product.new(
+  name: 'Tortilla de patata',
+  price: 16,
+  description: "The best tortilla in Madrid",
+  category: 'Tapas',
+  product_type: 'Meal',
+  restaurant_id: 1
+)
+  product.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+  unless product.save
+    p product.errors.messages
+  end
+
+file = File.open(File.join(__dir__, './images_seed/burgerpic.jpg'))
+        #file = file.read
+
+product = Product.new(
+  name: 'Cheeseburger',
+  price: 14,
+  description: "Burger with cheese and bacon",
+  category: 'Burger',
+  product_type: 'Meal',
+  restaurant_id: 1
+)
+  product.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+  unless product.save
+    p product.errors.messages
+  end
+
+file = File.open(File.join(__dir__, './images_seed/cocacola.jpg'))
+#file = file.read
+
+product = Product.new(
+  name: 'Coca-cola',
+  price: 2,
+  description: "Cocacola",
+  category: 'Softdrinks',
+  product_type: 'Drink',
+  restaurant_id: 1
+)
+  product.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+  unless product.save
+  p product.errors.messages
+  end
+
+file = File.open(File.join(__dir__, './images_seed/mojito.jpg'))
+#file = file.read
+
+product = Product.new(
+  name: 'Mojito',
+  price: 11,
+  description: "Cocktail with rum, lemon and mint",
+  category: 'Cocktail',
+  product_type: 'Drink',
+  restaurant_id: 1
+)
+  product.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+  unless product.save
+    p product.errors.messages
+  end
+# {
+#   name: 'Mahou',
+#   price: '4',
+#   description: "The best spanish beer",
+#   category: 'Beer',
+#   product_type: 'Drink',
+#   restaurant_id: '1',
+#   photo: {  File.open('downloads/mahou.jpg')
+#     product.photo.attach(io: file, filename: "mahou.jpg", content_type: "image/jpg") product.save}
+# },
+# {
+#   name: 'Cheeseburguer',
+#   price: '15',
+#   description: "With cheese, lettuce and tomato",
+#   category: 'Burguer',
+#   product_type: 'Meal',
+#   restaurant_id: '1',
+#   photo: {  File.open('downloads/burgerpic.jpg'),
+#     product.photo.attach(io: image, filename: "burgerpic.jpg", content_type: "image/jpg")}
+# },
+# ])
