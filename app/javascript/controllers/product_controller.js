@@ -12,7 +12,6 @@ export default class extends Controller {
   updatecart(){
     const id = this.idValue;
     const cart = JSON.parse(localStorage.getItem('cart'));
-    console.log(cart);
     const item = cart.find(el => el.id === id);
     if (item) {
       item.amount += 1;
@@ -21,6 +20,5 @@ export default class extends Controller {
       cart.push(item);
     }
       localStorage.setItem("cart", JSON.stringify(cart));
-
   }
 }
