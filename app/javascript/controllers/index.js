@@ -18,3 +18,6 @@ application.register("hello", HelloController)
 
 import ProductController from "./product_controller"
 application.register("product", ProductController)
+
+import ShoppingcartController from "./shoppingcart_controller"
+application.register("shoppingcart", ShoppingcartController)
