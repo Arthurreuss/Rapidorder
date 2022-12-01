@@ -10,6 +10,9 @@ application.register("carousel", CarouselController)
 import CheckoutController from "./checkout_controller"
 application.register("checkout", CheckoutController)
 
+import CartController from "./cart_controller"
+application.register("cart", CartController)
+
 import CounterController from "./counter_controller"
 application.register("counter", CounterController)
 

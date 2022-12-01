@@ -4,7 +4,8 @@ class ProductsController < ApplicationController
     @drinks = Product.all.where(product_type: 'Drink')
 
     respond_to do |format|
-      format.html { render partial: "products/productcard_drinks", locals: {drinks: @drinks}, formats: [:html] }
+      format.html
+      format.text { render partial: "products/productcard_drinks", locals: {drinks: @drinks}, formats: [:html] }
     end
   end
 
