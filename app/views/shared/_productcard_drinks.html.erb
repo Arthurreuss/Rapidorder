@@ -35,7 +35,7 @@
     <div id="collapseTwo" class="accordion-collapse collapse <%= @category != 'softdrinks' ? '' : 'show' %>" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
       <div class="accordion-body">
         <% @softdrinks = @drinks.where(category: "Softdrinks") %>
-          <% @sofrdrinks.each do |softdrink| %>
+          <% @softdrinks.each do |softdrink| %>
             <div class="accordion-body">
             <div class="categories-drink-card d-flex justify-content-between p-2">
               <div class="drink-image"></div>
@@ -53,4 +53,3 @@
       </div>
     </div>
   </div>
-
