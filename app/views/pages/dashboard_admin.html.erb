@@ -1,9 +1,45 @@
-<%= link_to 'Create Product', new_restaurant_product_path %>
-<%#= @qr_code %>
-<%#= @svg %>
-<% @array_qr_codes.each do |svg| %>
-<%= svg.html_safe %>
-<% end %>
-<%# <div class="outer-container">
-
-</div> %>
+<div class="d-flex justify-content-between header-container">
+  <h1><%= @restaurant.name %></h1>
+  <%= link_to 'Create Product', new_restaurant_product_path %>
+</div>
+<div class="outer-container d-flex">
+  <div class="qr-code-container">
+    <div class="border text-center pt-1 sticky-top bg-white">
+      <h2>Tables</h2>
+    </div>
+    <% sum = 0 %>
+    <% @array_qr_codes.each do |svg| %>
+      <div class="border text-center" data-controller="toggle" >
+          <h3 class="mt-1" data-action="click->toggle#connect"><%= @tables[sum].name %></h3>
+          <p>Click to download QR-Code</p>
+        <% sum += 1 %>
+        <div class="qr-code text-center" data-toggle-target="element" data-controller="download-qr-code" data-action="click->download-qr-code#download">
+          <%= svg.html_safe %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="product-container">
+    <div class="border text-center pt-1 sticky-top bg-white">
+      <h2>Products</h2>
+    </div>
+    <div>
+      <% @products.each do |product| %>
+        <div class="border text-center">
+          <%= product.name %>
+          <%= product.price %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+   <div class="product-container">
+    <div class="border text-center pt-1 sticky-top bg-white">
+      <h2>Categories</h2>
+    </div>
+  </div>
+   <div class="product-container">
+    <div class="border text-center pt-1 sticky-top bg-white">
+      <h2>Statistics</h2>
+    </div>
+  </div>
+</div>

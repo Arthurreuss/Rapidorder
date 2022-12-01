@@ -7,11 +7,20 @@ import { application } from "./application"
 import CarouselController from "./carousel_controller"
 application.register("carousel", CarouselController)
 
+import CounterController from "./counter_controller"
+application.register("counter", CounterController)
+
+import DownloadQrCodeController from "./download_qr_code_controller"
+application.register("download-qr-code", DownloadQrCodeController)
+
+import CheckoutController from "./checkout_controller"
+application.register("checkout", CheckoutController)
+
 import CartController from "./cart_controller"
 application.register("cart", CartController)
 
-import CounterController from "./counter_controller"
-application.register("counter", CounterController)
+import ToggleController from "./toggle_controller"
+application.register("toggle", ToggleController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
@@ -21,3 +30,4 @@ application.register("product", ProductController)
 
 import ShoppingcartController from "./shoppingcart_controller"
 application.register("shoppingcart", ShoppingcartController)
+
