@@ -4,14 +4,17 @@
 
 import { application } from "./application"
 
-// import CarouselController from "./carousel_controller"
-// application.register("carousel", CarouselController)
+import CarouselController from "./carousel_controller"
+application.register("carousel", CarouselController)
 
 import CartController from "./cart_controller"
 application.register("cart", CartController)
 
+import CounterController from "./counter_controller"
+application.register("counter", CounterController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import CounterController from "./counter_controller"
-application.register("counter", CounterController)
+import ProductController from "./product_controller"
+application.register("product", ProductController)
