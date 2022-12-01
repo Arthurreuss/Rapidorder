@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container" data-controller="shoppingcart" data-action="">
   <div class="cart-nav">
     <div class="previous-button">
       <input type="button" onclick="history.back()" value="<">
     </div>
     <h1 class="h1-position">Cart</h1>
   </div>
-  <div class="second-banner">
+  <div class="second-banner cart-content">
   <%= render "shared/shoppingcart_cards" %>
 
   </div>

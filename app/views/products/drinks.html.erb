@@ -1,11 +1,11 @@
-<div class="wrapper" >
+<div class="wrapper" data-controller="cart">
   <div class="product-title d-flex justify-content-between p-2">
     <div class="previous ms-2"><</div>
     <h2>Drinks</h2>
     <div class="next me-2">></div>
   </div>
   <%#= render "shared/productcard_drinks" %>
-  <div class="accordion" id="accordionExample" data-controller="cart">
+  <div class="accordion" id="accordionExample">
     <div class="item text-center">
       <h2 class="test" id="beers">
         <button class=" categories-card rounded text-center <%= @category != 'beers' ? 'collapsed' : '' %>" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="<%= @category != 'beers' ? 'false' : 'true' %>" aria-controls="collapseOne">
@@ -13,10 +13,10 @@
         </button>
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse <%= @category != 'beers' ? '' : 'show' %>" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
+        <div class="accordion-body"  >
           <% @beers = @drinks.where(category: "Beer") %>
             <% @beers.each do |beer| %>
-              <div class="accordion-body">
+              <div class="accordion-body" data-controller="product" data-product-id-value='<%= beer.id %>'>
               <div class="categories-drink-card d-flex justify-content-between p-2">
                 <div class="drink-image"></div>
                 <div>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="rating w-100">
                   <p><% 5.times do %> ⭐ <% end %></p>
-                  <div class="btn rounded btn-product text-end"><i class="fa-solid fa-plus fa-xl" data-action="click->cart#update"></i></div>
+                  <div class="btn rounded btn-product text-end" data-action="click->product#updatecart"><i class="fa-solid fa-plus fa-xl"></i></div>
                 </div>
               </div>
             <% end %>
@@ -34,9 +34,9 @@
       </div>
     </div>
     </div>
-    <div class="item">
-      <h2 class="test" id="headingTwo">
-        <button class="categories-card rounded text-center <%= @category != 'softdrinks' ? 'collapsed' : '' %>" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="<%= @category != 'softdrinks' ? 'false' : 'true' %>" aria-controls="collapseTwo">
+    <div class="item text-center">
+      <h2 class="test" id="softdrinks">
+        <button class="categories-card rounded text-center <%= @category != 'Softdrinks' ? 'collapsed' : '' %>" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="<%= @category != 'softdrinks' ? 'false' : 'true' %>" aria-controls="collapseTwo">
           Softdrinks
         </button>
       </h2>
@@ -44,7 +44,7 @@
         <div class="accordion-body">
           <% @softdrinks = @drinks.where(category: "Softdrinks") %>
           <% @softdrinks.each do |softdrink| %>
-            <div class="accordion-body">
+            <div class="accordion-body" data-controller="product" data-product-id-value='<%= softdrink.id %>'>
             <div class="categories-drink-card d-flex justify-content-between p-2">
               <div class="drink-image"></div>
               <div>
@@ -54,11 +54,43 @@
               </div>
               <div class="rating w-100">
                 <p><% 5.times do %> ⭐ <% end %></p>
-                <div class="btn rounded btn-product text-end"><i class="fa-solid fa-plus fa-xl"></i></div>
+                <div class="btn rounded btn-product text-end" data-action='click->product#updatecart'><i class="fa-solid fa-plus fa-xl"></i></div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+    <div class="item text-center">
+      <h2 class="test" id="cocktails">
+        <button class="categories-card rounded text-center <%= @category != 'Cocktails' ? 'collapsed' : '' %>" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="<%= @category != 'Cocktails' ? 'false' : 'true' %>" aria-controls="collapseThree">
+          Cocktails
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse <%= @category != 'Cocktails' ? '' : 'show' %>" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <% @Cocktails = @drinks.where(category: "Cocktails") %>
+          <% @Cocktails.each do |cocktail| %>
+            <div class="accordion-body" data-controller="product" data-product-id-value='<%= cocktail.id %>'>
+            <div class="categories-drink-card d-flex justify-content-between p-2">
+              <div class="drink-image"></div>
+              <div>
+                <h2><%= cocktail.name %></h2>
+                <p><%= cocktail.description %></p>
+                <h3 class="price">€ <%= cocktail.price %></h3>
+              </div>
+              <div class="rating w-100">
+                <p><% 5.times do %> ⭐ <% end %></p>
+                <div class="btn rounded btn-product text-end" data-action='click->product#updatecart'><i class="fa-solid fa-plus fa-xl"></i></div>
               </div>
             </div>
           <% end %>
         </div>
       </div>
+    </div>
   </div>
 </div>

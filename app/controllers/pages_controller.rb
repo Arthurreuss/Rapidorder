@@ -40,6 +40,18 @@ class PagesController < ApplicationController
     end
   end
 
+  def cart
+    @products = Product.find(params[:ids].split(',')) if params[:ids]
+    respond_to do |format|
+      format.html
+      format.text {
+        render partial: "shared/shoppingcart_cards", locals: {products: @products}, formats: [:html]
+      }
+    end
+    # receives json object.
+    # retrieve array of product instances
+    # render partial using array
+
   def update_status
     @order = Order.find(params[:order_id])
     @order.update(status: true)

@@ -25,3 +25,9 @@ application.register("toggle", ToggleController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import ProductController from "./product_controller"
+application.register("product", ProductController)
+
+import ShoppingcartController from "./shoppingcart_controller"
+application.register("shoppingcart", ShoppingcartController)
+
