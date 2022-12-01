@@ -6,12 +6,19 @@ class PagesController < ApplicationController
   end
 
   def dashboard_admin
-    # generate_qr_codes
+    generate_qr_codes
   end
 
   def dashboard_user
-    @tables = Table.where(restaurant_id: params[:restaurant_id])
-    @tables = @tables.select { |table| table.orders.present? }
+    tables = Table.where(restaurant_id: params[:restaurant_id])
+    tables = tables.select { |table| table.orders.present? }
+    @tables = []
+    tables.each do |table|
+      if table.orders.all? { |order| order.status == true }
+      else
+        @tables << table
+      end
+    end
   end
 
   def generate_qr_codes
@@ -28,5 +35,11 @@ class PagesController < ApplicationController
       )
       @array_qr_codes << @svg
     end
+  end
+
+  def update_status
+    @order = Order.find(params[:order_id])
+    @order.update(status: true)
+    redirect_to restaurant_dashboard_user_path
   end
 end
