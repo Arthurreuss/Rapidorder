@@ -24,6 +24,10 @@ class PagesController < ApplicationController
     end
   end
 
+  def cart
+    @products = Product.all
+  end
+
   def generate_qr_codes
     @restaurant = Restaurant.find(params[:restaurant_id])
     @array_qr_codes = []
