@@ -1,1 +1,88 @@
-<%= #so file loads %>
+<%#= so file loads %>
+<p>test</p>
+<div class="outer-container d-flex">
+  <div class="meals-container">
+    <div class="pt-2 pb-2 text-center border"><h2>Meals</h2></div>
+      <div class="width-100 rows-container">
+      <% @tables %>
+        <% @tables.each do |order| %>
+        <div class="order-card border">
+          <div><h3><%= order.id %></h3></div>
+          <div>
+            <p>test</p>
+            <p>test2</p>
+            <p>test3</p>
+            <p>test4</p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+  </div>
+  <div class="drinks-container">
+    <div class="pt-2 pb-2 text-center border"><h2>Drinks</h2></div>
+    <div class="width-100 rows-container">
+        <div class="order-card border">
+          <div><h3>Table 4</h3></div>
+          <div>
+            <p>test</p>
+            <p>test2</p>
+            <p>test3</p>
+            <p>test4</p>
+          </div>
+        </div>
+        <div class="order-card border">
+          <div><h3>Table 4</h3></div>
+          <div>
+            <p>test2</p>
+            <p>test3</p>
+          </div>
+        </div>
+        <div class="order-card border">
+          <div><h3>Table 4</h3></div>
+          <div>
+            <p>test</p>
+            <p>test2</p>
+            <p>test3</p>
+          </div>
+        </div>
+        <div class="order-card border">
+          <div><h3>Table 4</h3></div>
+          <div>
+            <p>test3</p>
+          </div>
+        </div>
+        <div class="order-card border">
+          <div><h3>Table 4</h3></div>
+          <div>
+            <p>test</p>
+            <p>test2</p>
+          </div>
+        </div>
+        <div class="order-card border">
+          <div><h3>Table 4</h3></div>
+          <div>
+            <p>test</p>
+            <p>test2</p>
+            <p>test3</p>
+          </div>
+        </div>
+        <div class="order-card border">
+          <div><h3>Table 4</h3></div>
+          <div>
+            <p>test</p>
+            <p>test2</p>
+            <p>test4</p>
+          </div>
+        </div>
+        <div class="order-card border">
+          <div><h3>Table 4</h3></div>
+          <div>
+            <p>test</p>
+            <p>test2</p>
+            <p>eee</p>
+            <p>dddd</p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

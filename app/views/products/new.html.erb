@@ -9,7 +9,7 @@
     <%= f.label "Allergies  " %>
     <%= f.collection_check_boxes :allergy_ids, Allergy.all, :id, :name%>
     <%#= f.association :product_allergies, as: :checkboxes  %>
-    <%= f.input :category, collection: ["Burger", "Pasta", "Tapas", "Pizza"] %>
+    <%= f.input :category, collection: %w[Softdrinks Beer Wine Cocktails Pizza Burgers Pasta Tapas] %>
     <%= f.input :product_type, collection: ["Meal", "Drink"] %>
     <%= f.input :photo, as: :file %>
     <%= f.button :submit %>

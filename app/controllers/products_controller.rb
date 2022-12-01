@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
     end
     respond_to do |format|
       if @product.save
-        format.html { redirect_to restaurant_products_path, notice: "Successfully created Product" }
+        format.html { redirect_to restaurant_restaurant_drinks_path, notice: "Successfully created Product" }
       else
         format.html { render :new, status: :unprocessable_entity }
       end

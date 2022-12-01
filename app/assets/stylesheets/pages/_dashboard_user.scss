@@ -1,0 +1,31 @@
+.meals-container {
+  border: solid 1px black;
+  width: calc(100% / 1.5);
+  height: 100%;
+}
+
+.drinks-container {
+  border: solid 1px black;
+  width: calc(100% / 3);
+  height: 100%;
+}
+
+.rows-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 90%;
+  overflow: scroll;
+}
+
+
+.width-100 {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.order-card {
+  width: 30% !important;
+  padding: 2%;
+  margin: 2%;
+}
