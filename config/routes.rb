@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :restaurants, only: %i[new create show edit update destroy] do
     get 'dashboard_admin', to: "pages#dashboard_admin", as: "dashboard_admin"
     get 'dashboard_user', to: "pages#dashboard_user", as: "dashboard_user"
+    get 'update_status', to: "pages#update_status", as: "update_status"
     resources :products, only: %i[new create update edit index]
     get 'meals', to: "products#meals", as: "restaurant_meals"
     get 'drinks', to: "products#drinks", as: "restaurant_drinks"
