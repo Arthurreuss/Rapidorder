@@ -1,27 +1,72 @@
 .outer-meal-card {
-  height: 13vh;
+  height: 21vh;
   width: 86vw;
+  background-color: white;
+  border-radius: 10px;
+  margin: auto;
 }
 
 .img-allergy {
   height: 100%;
   width: 40%;
-  justify-content: left;
 }
 
-.description {
+.half-card {
   height: 100%;
-  width: 50%;
-  justify-content: right;
+  width: 60%;
+  padding-left:12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.image-div {
-  height: 75%;
-  width: 100%;
+.food-image {
+  height: 120px;
+  width: 120px;
+  border-radius: 10%;
+  background-color: black;
+  margin: auto;
+  display: block;
+  position: relative;
+  top:5%;
 }
 
 .allergies {
   height: 25%;
   width: 100%;
   justify-content: bottom;
+}
+
+.rating {
+  height: 1%;
+  width: 5%;
+  position: relative;
+  left: 15%;
+  top:5%;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+  top:38%
+}
+
+.description {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+  max-width: 150px;
+  position: relative;
+  top:5%;
+  line-height: 20px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.price-button {
+  height:40px;
 }

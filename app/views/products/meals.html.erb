@@ -1,1 +1,25 @@
-<h1>Placeholder</h1>
+<div class="outer-meal-card border d-flex">
+  <div class="img-allergy border">
+    <img src="xx" class="food-image">
+    <div class="allergies d-flex">
+      <%# product.allergies.first(4) do |allergy| %>
+        <img class="allergy-img" src=<%#= allergy.url %>>
+        <%# end %>
+      </div>
+    </div>
+    <div class="half-card">
+      <div class="title-price d-flex justify-content-between">
+        <h2 class="title">Food</h2>
+        <div class="rating w-100">
+          <p class=><% 5.times do %> ⭐ <% end %></p>
+        </div>
+      </div>
+      <div class="description">
+        <p>some description of the incredients: csdc and ervev and evnjenvcj adnev dcec</p>
+      </div>
+      <div class="price-button d-flex justify-content-between">
+        <p class="price">Price 99.9$</p>
+        <div class="btn btn-product text-end"><i class="fa-solid fa-plus fa-l"></i></div>
+      </div>
+    </div>
+  </div>
