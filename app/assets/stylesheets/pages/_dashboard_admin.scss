@@ -1,7 +1,31 @@
+.header-container {
+  margin-bottom: 0;
+  margin: auto;
+  margin-top: 5vh;
+  width: 90vw;
+}
+
 .outer-container {
   border: solid 1px black;
   margin: auto;
   width: 90vw;
   height: 80vh;
-  margin-top: 15vh;
+  overflow: scroll;
+}
+
+.qr-code {
+  height: 100%;
+  width: 100%;
+}
+
+.qr-code-container {
+  height: 100%;
+  width: 25%;
+
+}
+
+.product-container {
+  height: 100%;
+  width: 25%;
+
 }

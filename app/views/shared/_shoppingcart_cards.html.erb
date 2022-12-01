@@ -20,6 +20,25 @@
         </div>
         <span class="fs-4 price"> 99.9€</span>
       </div>
+<% @products.each do |product| %>
+<div class="border cart-cards position-relative">
+  <i class="fa-solid fa-xmark position-absolute mark btn-color x"></i>
+  <div class="img"></div>
+  <div class="flex-grow-1">
+    <div class="title-card">
+      <h2 class="pt-2" data-shoppingcart-id-value=""><%= product.name %></h2>
+    </div>
+    <div class="d-flex justify-content-between align-items-end">
+      <div class=" btn-group " role="group" aria-label="Basic example" data-controller="counter" data-counter-count="1">
+        <button type="button" id="decrement-count" class="btn btn-color btn-margin br-minus button-group-1" data-action="counter#decrement">
+          <i class="fa-solid fa-minus"></i>
+        </button>
+        <span id="total-count" class=" btn btn-color btn-margin button-group-1" data-counter-target="output" data-shoppingcart-target="amount">1</span>
+        <button type="button" id="increment-count" class="btn btn-color br-plus button-group-1" data-action="counter#increment" >
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+      <span class="fs-4 price" data-counter-target="target"> € <%= product.price %></span>
     </div>
 </div>
-  <% end %>
+<% end %>
