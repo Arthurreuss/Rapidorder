@@ -24,20 +24,23 @@
 
 .swiper-slide{
   // background-image: url("https://source.unsplash.com/xBFTjrMIC0c");
-  background-color: black;
+  // background-color: black;
   // background-size: cover;
-  height: 100%;
+  height: 25vw;
   min-width: 25vw;
   border-radius: 10px;
+  background-size: cover;
+  background-position: center;
 }
 
 // #drink-1{
 //   background-image: url('../../images/beer.jpg');
-//   background-size: cover;
+//   background-size: coverr;
 // }
 
 .swiper-wrapper{
   overflow-x: auto;
+  height: 15vh;
 }
 
 .show-category-title{
