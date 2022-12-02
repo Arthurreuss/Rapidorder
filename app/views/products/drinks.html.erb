@@ -48,7 +48,7 @@
             <div class="accordion-body">
               <% @softdrinks = @drinks.select { |drink| drink.category == "Softdrinks"} %>
               <% @softdrinks.each do |softdrink| %>
-                <div class="accordion-body">
+                <div class="accordion-body" data-controller="product" data-product-id-value='<%= softdrink.id %>'>
                   <div class="categories-drink-card border">
                     <div class="all-boxes">
                       <%= cl_image_tag softdrink.photo.key, class: 'drink-image'%>
@@ -60,7 +60,7 @@
                         <p><%= softdrink.description %></p>
                         <div class="box3">
                           <h3 class="price"> <%= softdrink.price %>€</h3>
-                          <div class="btn btn-color btn-product text-end"><i class="fa-solid fa-plus fa-xl" data-action='click->product#updatecart'></i></div>
+                          <div class="btn btn-color btn-product text-end" ><i class="fa-solid fa-plus fa-xl" data-action='click->product#updatecart'></i></div>
                         </div>
                       </div>
                     </div>
