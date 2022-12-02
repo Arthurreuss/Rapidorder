@@ -13,6 +13,7 @@
             </button>
           </h2>
           <div id="collapseOne" class="accordion-collapse collapse <%= @category != 'beers' ? '' : 'show' %>" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            
             <div class="accordion-body">
               <% @beers = @drinks.where(category: "Beer") %>
               <% @beers.each do |beer| %>
