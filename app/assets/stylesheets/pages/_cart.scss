@@ -15,6 +15,11 @@ margin-right: 12%;
   overflow: hidden;
  }
 
+.shoppingcart-cards-container {
+  overflow: scroll;
+  height: 60vh;
+}
+
  .img{
   background-color: black;
   width: 30%;
