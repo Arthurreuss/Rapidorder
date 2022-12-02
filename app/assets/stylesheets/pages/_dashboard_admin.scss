@@ -10,7 +10,6 @@
   margin: auto;
   width: 90vw;
   height: 80vh;
-  overflow: scroll;
 }
 
 .qr-code {
@@ -21,11 +20,12 @@
 .qr-code-container {
   height: 100%;
   width: 25%;
-
+  overflow: scroll;
 }
 
 .product-container {
   height: 100%;
   width: 25%;
+  overflow: scroll;
 
 }
