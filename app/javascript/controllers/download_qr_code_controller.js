@@ -12,7 +12,7 @@ export default class extends Controller {
     // console.log("Hello from download")
     // var element = document.getElementsById("element-to-print");
     // console.log(this.element);
-    html2pdf(this.element.innerHTML);
+    // html2pdf(this.element.innerHTML);
   }
 
 }

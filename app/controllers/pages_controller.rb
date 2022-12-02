@@ -25,7 +25,6 @@ class PagesController < ApplicationController
   end
 
   def cart
-    @products = Product.all
   end
 
   def generate_qr_codes
@@ -44,14 +43,19 @@ class PagesController < ApplicationController
     end
   end
 
-  def cart
-    @products = Product.find(params[:ids].split(',')) if params[:ids]
+  def render_cart
+    cart = params['_json']
+
+    cart.map! do |order|
+      { product: Product.find(order[:id]),
+      amount: order[:amount] }
+    end
     respond_to do |format|
-      format.html
       format.text {
-        render partial: "shared/shoppingcart_cards", locals: {products: @products}, formats: [:html]
+        render partial: "shared/shoppingcart_cards", locals: {cart: cart}, formats: [:html]
       }
     end
+  end
     # receives json object.
     # retrieve array of product instances
     # render partial using array
@@ -61,4 +65,8 @@ class PagesController < ApplicationController
     @order.update(status: true)
     redirect_to restaurant_dashboard_user_path
   end
+
+  private
+
+
 end

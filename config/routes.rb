@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     get 'drinks', to: "products#drinks", as: "restaurant_drinks"
   end
    get "cart", to: "pages#cart"
+   post "cart", to: "pages#render_cart"
    get 'checkout', to: 'pages#checkout', as: 'checkout'
 
   # Defines the root path route ("/")
