@@ -9,10 +9,10 @@ export default class extends Controller {
   }
 
   download() {
-    // console.log("Hello from download")
-    // var element = document.getElementsById("element-to-print");
-    // console.log(this.element);
-    // html2pdf(this.element.innerHTML);
+  //   // console.log("Hello from download")
+  //   // var element = document.getElementsById("element-to-print");
+  //   // console.log(this.element);
+   html2pdf(this.element.innerHTML);
   }
 
 }
