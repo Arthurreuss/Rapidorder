@@ -1,8 +1,8 @@
   <% cart.each do |order| %>
-<div class="border cart-cards position-relative" data-controller="remove-product" data-remove-product-target="remove">
+<div class="border cart-cards position-relative mt-2" data-controller="removeproduct" data-remove-product-target="remove">
     <i class="fa-solid fa-xmark position-absolute mark btn-color x" data-action="click=>remove-product#remove"></i>
 
-    <div class="img"> %>
+    <div class="img" style="background: none; object-fit: cover;">
       <%= cl_image_tag order[:product].photo.key%>
     </div>
 

@@ -28,8 +28,8 @@ application.register("hello", HelloController)
 import ProductController from "./product_controller"
 application.register("product", ProductController)
 
-import RemoveProductController from "./remove_product_controller"
-application.register("remove-product", RemoveProductController)
+import RemoveProductController from "./removeproduct_controller"
+application.register("removeproduct", RemoveProductController)
 
 import ShoppingcartController from "./shoppingcart_controller"
 application.register("shoppingcart", ShoppingcartController)
