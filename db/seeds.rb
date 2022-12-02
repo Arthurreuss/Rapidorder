@@ -295,7 +295,10 @@ product = Product.new(
     p product.errors.messages
   end
 
-
+  product_allergy = ProductAllergy.create(
+    product_id: 1,
+    allergy_id:
+)
 # {
 #   name: 'Mahou',
 #   price: '4',
