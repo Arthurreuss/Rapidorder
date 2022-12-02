@@ -1,10 +1,13 @@
 <%#= so file loads %>
+<div class="d-flex justify-content-between header-container">
+  <h1><%= @restaurant.name %></h1>
+</div>
 <div class="outer-container d-flex">
   <div class="meals-container">
     <div class="pt-2 pb-2 text-center border">
       <h2>Meals</h2>
     </div>
-    <div class="width-100 rows-container">
+    <div class="width-100 rows-container col">
       <% @tables.each do |table| %>
         <div class="order-card border">
           <div>

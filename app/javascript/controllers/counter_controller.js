@@ -8,7 +8,9 @@ export default class extends Controller {
   }
 
   decrement() {
-    this.count--;
+     if (this.count > 1) {
+      this.count--;
+    }
   }
 
   increment() {
@@ -24,6 +26,7 @@ export default class extends Controller {
     this.outputTarget.textContent = this.count;
   }
 }
+
 
 // const totalCount = document.getElementById("total-count");
 // let count = 1;

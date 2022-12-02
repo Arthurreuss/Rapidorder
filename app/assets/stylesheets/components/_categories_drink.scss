@@ -1,16 +1,19 @@
 .btn-product{
-  background-color: $project-red;
+  margin-right: 15px;
+  margin-bottom: 15px;
 }
 
 .drink-image{
   height: 116px;
   width: 95px;
-margin-right: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
 }
 
 
 .test{
   width: 90vw;
+  margin: auto;
 }
 
 .rating p{
@@ -33,16 +36,20 @@ margin-right: 10px;
 .box1 p {
   font-size: xx-small;
   width: 72px;
+  margin-right: 15px;
 }
 
 .all-boxes {
   display: flex;
+  background-color: white;
+  border-radius: 10px;
 }
 
 .box3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 3vh;
 }
 
 .p-beer p {

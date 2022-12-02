@@ -13,6 +13,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard_user
+    @restaurant = Restaurant.find(params[:restaurant_id])
     tables = Table.where(restaurant_id: params[:restaurant_id])
     tables = tables.select { |table| table.orders.present? }
     @tables = []
@@ -56,6 +57,7 @@ class PagesController < ApplicationController
       }
     end
   end
+
     # receives json object.
     # retrieve array of product instances
     # render partial using array

@@ -1,11 +1,10 @@
-<div class="wrapper">
-    <div class="show-restaurant-banner" >
-  <div class="some">
-      <div class="show-restaurant-logo"></div>
-      <div class="show-restaurant-title p-2">
-        <h3><%= @restaurant.name %></h3>
 
-        <div class="restaurant-table rounded p-1 text-center"> Table: <%= @table %></div>
+<div class="show-restaurant-banner" >
+  <div class="some">
+    <div class="show-restaurant-logo"></div>
+    <div class="show-restaurant-title p-2">
+      <h3><%= @restaurant.name %></h3>
+      <div class="restaurant-table rounded p-1 text-center"> Table: <%= @table %></div>
     </div>
   </div>
   <div class="show-restaurant-special-offer-card mt-4 p-2 mx-auto rounded text-end">
@@ -34,26 +33,26 @@
       </div>
     </div>
   </div>
-  <div class="show-restaurant-categories mt-4 p-2">
-    <h3 class="show-category-title p-2 m-auto">Food</h3>
-    <div class="show-restaurant-categories-card m-auto">
-      <div class="swiper-wrapper d-flex justify-content-center align-items-center">
-        <%= link_to restaurant_restaurant_meals_path(@restaurant) do%>
-          <div class="swiper-slide p-2 me-2" id="nothing" ></div>
-        <% end %>
-        <%= link_to restaurant_restaurant_meals_path(@restaurant, { category: 'burgers' }) do%>
-          <div class="swiper-slide p-2 me-2" id="burgers" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)), url('https://static.vecteezy.com/system/resources/previews/001/500/415/original/burger-icon-free-vector.jpg');"></div>
-        <% end %>
-        <%= link_to restaurant_restaurant_meals_path(@restaurant, { category: 'pasta' }) do%>
-          <div class="swiper-slide p-2 me-2" id="pasta" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)), url('https://media.istockphoto.com/id/1293399641/de/vektor/icon-heben-pasta-mit-einer-gabel.jpg?s=612x612&w=0&k=20&c=PE6GxT3d0lWKmTUEO8U_bisugOW7LXI5wPEDYPg415U=');"></div>
-        <% end %>
-        <%= link_to restaurant_restaurant_meals_path(@restaurant, { category: 'pizza' }) do%>
-          <div class="swiper-slide p-2 me-2" id="pizza" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)), url('https://static.vecteezy.com/ti/gratis-vektor/p3/1505050-pizza-slice-symbol-kostenlos-vektor.jpg');"></div>
-        <% end %>
-        <%= link_to restaurant_restaurant_meals_path(@restaurant, { category: 'tapas' }) do%>
-          <div class="swiper-slide p-2 me-2" id="tapas" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)), url('https://image.shutterstock.com/image-vector/tapas-line-icon-olive-cheese-260nw-571589659.jpg');"></div>
-        <% end %>
-      </div>
+</div>
+<div class="show-restaurant-categories mt-4 p-2">
+  <h3 class="show-category-title p-2 m-auto">Food</h3>
+  <div class="show-restaurant-categories-card m-auto">
+    <div class="swiper-wrapper d-flex justify-content-center align-items-center">
+      <%= link_to restaurant_restaurant_meals_path(@restaurant) do%>
+        <div class="swiper-slide p-2 me-2" id="nothing" ></div>
+      <% end %>
+      <%= link_to restaurant_restaurant_meals_path(@restaurant, { category: 'burgers' }) do%>
+        <div class="swiper-slide p-2 me-2" id="burgers" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)), url('https://static.vecteezy.com/system/resources/previews/001/500/415/original/burger-icon-free-vector.jpg');"></div>
+      <% end %>
+      <%= link_to restaurant_restaurant_meals_path(@restaurant, { category: 'pasta' }) do%>
+        <div class="swiper-slide p-2 me-2" id="pasta" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)), url('https://media.istockphoto.com/id/1293399641/de/vektor/icon-heben-pasta-mit-einer-gabel.jpg?s=612x612&w=0&k=20&c=PE6GxT3d0lWKmTUEO8U_bisugOW7LXI5wPEDYPg415U=');"></div>
+      <% end %>
+      <%= link_to restaurant_restaurant_meals_path(@restaurant, { category: 'pizza' }) do%>
+        <div class="swiper-slide p-2 me-2" id="pizza" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)), url('https://static.vecteezy.com/ti/gratis-vektor/p3/1505050-pizza-slice-symbol-kostenlos-vektor.jpg');"></div>
+      <% end %>
+      <%= link_to restaurant_restaurant_meals_path(@restaurant, { category: 'tapas' }) do%>
+        <div class="swiper-slide p-2 me-2" id="tapas" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)), url('https://image.shutterstock.com/image-vector/tapas-line-icon-olive-cheese-260nw-571589659.jpg');"></div>
+      <% end %>
     </div>
   </div>
 </div>
