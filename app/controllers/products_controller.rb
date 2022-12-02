@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
   end
 
   def meals
+    @allergies = Allergy.all
   end
 
   def new
