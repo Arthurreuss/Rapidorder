@@ -8,6 +8,7 @@
     "@paypal/paypal-js": "^5.1.4",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
+    "html2pdf.js": "^0.10.1",
     "stimulus-carousel": "^4.0.0",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.0"

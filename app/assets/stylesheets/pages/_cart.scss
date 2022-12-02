@@ -20,8 +20,13 @@ margin-right: 12%;
   width: 30%;
   border-radius: 10px;
   margin: 3%;
+  overflow: auto;
  }
-
+.img img{
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
  .title-card {
   display: flex;
   justify-content: space-between;
@@ -125,6 +130,10 @@ margin-right: 12%;
   font-weight: bold;
 }
 
-.second-banner {
-  height: 72vh;
+.pay-button {
+  width: 90%;
+  height: 6vh;
+  margin-left: 18px;
+  margin-top: 15px;
+  padding-top: 10px;
 }
