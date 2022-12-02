@@ -5,7 +5,7 @@
         <div class="next me-2"></div>
       </div>
       <%#= render "shared/productcard_drinks" %>
-      <div class="accordion" id="accordionExample" data-controller="cart">
+      <div class="accordion" id="accordionExample">
         <div class="item text-center p-beer">
           <h2 class="test" id="beers">
             <button class=" categories-card rounded text-center <%= @category != 'beers' ? 'collapsed' : '' %>" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="<%= @category != 'beers' ? 'false' : 'true' %>" aria-controls="collapseOne">
@@ -16,8 +16,8 @@
             <div class="accordion-body">
               <% @beers = @drinks.where(category: "Beer") %>
               <% @beers.each do |beer| %>
-                <div class="accordion-body">
-                  <div class="categories-drink-card border">
+                <div class="accordion-body" data-controller="product" data-product-id-value='<%= beer.id %>'>
+                  <div class="categories-drink-card p-2 border">
                     <div class="all-boxes">
                       <%= cl_image_tag beer.photo.key, class: 'drink-image'%>
                       <div style="flex-grow: 1;">
@@ -27,8 +27,8 @@
                         </div>
                         <p><%= beer.description %></p>
                         <div class="box3">
-                          <h3 class="price"> <%= beer.price %>€</h3>
-                          <div class="btn btn-color btn-product text-end"><i class="fa-solid fa-plus fa-xl" data-action="click->cart#update"></i></div>
+                          <h3 class="price">€ <%= beer.price %></h3>
+                          <div class="btn btn-color rounded btn-product text-end"><i class="fa-solid fa-plus fa-xl" data-action="click->product#updatecart"></i></div>
                         </div>
                       </div>
                     </div>
@@ -60,7 +60,7 @@
                         <p><%= softdrink.description %></p>
                         <div class="box3">
                           <h3 class="price"> <%= softdrink.price %>€</h3>
-                          <div class="btn btn-color btn-product text-end"><i class="fa-solid fa-plus fa-xl" data-action="click->cart#update"></i></div>
+                          <div class="btn btn-color btn-product text-end"><i class="fa-solid fa-plus fa-xl" data-action='click->product#updatecart'></i></div>
                         </div>
                       </div>
                     </div>
@@ -69,6 +69,9 @@
               <% end %>
             </div>
           </div>
+          <%= link_to cart_path do %>
+            <div class="btn btn-color pay-button sticky"><strong>View Cart</strong></div>
+          <% end %>
         </div>
 
 

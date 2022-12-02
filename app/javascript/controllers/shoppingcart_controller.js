@@ -1,25 +1,27 @@
-import { Controller } from "@hotwired/stimulus"
+import { Application, Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="shoppingcart"
 export default class extends Controller {
-  static values = {
-    amount: Number,
-    id: Number
-  }
-  static targets = ["amount"];
+  // static values = {
+  //   amount: Number,
+  //   id: Number
+  // }
+  static targets = ["card"];
 
   connect() {
-    const products = JSON.parse(localStorage.getItem('cart'));
+    const csrfToken = document.querySelector("[name='csrf-token']").content
     fetch('/cart', {
+      method: 'POST',
       headers: {
       'Accept': 'text/plain',
+      'X-CSRF-Token': csrfToken,
+      'Content-Type': 'application/json',
     },
-      body: products,
+      body: localStorage.getItem('cart'),
     })
-      .then(response => response.json())
-      .then((data => console.log(data)))
-    // request to pagescontroller#cart
-    // receive data and display in   html
+      .then(response => response.text())
+      .then((data => {
+        this.cardTarget.innerHTML = data;
+      }))
   }
-
 }

@@ -1,4 +1,4 @@
-<div class="container" data-controller="shoppingcart" data-action="">
+<div class="container" data-controller="shoppingcart">
   <div class="cart-nav">
     <div class="previous-button">
       <input type="button" onclick="history.back()" value="<">
@@ -6,7 +6,8 @@
     <h1 class="h1-position">Cart</h1>
   </div>
   <div class="shoppingcart-cards-container">
-    <%= render "shared/shoppingcart_cards" %>
+   <div data-shoppingcart-target="card">
+
   </div>
   <div class="tips">
     <span class="add-tip">Add tip:</span>
