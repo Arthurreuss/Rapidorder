@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
   end
 
   def meals
+    @meal = Product.all.first
   end
 
   def new

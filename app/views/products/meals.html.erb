@@ -1,8 +1,11 @@
 <div class="outer-meal-card border d-flex">
-  <div class="img-allergy border">
+  <div class="img-allergy">
     <img src="xx" class="food-image">
-    <div class="allergies d-flex">
+    <div class="allergies d-flex justify-content-between">
       <%# product.allergies.first(4) do |allergy| %>
+        <img class="allergy-img" src=<%#= allergy.url %>>
+        <img class="allergy-img" src=<%#= allergy.url %>>
+        <img class="allergy-img" src=<%#= allergy.url %>>
         <img class="allergy-img" src=<%#= allergy.url %>>
         <%# end %>
       </div>
@@ -19,7 +22,9 @@
       </div>
       <div class="price-button d-flex justify-content-between">
         <p class="price">Price 99.9$</p>
-        <div class="btn btn-product text-end"><i class="fa-solid fa-plus fa-l"></i></div>
-      </div>
+        <i class=" plus-button fa-solid mark btn-color">
+          <i class="fa-solid fa-plus"></i></i>
+      </button>
     </div>
   </div>
+</div>
