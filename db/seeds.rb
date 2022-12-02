@@ -294,6 +294,8 @@ product = Product.new(
   unless product.save
     p product.errors.messages
   end
+
+
 # {
 #   name: 'Mahou',
 #   price: '4',

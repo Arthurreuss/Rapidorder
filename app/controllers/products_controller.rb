@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
       format.text { render partial: "products/productcard_drinks", locals: {drinks: @drinks}, formats: [:html] }
     end
   end
-
+  
   def meals
     @meal = Product.all.first
   end
