@@ -5,7 +5,7 @@
     </div>
     <h1 class="h1-position">Cart</h1>
   </div>
-  <div>
+  <div class="shoppingcart-cards-container">
     <%= render "shared/shoppingcart_cards" %>
   </div>
   <div class="tips">
@@ -29,5 +29,7 @@
     <span>Total</span>
     <span>109,8€</span>
   </div>
-  <div class="btn btn-color pay-button"><strong>Pay Now</strong></div>
+  <%= link_to restaurant_checkout_path do %>
+    <div class="btn btn-color pay-button"><strong>Pay Now</strong></div>
+  <% end %>
 </div>

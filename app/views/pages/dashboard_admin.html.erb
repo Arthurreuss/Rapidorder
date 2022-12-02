@@ -1,6 +1,7 @@
 <div class="d-flex justify-content-between header-container">
   <h1><%= @restaurant.name %></h1>
   <%= link_to 'Create Product', new_restaurant_product_path %>
+  <%= link_to "Edit Restaurant", edit_restaurant_path(@restaurant) %>
 </div>
 <div class="outer-container d-flex">
   <div class="qr-code-container">

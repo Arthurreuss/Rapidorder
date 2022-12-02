@@ -21,7 +21,7 @@ Allergy.create(name: "Tree Nuts", url: "https://get.apicbase.com/wp-content/uplo
 Allergy.create(name: "Sesame Seeds", url: "https://get.apicbase.com/wp-content/uploads/2020/04/sesame-seeds.svg")
 Allergy.create(name: "Sulphur Dioxide", url: "https://get.apicbase.com/wp-content/uploads/2020/04/sulphur-dioxide.svg")
 
-Restaurant.create(name:'Ginos', description:'The best italian in Madrid', address:'Doctor Izquierdo 70' , user_id:1, table_names: "1 2 3 4 5 6 7 8 9 10" )
+#Restaurant.create(name:'Ginos', description:'The best italian in Madrid', address:'Doctor Izquierdo 70' , user_id:1, table_names: "1 2 3 4 5 6 7 8 9 10" )
 
 file = File.open(File.join(__dir__, './images_seed/pizzamargarita.jpg'))
 #file = file.read

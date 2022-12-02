@@ -1,6 +1,5 @@
   <% @products.each do |product| %>
-    <div class="border cart-cards position-relative">
-    
+    <div class="cart-cards position-relative">
       <i class="fa-solid fa-xmark position-absolute mark btn-color x"></i>
       <div class="img">
         <%= cl_image_tag product.photo.key %>
