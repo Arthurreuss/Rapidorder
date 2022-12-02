@@ -27,11 +27,11 @@ Rails.application.routes.draw do
     get 'dashboard_user', to: "pages#dashboard_user", as: "dashboard_user"
     get 'update_status', to: "pages#update_status", as: "update_status"
     get "cart", to: "pages#cart"
+    get 'checkout', to: 'pages#checkout', as: 'checkout'
     resources :products, only: %i[new create update edit index]
     get 'meals', to: "products#meals", as: "restaurant_meals"
     get 'drinks', to: "products#drinks", as: "restaurant_drinks"
   end
-   get 'checkout', to: 'pages#checkout', as: 'checkout'
 
   # Defines the root path route ("/")
   # root "articles#index"
