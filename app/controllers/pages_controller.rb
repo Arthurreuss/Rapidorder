@@ -48,7 +48,7 @@ class PagesController < ApplicationController
     cart = params['_json']
 
     cart.map! do |order|
-      { product: Product.find(order[:id]),
+      { product: Product.find(order[:id]), 
       amount: order[:amount] }
     end
     respond_to do |format|

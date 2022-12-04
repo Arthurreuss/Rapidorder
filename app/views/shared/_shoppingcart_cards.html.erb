@@ -1,5 +1,5 @@
   <% cart.each do |order| %>
-<div class="border cart-cards position-relative mt-2"  data-controller="removeproduct" data-removeproduct-target="remove">
+<div class="border cart-cards position-relative mt-2"  data-controller="removeproduct" data-removeproduct-target="remove" data-removeproduct-id-value="<%= order[:product].id %>">
     <a><i class="fa-solid fa-xmark position-absolute mark btn-color x" data-action="click->removeproduct#remove"></i></a>
 
     <div class="img" style="background: none; object-fit: cover;">
@@ -24,7 +24,7 @@
           </button>
         </div>
 
-        <span class="fs-4 price">€ <%= order[:product].price %></span>
+        <span class="fs-4 price" data-controller="counter" data-counter-target="output" data-get-target="get">€ <%= order[:product].price * order[:amount] %></span>
       </div>
     </div>
   </div>

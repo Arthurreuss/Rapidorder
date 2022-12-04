@@ -3,13 +3,19 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="remove-product"
 export default class extends Controller {
   static targets = ["remove"]
-
-  connect() {
-    console.log('hi');
+  static values = {
+    id: Number
   }
 
-  remove(event){
-    console.log(event);
-    this.removeTarget.classList.add('d-none');
+  connect() {
+  }
+
+  remove(){
+    const id = this.idValue;
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    const indexObject = cart.findIndex(obj => obj.id == id);
+    console.log(indexObject)l
+    cart.splice(indexObject, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
   }
 }
