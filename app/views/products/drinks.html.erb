@@ -1,9 +1,11 @@
 <div class="wrapper" data-controller="cart">
   <div class="product-title d-flex justify-content-between p-2">
-    <div class="previous ms-2"></div>
-        <h2>Drinks</h2>
-        <div class="next me-2"></div>
-      </div>
+    <div class="previous-button">
+      <input type="button" onclick="history.back()" value="<">
+    </div>
+      <h2>Drinks</h2>
+      <p>></p>
+    </div>
       <%#= render "shared/productcard_drinks" %>
       <div class="accordion" id="accordionExample" data-controller="cartcounter">
         <div class="item text-center p-beer">

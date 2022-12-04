@@ -1,32 +1,203 @@
-<div class="outer-meal-card border d-flex">
-  <div class="img-allergy">
-    <img src="xx" class="food-image">
-    <div class="allergies d-flex justify-content-between">
-      <%# product.allergies.first(4) do |allergy| %>
-        <img class="allergy-img" src=<%= @allergies.first.url %>>
-        <img class="allergy-img" src=<%= @allergies[1].url %>>
-        <img class="allergy-img" src=<%= @allergies[2].url %>>
-        <img class="allergy-img" src=<%= @allergies[3].url %>>
-        <%# end %>
-      </div>
+<div class="wrapper" data-controller="cart">
+  <div class="product-title d-flex justify-content-between p-2">
+    <div class="previous-button">
+      <input type="button" onclick="history.back()" value="<">
     </div>
-    <div class="half-card">
-      <div class="title-price d-flex justify-content-between">
-        <h2 class="title">Food</h2>
-        <div class="rating w-100">
-          <p class=><% 5.times do %> ⭐ <% end %></p>
+      <h2>Meals</h2>
+      <p>></p>
+    </div>
+      <%#= render "shared/productcard_drinks" %>
+      <div class="accordion" id="accordionExample" data-controller="cartcounter">
+
+        <div class="item text-center p-beer mt-2">
+          <h2 class="test" id="burgers">
+            <button class=" categories-card rounded text-center <%= @category != 'burgers' ? 'collapsed' : '' %>" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="<%= @category != 'burgers' ? 'false' : 'true' %>" aria-controls="collapseOne">
+              Burgers
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse <%= @category != 'burgers' ? '' : 'show' %>" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body" >
+              <% @burgers = @meals.select { |meal| meal.category == "Burgers"}  %>
+              <% @burgers.each do |burger| %>
+                <div class="accordion-body">
+                <div class="outer-meal-card border d-flex" data-controller="product" data-product-id-value='<%= burger.id %>'>
+                  <div class="img-allergy">
+                    <img src="xx" class="food-image">
+                    <%# <%= cl_image_tag burger.photo.key, class: 'meal-image'%>
+                    <div class="allergies d-flex justify-content-between">
+                      <%# product.allergies.first(4) do |allergy| %>
+                        <img class="allergy-img" src=<%= @allergies.first.url %>>
+                        <img class="allergy-img" src=<%= @allergies[1].url %>>
+                        <img class="allergy-img" src=<%= @allergies[2].url %>>
+                        <img class="allergy-img" src=<%= @allergies[3].url %>>
+                        <%# end %>
+                      </div>
+                    </div>
+                    <div class="half-card">
+                      <div class="title-price d-flex justify-content-between">
+                        <h2 class="title"><%= burger.name %></h2>
+                        <div class="rating w-100">
+                          <p class=><% 5.times do %> ⭐ <% end %></p>
+                      </div>
+                    </div>
+                    <div class="description">
+                      <p><%= burger.description %></p>
+                    </div>
+                    <div class="price-button d-flex justify-content-between">
+                      <p class="price">€ <%= burger.price %></p>
+                      <div class="order-button btn-color btn-product text-end">
+                        <i class="fa-solid fa-plus fa-l" data-action='click->product#updatecart click->cartcounter#updatecounter'></i></div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
         </div>
+
+        <div class="item text-center p-beer mt-2">
+          <h2 class="test" id="pasta">
+            <button class=" categories-card rounded text-center <%= @category != 'pasta' ? 'collapsed' : '' %>" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="<%= @category != 'pasta' ? 'false' : 'true' %>" aria-controls="collapseTwo">
+              Pasta
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse <%= @category != 'pasta' ? '' : 'show' %>" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body" >
+              <% @pastas = @meals.select { |meal| meal.category == "Pasta"}  %>
+              <% @pastas.each do |pasta| %>
+                <div class="accordion-body">
+                <div class="outer-meal-card border d-flex" data-controller="product" data-product-id-value='<%= pasta.id %>'>
+                  <div class="img-allergy">
+                    <img src="xx" class="food-image">
+                    <%# <%= cl_image_tag pasta.photo.key, class: 'meal-image'%>
+                    <div class="allergies d-flex justify-content-between">
+                      <%# product.allergies.first(4) do |allergy| %>
+                        <img class="allergy-img" src=<%= @allergies.first.url %>>
+                        <img class="allergy-img" src=<%= @allergies[1].url %>>
+                        <img class="allergy-img" src=<%= @allergies[2].url %>>
+                        <img class="allergy-img" src=<%= @allergies[3].url %>>
+                        <%# end %>
+                      </div>
+                    </div>
+                    <div class="half-card">
+                      <div class="title-price d-flex justify-content-between">
+                        <h2 class="title"><%= pasta.name %></h2>
+                        <div class="rating w-100">
+                          <p class=><% 5.times do %> ⭐ <% end %></p>
+                      </div>
+                    </div>
+                    <div class="description">
+                      <p><%= pasta.description %></p>
+                    </div>
+                    <div class="price-button d-flex justify-content-between">
+                      <p class="price">€ <%= pasta.price %></p>
+                      <div class="order-button btn-color btn-product text-end">
+                        <i class="fa-solid fa-plus fa-l" data-action='click->product#updatecart click->cartcounter#updatecounter'></i></div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="item text-center p-beer mt-2">
+          <h2 class="test" id="pizza">
+            <button class=" categories-card rounded text-center <%= @category != 'pizza' ? 'collapsed' : '' %>" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="<%= @category != 'pizza' ? 'false' : 'true' %>" aria-controls="collapseThree">
+              Pizza
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse <%= @category != 'pizza' ? '' : 'show' %>" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <% @pizzas = @meals.select { |meal| meal.category == "Pizza"} %>
+              <% @pizzas.each do |pizza| %>
+                <div class="accordion-body">
+                <div class="outer-meal-card border d-flex" data-controller="product" data-product-id-value='<%= pizza.id %>'>
+                  <div class="img-allergy">
+                    <img src="xx" class="food-image">
+                    <%# <%= cl_image_tag pizza.photo.key, class: 'meal-image'%>
+                    <div class="allergies d-flex justify-content-between">
+                      <%# product.allergies.first(4) do |allergy| %>
+                        <img class="allergy-img" src=<%= @allergies.first.url %>>
+                        <img class="allergy-img" src=<%= @allergies[1].url %>>
+                        <img class="allergy-img" src=<%= @allergies[2].url %>>
+                        <img class="allergy-img" src=<%= @allergies[3].url %>>
+                        <%# end %>
+                      </div>
+                    </div>
+                    <div class="half-card">
+                      <div class="title-price d-flex justify-content-between">
+                        <h2 class="title"><%= pizza.name %></h2>
+                        <div class="rating w-100">
+                          <p class=><% 5.times do %> ⭐ <% end %></p>
+                      </div>
+                    </div>
+                    <div class="description">
+                      <p><%= pizza.description %></p>
+                    </div>
+                    <div class="price-button d-flex justify-content-between">
+                      <p class="price">€ <%= pizza.price %></p>
+                      <div class="order-button btn-color btn-product text-end">
+                        <i class="fa-solid fa-plus fa-l" data-action='click->product#updatecart click->cartcounter#updatecounter'></i></div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="item text-center p-beer mt-2">
+          <h2 class="test" id="tapas">
+            <button class=" categories-card rounded text-center <%= @category != 'tapas' ? 'collapsed' : '' %>" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="<%= @category != 'tapas' ? 'false' : 'true' %>" aria-controls="collapseFour">
+              Tapas
+            </button>
+          </h2>
+          <div id="collapseFour" class="accordion-collapse collapse <%= @category != 'tapas' ? '' : 'show' %>" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <% @tapas = @meals.select { |meal| meal.category == "Tapas"} %>
+              <% @tapas.each do |tapa| %>
+                <div class="accordion-body">
+                <div class="outer-meal-card border d-flex" data-controller="product" data-product-id-value='<%= tapa.id %>'>
+                  <div class="img-allergy">
+                    <img src="xx" class="food-image">
+                    <%# <%= cl_image_tag tapa.photo.key, class: 'meal-image'%>
+                    <div class="allergies d-flex justify-content-between">
+                      <%# product.allergies.first(4) do |allergy| %>
+                        <img class="allergy-img" src=<%= @allergies.first.url %>>
+                        <img class="allergy-img" src=<%= @allergies[1].url %>>
+                        <img class="allergy-img" src=<%= @allergies[2].url %>>
+                        <img class="allergy-img" src=<%= @allergies[3].url %>>
+                        <%# end %>
+                      </div>
+                    </div>
+                    <div class="half-card">
+                      <div class="title-price d-flex justify-content-between">
+                        <h2 class="title"><%= tapa.name %></h2>
+                        <div class="rating w-100">
+                          <p class=><% 5.times do %> ⭐ <% end %></p>
+                      </div>
+                    </div>
+                    <div class="description">
+                      <p><%= tapa.description %></p>
+                    </div>
+                    <div class="price-button d-flex justify-content-between">
+                      <p class="price">€ <%= tapa.price %></p>
+                      <div class="order-button btn-color btn-product text-end">
+                        <i class="fa-solid fa-plus fa-l" data-action='click->product#updatecart click->cartcounter#updatecounter'></i></div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <%= link_to cart_path do %>
+          <div class="btn btn-color pay-button sticky"><strong>View Cart<span class="cart-counter" data-cartcounter-target="output"></span></strong></div>
+        <% end %>
       </div>
-      <div class="description">
-        <p>some description of the incredients: csdc and ervev and evnjenvcj adnev dcec</p>
-      </div>
-      <div class="price-button d-flex justify-content-between">
-        <p class="price">Price 99.9$</p>
-        <div class="order-button btn-color btn-product text-end">
-          <i class="fa-solid fa-plus fa-l"></i></div>
-      </div>
-    </div>
-  </div>
-  <%= link_to cart_path do %>
-    <div class="btn btn-color pay-button sticky"><strong>View Cart</strong></div>
-  <% end %>
+</div>
