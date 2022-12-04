@@ -2,14 +2,18 @@
 <% arr = ["#panelsStayOpen-collapseOne", "#panelsStayOpen-collapseTwo", "#panelsStayOpen-collapseThree", "#panelsStayOpen-collapseFour", "#panelsStayOpen-collapseFive", "#panelsStayOpen-collapseSix", "#panelsStayOpen-collapseSeven", "#panelsStayOpen-collapseEight",] %>
 <% arr2 = ["panelsStayOpen-collapseOne", "panelsStayOpen-collapseTwo", "panelsStayOpen-collapseThree", "panelsStayOpen-collapseFour", "panelsStayOpen-collapseFive", "panelsStayOpen-collapseSix", "panelsStayOpen-collapseSeven", "panelsStayOpen-collapseEight",] %>
 <% arr3 = ["panelsStayOpen-headingOne", "panelsStayOpen-headingTwo", "panelsStayOpen-headingThree", "panelsStayOpen-headingFour", "panelsStayOpen-headingFive", "panelsStayOpen-headingSix", "panelsStayOpen-headingSeven", "panelsStayOpen-headingEight",] %>
-<div class="wrapper" data-controller="cart">
+<div class="previous-button">
+  <input type="button" onclick="history.back()" value="<">
+</div>
+<div class="wrapper">
   <div class="product-title d-flex justify-content-between p-2">
+
     <div class="previous ms-2"></div>
     <h2>Drinks</h2>
     <div class="next me-2"></div>
   </div>
   <%#= render "shared/productcard_drinks" %>
-  <div class="accordion" id="accordionPanelsStayOpenExample">
+  <div class="accordion" id="accordionPanelsStayOpenExample" data-controller="cartcounter">
     <% @categories.each do |category|%>
       <div class="accordion-item text-center">
         <h2 class="test" id=<%=arr2[sum]%>>

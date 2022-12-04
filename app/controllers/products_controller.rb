@@ -10,6 +10,8 @@ class ProductsController < ApplicationController
   end
 
   def meals
+    @category = params[:category]
+    @meals = Product.all.where(product_type: 'Meal')
     @allergies = Allergy.all
   end
 
