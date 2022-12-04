@@ -2,12 +2,12 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="cart"
 export default class extends Controller {
+
   static values = {
     id: Number
   }
 
   connect() {
-    console.log("test");
   }
 
   updatecart(){
@@ -22,4 +22,6 @@ export default class extends Controller {
     }
       localStorage.setItem("cart", JSON.stringify(cart));
   }
+
+
 }
