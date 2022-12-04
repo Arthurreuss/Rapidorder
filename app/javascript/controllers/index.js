@@ -10,6 +10,9 @@ application.register("carousel", CarouselController)
 import CartController from "./cart_controller"
 application.register("cart", CartController)
 
+import CartcounterController from "./cartcounter_controller"
+application.register("cartcounter", CartcounterController)
+
 import CheckoutController from "./checkout_controller"
 application.register("checkout", CheckoutController)
 
@@ -28,8 +31,8 @@ application.register("hello", HelloController)
 import ProductController from "./product_controller"
 application.register("product", ProductController)
 
-import RemoveProductController from "./removeproduct_controller"
-application.register("removeproduct", RemoveProductController)
+import RemoveproductController from "./removeproduct_controller"
+application.register("removeproduct", RemoveproductController)
 
 import ShoppingcartController from "./shoppingcart_controller"
 application.register("shoppingcart", ShoppingcartController)
