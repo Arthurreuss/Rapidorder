@@ -4,6 +4,5 @@ export default class extends Controller {
   static targets = ["get"]
 
   connect() {
-    console.log("fuck you stimulus")
   }
 }

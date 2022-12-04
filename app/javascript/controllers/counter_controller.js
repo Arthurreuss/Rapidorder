@@ -2,15 +2,23 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   static targets = ['output']
+  static values = {
+    id: Number
+  }
 
   connect() {
-    console.log("Hello from our first Stimulus controller");
   }
 
   decrement() {
      if (this.count > 1) {
       this.count--;
     }
+      const id = this.idValue;
+      console.log(price);
+      const cart = JSON.parse(localStorage.getItem('cart'));
+      const indexObject = cart.findIndex(obj => obj.id == id);
+      cart[indexObject].amount -= 1;
+      localStorage.setItem("cart", JSON.stringify(cart));
   }
 
   increment() {
@@ -27,6 +35,12 @@ export default class extends Controller {
   }
 }
 
+
+// const id = this.idValue;
+// const cart = JSON.parse(localStorage.getItem('cart'));
+// const indexObject = cart.findIndex(obj => obj.id == id);
+// cart[indexObject].amount -= 1;
+// localStorage.setItem("cart", JSON.stringify(cart));
 
 // const totalCount = document.getElementById("total-count");
 // let count = 1;

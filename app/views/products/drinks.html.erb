@@ -19,7 +19,7 @@
             <div class="accordion-body">
               <% @beers = @drinks.where(category: "Beer") %>
               <% @beers.each do |beer| %>
-                <div class="accordion-body" data-controller="product" data-product-id-value='<%= beer.id %>'>
+                <div class="accordion-body" data-controller="product" data-product-id-value='<%= beer.id %>' data-product-price-value='<%= beer.price %>'>
                   <div class="categories-drink-card p-2 border">
                     <div class="all-boxes">
                       <%= cl_image_tag beer.photo.key, class: 'drink-image'%>
