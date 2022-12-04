@@ -1,5 +1,28 @@
-.button-previous {
+.previous-button {
+  border-radius: 10px;
+  background-color: $project-grey;
+  width: 5vh;
+  height: 5vh;
+}
 
+.img-btn-previous {
+  height: 100%;
+}
+
+.img-btn-next {
+  height: 100%;
+}
+
+.img-btn-next img{
+  height: 4vh;
+  margin-top: 0.5vh;
+  margin-left: 1.6vh;
+}
+
+.img-btn-previous img{
+  height: 4vh;
+  margin-top: 0.5vh;
+  margin-left: 1.2vh;
 }
 
 .button-next {

@@ -27,10 +27,10 @@
   // background-color: black;
   // background-size: cover;
   height: 25vw;
-  min-width: 25vw;
+  width: 25vw;
   border-radius: 10px;
-  background-size: cover;
-  background-position: center;
+  object-fit: cover;
+  margin-right: 1vw;
 }
 
 // #drink-1{
