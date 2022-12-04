@@ -29,29 +29,29 @@ User.destroy_all
 User.create(first_name: "Massimo", last_name: "Russo", password: "123456", email: "massimorussow@gmail.com")
 Restaurant.create(name: 'Ginos', description: 'Traditional Italien Restaurant since 1965', address: 'Doctor Izquierdo 70', user_id: 1)
 
-file = File.open(File.join(__dir__, './images_seed/Pizza-C.jpg'))
-category = Category.create(name: "Pizza", restaurant_id: 1, product_type: "Meal")
+file = File.open(File.join(__dir__, 'images_seed/pizzac.jpg'))
+category = Category.new(name: "Pizza", restaurant_id: 1, product_type: "Meal")
 category.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
 unless category.save
   p category.errors.messages
 end
 
-file = File.open(File.join(__dir__, './images_seed/Pasta-C.jpg'))
-category = Category.create(name: "Pasta", restaurant_id: 1, product_type: "Meal")
+file = File.open(File.join(__dir__, 'images_seed/pastac.jpg'))
+category = Category.new(name: "Pasta", restaurant_id: 1, product_type: "Meal")
 category.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
 unless category.save
   p category.errors.messages
 end
 
-file = File.open(File.join(__dir__, './images_seed/Tapas-C.jpg'))
-category = Category.create(name: "Tapas", restaurant_id: 1, product_type: "Meal")
+file = File.open(File.join(__dir__, 'images_seed/tapasc.jpg'))
+category = Category.new(name: "Tapas", restaurant_id: 1, product_type: "Meal")
 category.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
 unless category.save
   p category.errors.messages
 end
 
-file = File.open(File.join(__dir__, './images_seed/Burger-C.jpg'))
-category = Category.create(name: "Burger", restaurant_id: 1, product_type: "Meal")
+file = File.open(File.join(__dir__, 'images_seed/burgerc.jpg'))
+category = Category.new(name: "Burger", restaurant_id: 1, product_type: "Meal")
 category.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
 unless category.save
   p category.errors.messages

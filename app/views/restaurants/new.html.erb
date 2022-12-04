@@ -1,9 +1,9 @@
 <h1>Restaurants#new</h1>
-<p>Find me in app/views/restaurants/new.html.erb</p>
 <%= simple_form_for(@restaurant) do |f| %>
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
         <div class="form-new">
+          <h1>New Restaurant</h1>
           <%= f.input :name %>
           <%= f.input :description %>
           <%= f.input :address %>
@@ -13,6 +13,7 @@
           <p>*Use spaces to seperate your category names</p>
           <%= f.input :photo, as: :file %>
         </div>
-
-        <%= f.submit %>
+        <div class="submit-btn">
+          <%= f.submit %>
+        </div>
     <% end %>

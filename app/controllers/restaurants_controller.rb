@@ -2,9 +2,9 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @table = params[:table]
-    @categories_drinks = Category.where(restaurant_id: params[:restaurant_id]).where(product_type: "Drink")
-    @categories_meals = Category.where(restaurant_id: params[:restaurant_id]).where(product_type: "Meal")
-
+    @categories = @restaurant.categories
+    @categories_drinks = @categories.select { |category| category.product_type == "Drink" }
+    @categories_meals = @categories.select { |category| category.product_type == "Meal" }
   end
 
   def new
@@ -26,7 +26,7 @@ class RestaurantsController < ApplicationController
           @category.restaurant = @restaurant
           @category.save
         end
-        format.html { redirect_to restaurant_path(@restaurant), notice: "Successfully created Restaurant" }
+        format.html { redirect_to restaurant_dashboard_admin_path(@restaurant), notice: "Successfully created Restaurant" }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -57,7 +57,7 @@ class RestaurantsController < ApplicationController
         @category.save
       end
     end
-    redirect_to restaurant_path(@restaurant)
+    redirect_to restaurant_dashboard_admin_path(@restaurant)
   end
 
   def destroy

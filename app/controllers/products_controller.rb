@@ -1,7 +1,10 @@
 class ProductsController < ApplicationController
   def drinks
-    @categories = Category.where(product_type: 'Drink')
-    @category = Category.find(params[:category_id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @categories = Category.where(product_type: 'Drink').select { |category| category.restaurant == @restaurant }
+    if params[:category_id].present?
+      @category = Category.find(params[:category_id])
+    end
     # @drinks = @categories.products
     # respond_to do |format|
     #   format.html
@@ -10,7 +13,11 @@ class ProductsController < ApplicationController
   end
 
   def meals
-    @category = params[:category]
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @categories = Category.where(product_type: 'Meal').select { |category| category.restaurant == @restaurant }
+    if params[:category_id].present?
+      @category = Category.find(params[:category_id])
+    end
     @meals = Product.all.where(product_type: 'Meal')
     @allergies = Allergy.all
   end
