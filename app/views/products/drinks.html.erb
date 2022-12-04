@@ -61,7 +61,7 @@
                         <p><%= softdrink.description %></p>
                         <div class="box3">
                           <h3 class="price"> <%= sprintf('%.2f', softdrink.price) %>€</h3>
-                          <div class="btn btn-color btn-product text-end"><i class="fa-solid fa-plus fa-xl" data-action='click->product#updatecart'></i></div>
+                          <div class="btn btn-color btn-product text-end"><i class="fa-solid fa-plus fa-xl" data-action='click->product#updatecart click->cartcounter#updatecounter'></i></div>
                         </div>
                       </div>
                     </div>
@@ -72,7 +72,7 @@
           </div>
         </div>
           <%= link_to cart_path do %>
-            <div class="btn btn-color pay-button sticky"><strong>View Cart</strong> <span class="cart-counter" data-cartcounter-target="output"></span></div>
+            <div class="btn btn-color pay-button sticky"><strong>View Cart <span class="cart-counter" data-cartcounter-target="output"></span></strong></div>
           <% end %>
       </div>
     </div>
