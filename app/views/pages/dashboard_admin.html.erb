@@ -1,5 +1,7 @@
 <div class="d-flex justify-content-between header-container">
   <h1><%= @restaurant.name %></h1>
+  <%= link_to 'Create Table', new_restaurant_table_path(@restaurant) %>
+  <%= link_to 'Create Category', new_restaurant_category_path %>
   <%= link_to 'Create Product', new_restaurant_product_path %>
   <%= link_to "Edit Restaurant", edit_restaurant_path(@restaurant) %>
 </div>
@@ -37,6 +39,11 @@
     <div class="border text-center pt-1 sticky-top bg-white">
       <h2>Categories</h2>
     </div>
+    <%  @categories.each do |category|%>
+      <div class="border text-center">
+        <%= category.name %>
+      </div>
+    <% end %>
   </div>
    <div class="product-container">
     <div class="border text-center pt-1 sticky-top bg-white">

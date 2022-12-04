@@ -21,7 +21,46 @@ Allergy.create(name: "Tree Nuts", url: "https://get.apicbase.com/wp-content/uplo
 Allergy.create(name: "Sesame Seeds", url: "https://get.apicbase.com/wp-content/uploads/2020/04/sesame-seeds.svg")
 Allergy.create(name: "Sulphur Dioxide", url: "https://get.apicbase.com/wp-content/uploads/2020/04/sulphur-dioxide.svg")
 
-#Restaurant.create(name:'Ginos', description:'The best italian in Madrid', address:'Doctor Izquierdo 70' , user_id:1, table_names: "1 2 3 4 5 6 7 8 9 10" )
+Order.destroy_all
+Product.destroy_all
+Restaurant.destroy_all
+User.destroy_all
+
+User.create(first_name: "Massimo", last_name: "Russo", password: "123456", email: "massimorussow@gmail.com")
+Restaurant.create(name: 'Ginos', description: 'Traditional Italien Restaurant since 1965', address: 'Doctor Izquierdo 70', user_id: 1)
+
+file = File.open(File.join(__dir__, './images_seed/Pizza-C.jpg'))
+category = Category.create(name: "Pizza", restaurant_id: 1, product_type: "Meal")
+category.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+unless category.save
+  p category.errors.messages
+end
+
+file = File.open(File.join(__dir__, './images_seed/Pasta-C.jpg'))
+category = Category.create(name: "Pasta", restaurant_id: 1, product_type: "Meal")
+category.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+unless category.save
+  p category.errors.messages
+end
+
+file = File.open(File.join(__dir__, './images_seed/Tapas-C.jpg'))
+category = Category.create(name: "Tapas", restaurant_id: 1, product_type: "Meal")
+category.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+unless category.save
+  p category.errors.messages
+end
+
+file = File.open(File.join(__dir__, './images_seed/Burger-C.jpg'))
+category = Category.create(name: "Burger", restaurant_id: 1, product_type: "Meal")
+category.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+unless category.save
+  p category.errors.messages
+end
+
+category = Category.create(name: "Softdrink", restaurant_id: 1, product_type: "Drink")
+category = Category.create(name: "Cocktail", restaurant_id: 1, product_type: "Drink")
+category = Category.create(name: "Wine", restaurant_id: 1, product_type: "Drink")
+category = Category.create(name: "Beer", restaurant_id: 1, product_type: "Drink")
 
 file = File.open(File.join(__dir__, './images_seed/pizzamargarita.jpg'))
 #file = file.read
@@ -30,7 +69,7 @@ product = Product.new(
   name: 'Pizza Margarita',
   price: 12,
   description: "The best pizza in Madrid",
-  category: 'Pizza',
+  category_id: 1,
   product_type: 'Meal',
   restaurant_id: 1
 )
@@ -46,7 +85,7 @@ product = Product.new(
   name: 'Mahou',
   price: 3,
   description: "Light Spanish beer",
-  category: 'Beer',
+  category_id: 8,
   product_type: 'Drink',
   restaurant_id: 1
 )
@@ -62,7 +101,7 @@ product = Product.new(
   name: 'Spaguetti Carbonara',
   price: 16,
   description: "Spaguetti with bacon, egg and cheese",
-  category: 'Pasta',
+  category_id: 2,
   product_type: 'Meal',
   restaurant_id: 1
 )
@@ -78,7 +117,7 @@ product = Product.new(
   name: 'Glass of wine',
   price: 5,
   description: "Glass of La Rioja wine",
-  category: 'Wine',
+  category_id: 7,
   product_type: 'Drink',
   restaurant_id: 1
 )
@@ -94,7 +133,7 @@ product = Product.new(
   name: 'Tortilla de patata',
   price: 16,
   description: "The best tortilla in Madrid",
-  category: 'Tapas',
+  category_id: 3,
   product_type: 'Meal',
   restaurant_id: 1
 )
@@ -110,7 +149,7 @@ product = Product.new(
   name: 'Croquetas',
   price: 12,
   description: '8 ham croquetas',
-  category: 'Tapas',
+  category_id: 3,
   product_type: 'Meal',
   restaurant_id: 1
 )
@@ -126,7 +165,7 @@ product = Product.new(
   name: 'Patatas bravas',
   price: 8,
   description: 'Potatoes with sauce',
-  category: 'Tapas',
+  category_id: 3,
   product_type: 'Meal',
   restaurant_id: 1
 )
@@ -142,7 +181,7 @@ product = Product.new(
   name: 'Calamares',
   price: 18,
   description: 'Fried calamari',
-  category: 'Tapas',
+  category_id: 3,
   product_type: 'Meal',
   restaurant_id: 1
 )
@@ -158,7 +197,7 @@ product = Product.new(
   name: 'Cheeseburger',
   price: 14,
   description: "Burger with cheese and bacon",
-  category: 'Burgers',
+  category_id: 4,
   product_type: 'Meal',
   restaurant_id: 1
 )
@@ -174,7 +213,7 @@ product = Product.new(
   name: 'Coca-cola',
   price: 2,
   description: "Cocacola",
-  category: 'Softdrinks',
+  category_id: 5,
   product_type: 'Drink',
   restaurant_id: 1
 )
@@ -190,7 +229,7 @@ product = Product.new(
   name: 'Sprite',
   price: 2,
   description: 'Sprite',
-  category: 'Softdrinks',
+  category_id: 5,
   product_type: 'Drink',
   restaurant_id: 1
 )
@@ -206,7 +245,7 @@ product = Product.new(
   name: 'Fanta',
   price: 2,
   description: 'Lemon fanta',
-  category: 'Softdrinks',
+  category_id: 5,
   product_type: 'Drink',
   restaurant_id: 1
 )
@@ -222,7 +261,7 @@ product = Product.new(
   name: 'Aquarius',
   price: 2,
   description: 'Lemon aquarius',
-  category: 'Softdrinks',
+  category_id: 5,
   product_type: 'Drink',
   restaurant_id: 1
 )
@@ -238,7 +277,7 @@ product = Product.new(
   name: 'Mojito',
   price: 11,
   description: "Rum, lime juice, cane sugar and mint",
-  category: 'Cocktails',
+  category_id: 6,
   product_type: 'Drink',
   restaurant_id: 1
 )
@@ -254,7 +293,7 @@ product = Product.new(
   name: 'Negroni',
   price: 12,
   description: "Gin, campari and vermouth",
-  category: 'Cocktails',
+  category_id: 6,
   product_type: 'Drink',
   restaurant_id: 1
 )
@@ -270,7 +309,7 @@ product = Product.new(
   name: 'Daiquiri',
   price: 12,
   description: "White rum, lime juice and syrup",
-  category: 'Cocktails',
+  category_id: 6,
   product_type: 'Drink',
   restaurant_id: 1
 )
@@ -286,7 +325,7 @@ product = Product.new(
   name: 'Aperol Spritz',
   price: 10,
   description: "Prosecco, Aperol and soda",
-  category: 'Cocktails',
+  category_id: 6,
   product_type: 'Drink',
   restaurant_id: 1
 )

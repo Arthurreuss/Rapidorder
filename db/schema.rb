@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_080146) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_04_124907) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_080146) do
     t.string "url"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "restaurant_id"
+    t.string "product_type"
+    t.index ["restaurant_id"], name: "index_categories_on_restaurant_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.integer "amount"
     t.bigint "product_id", null: false
@@ -73,11 +82,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_080146) do
     t.string "name"
     t.float "price"
     t.text "description"
-    t.string "category"
     t.string "product_type"
     t.bigint "restaurant_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["restaurant_id"], name: "index_products_on_restaurant_id"
   end
 
@@ -89,6 +99,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_080146) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "table_names"
+    t.string "category_names"
     t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
 
@@ -124,10 +135,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_080146) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "categories", "restaurants"
   add_foreign_key "orders", "products"
   add_foreign_key "orders", "tables"
   add_foreign_key "product_allergies", "allergies"
   add_foreign_key "product_allergies", "products"
+  add_foreign_key "products", "categories"
   add_foreign_key "products", "restaurants"
   add_foreign_key "restaurants", "users"
   add_foreign_key "reviews", "products"
