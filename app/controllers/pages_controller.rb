@@ -10,6 +10,7 @@ class PagesController < ApplicationController
     @tables = @restaurant.tables
     generate_qr_codes
     @products = Product.where(restaurant_id: params[:restaurant_id])
+    @categories = Category.where(restaurant_id: params[:restaurant_id])
   end
 
   def dashboard_user

@@ -1,12 +1,12 @@
 class ProductsController < ApplicationController
   def drinks
-    @category = params[:category]
-    @drinks = Product.all.where(product_type: 'Drink')
-
-    respond_to do |format|
-      format.html
-      format.text { render partial: "products/productcard_drinks", locals: {drinks: @drinks}, formats: [:html] }
-    end
+    @categories = Category.where(product_type: 'Drink')
+    @category = Category.find(params[:category_id])
+    # @drinks = @categories.products
+    # respond_to do |format|
+    #   format.html
+    #   format.text { render partial: "products/productcard_drinks", locals: {drinks: @drinks}, formats: [:html] }
+    # end
   end
 
   def meals
@@ -54,6 +54,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :allergies, :category, :photo, :product_type, allergy_ids: [])
+    params.require(:product).permit(:name, :description, :price, :allergies, :category_id, :photo, :product_type, allergy_ids: [])
   end
 end

@@ -2,6 +2,9 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @table = params[:table]
+    @categories_drinks = Category.where(restaurant_id: params[:restaurant_id]).where(product_type: "Drink")
+    @categories_meals = Category.where(restaurant_id: params[:restaurant_id]).where(product_type: "Meal")
+
   end
 
   def new
@@ -17,6 +20,11 @@ class RestaurantsController < ApplicationController
           @table = Table.new({ name: name })
           @table.restaurant = @restaurant
           @table.save
+        end
+        @restaurant.category_names.split.each do |name|
+          @category = Category.new({ name: name })
+          @category.restaurant = @restaurant
+          @category.save
         end
         format.html { redirect_to restaurant_path(@restaurant), notice: "Successfully created Restaurant" }
       else
@@ -41,6 +49,14 @@ class RestaurantsController < ApplicationController
         @table.save
       end
     end
+    unless @category_names != @restaurant.category_names
+      Category.where(restaurant_id: @restaurant.id).each { |t| t.destroy }
+      @restaurant.category_names.split.each do |name|
+        @category = Category.new({ name: name })
+        @category.restaurant = @restaurant
+        @category.save
+      end
+    end
     redirect_to restaurant_path(@restaurant)
   end
 
@@ -53,6 +69,6 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :description, :address, :table_names)
+    params.require(:restaurant).permit(:name, :description, :address, :table_names, :category_names)
   end
 end
