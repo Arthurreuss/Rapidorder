@@ -1,8 +1,13 @@
 // Specific CSS for your home-page
+.background-color {
+  background-color: $project-background;
+}
+
 .home-banner {
   border: solid black 2px;
   height: 70vh;
-  background-image: url("https://files.slack.com/files-pri/T02NE0241-F04DAPJEYSK/screenshot_2022-12-05_at_12.41.48.png");
+  background-image: url("banner-home.png");
+  background-size: cover;
 }
 
 .home-container-1 {
