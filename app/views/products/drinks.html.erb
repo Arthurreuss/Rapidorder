@@ -4,12 +4,12 @@
 <% arr3 = ["panelsStayOpen-headingOne", "panelsStayOpen-headingTwo", "panelsStayOpen-headingThree", "panelsStayOpen-headingFour", "panelsStayOpen-headingFive", "panelsStayOpen-headingSix", "panelsStayOpen-headingSeven", "panelsStayOpen-headingEight",] %>
 <div class="wrapper" data-controller="cart">
   <div class="product-title d-flex justify-content-between p-2">
-    <%= link_to restaurant_restaurant_drinks_path(@restaurant), class: "previous-button" do %>
+    <%= link_to :back, class: "previous-button" do %>
       <div class="img-btn-previous"><%= image_tag "button-previous.png" %></div>
     <% end %>
     <%# <input type="button" onclick="history.back()"> %>
     <h2>Drinks</h2>
-    <%= link_to restaurant_restaurant_drinks_path(@restaurant), class: "previous-button" do %>
+    <%= link_to restaurant_restaurant_meals_path(@restaurant), class: "previous-button" do %>
       <div class="img-btn-next"><%= image_tag "Button-next.png" %></div>
     <% end %>
   </div>
@@ -26,18 +26,22 @@
           <div class="accordion-body">
             <% category.products.each do |product| %>
               <div class="accordion-body" data-controller="product" data-product-id-value='<%= product.id %>'>
-                <div class="categories-drink-card p-2 border">
+                <div class="categories-drink-card">
                   <div class="all-boxes">
                     <%= cl_image_tag product.photo.key, class: 'drink-image'%>
-                    <div style="flex-grow: 1;">
-                      <div class="box1">
-                        <h2><%= product.name %></h2>
-                        <p><% 5.times do %> ⭐ <% end %></p>
+                    <div class="outer-drinks-card">
+                      <div class="d-flex justify-content-between">
+                        <div class="title">
+                          <h2 class="mb-0"><%= product.name %></h2>
+                        </div>
+                        <p class="me-2 mb-0"><% 5.times do %> ⭐ <% end %></p>
                       </div>
-                      <p><%= product.description %></p>
-                      <div class="box3">
+                      <div class="description text-start">
+                        <p><%= product.description %></p>
+                      </div>
+                      <div class="d-flex align-bottom justify-content-between">
                         <h3 class="price">€ <%= product.price %></h3>
-                        <div class="btn btn-color rounded btn-product text-end"><i class="fa-solid fa-plus fa-xl" data-action="click->product#updatecart"></i></div>
+                        <div class="order-button btn-color btn-product me-2"><i class="fa-solid fa-plus fa-l" data-action="click->product#updatecart"></i></div>
                       </div>
                     </div>
                   </div>

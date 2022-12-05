@@ -2,10 +2,11 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[cart home]
 
   def home
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.where(user_id: current_user.id)
   end
 
   def dashboard_admin
+    @restaurants = Restaurant.where(user_id: current_user.id)
     @restaurant = Restaurant.find(params[:restaurant_id])
     @tables = @restaurant.tables
     generate_qr_codes
@@ -14,6 +15,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard_user
+    @restaurants = Restaurant.where(user_id: current_user.id)
     @restaurant = Restaurant.find(params[:restaurant_id])
     tables = Table.where(restaurant_id: params[:restaurant_id])
     tables = tables.select { |table| table.orders.present? }
