@@ -63,17 +63,9 @@ class PagesController < ApplicationController
     end
   end
 
-    # receives json object.
-    # retrieve array of product instances
-    # render partial using array
-
   def update_status
     @order = Order.find(params[:order_id])
     @order.update(status: true)
     redirect_to restaurant_dashboard_user_path
   end
-
-  private
-
-
 end
