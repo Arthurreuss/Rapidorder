@@ -6,10 +6,10 @@
     <h1 class="h1-position">Cart</h1>
   </div>
   <div class="shoppingcart-cards-container">
-   <div data-shoppingcart-target="card">
+    <div data-shoppingcart-target="card">
     </div>
   </div>
-  <div data-controller='totalprice'>
+  <div id="totalprice" data-controller='totalprice'>
     <div class="tips">
       <span class="add-tip">Add tip:</span>
       <div class="btn-group" role="group" aria-label="Basic example">
@@ -25,11 +25,11 @@
     </div>
     <div class="tip">
       <span>Tip</span>
-      <span data-totalprice-target="tip">€ 0,00</span>
+      <span data-totalprice-target="tip"></span>
     </div>
     <div class="total">
       <span>Total</span>
-      <span data-totalprice-target="grandtotal">109,8€</span>
+      <span data-totalprice-target="grandtotal"></span>
     </div>
     <%= link_to checkout_path do %>
       <div class="btn btn-color pay-button"><strong>Pay Now</strong></div>
