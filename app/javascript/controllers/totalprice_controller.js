@@ -32,7 +32,10 @@ export default class extends Controller {
   addTip({ params: { tip } }) {
     this.tip = tip;
     this.tipTotal = this.tip * this.total;
-    this.grandtotalTarget.textContent = `€ ${this.total + this.tipTotal}`;
+    this.grandtotalTarget.textContent = `€ ${new Intl.NumberFormat("es-ES", {
+      style: "currency",
+      currency: "EUR",
+    }).format(this.total + this.tipTotal)}`;
     this.tipTarget.textContent = `€ ${this.tipTotal}`;
   }
 
