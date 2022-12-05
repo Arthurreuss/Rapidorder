@@ -31,9 +31,6 @@ application.register("hello", HelloController)
 import ProductController from "./product_controller"
 application.register("product", ProductController)
 
-import ProductpriceController from "./productprice_controller"
-application.register("productprice", ProductpriceController)
-
 import RemoveproductController from "./removeproduct_controller"
 application.register("removeproduct", RemoveproductController)
 
@@ -42,3 +39,6 @@ application.register("shoppingcart", ShoppingcartController)
 
 import ToggleController from "./toggle_controller"
 application.register("toggle", ToggleController)
+
+import TotalpriceController from "./totalprice_controller"
+application.register("totalprice", TotalpriceController)

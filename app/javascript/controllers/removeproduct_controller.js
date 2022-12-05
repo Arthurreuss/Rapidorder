@@ -16,5 +16,6 @@ export default class extends Controller {
     const indexObject = cart.findIndex(obj => obj.id == id);
     cart.splice(indexObject, 1);
     localStorage.setItem("cart", JSON.stringify(cart));
+    this.removeTarget.classList.add('d-none');
   }
 }

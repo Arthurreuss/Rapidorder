@@ -1,9 +1,10 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ['output']
+  static targets = ['output', 'price']
   static values = {
-    id: Number
+    id: Number,
+    price: Number
   }
 
   connect() {
@@ -12,17 +13,22 @@ export default class extends Controller {
   decrement() {
      if (this.count > 1) {
       this.count--;
-    }
       const id = this.idValue;
-      console.log(price);
       const cart = JSON.parse(localStorage.getItem('cart'));
       const indexObject = cart.findIndex(obj => obj.id == id);
       cart[indexObject].amount -= 1;
       localStorage.setItem("cart", JSON.stringify(cart));
+    }
   }
 
   increment() {
     this.count++;
+    const id = this.idValue;
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    const indexObject = cart.findIndex(obj => obj.id == id);
+    cart[indexObject].amount += 1;
+    localStorage.setItem("cart", JSON.stringify(cart));
+    // outlet to 
   }
 
   get count() {
@@ -32,6 +38,11 @@ export default class extends Controller {
   set count(value) {
     this.data.set("count", value);
     this.outputTarget.textContent = this.count;
+    const price = this.priceValue;
+    console.log(price);
+    const total = price * this.count;
+    console.log(total);
+    this.priceTarget.textContent = `€ ${total}`;
   }
 }
 
