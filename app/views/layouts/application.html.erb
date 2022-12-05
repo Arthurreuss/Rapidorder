@@ -11,11 +11,13 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body class="background-color">
-    <div style="height: 3.7vh; width: 100vw;"></div>
+    <% unless current_page?("/") || current_page?(restaurant_dashboard_admin_path) || current_page?(restaurant_dashboard_user_path)%>
+      <div style="height: 3.7vh; width: 100vw;"></div>
+    <% end %>
     <%#= render "shared/navbar" %>
-    <%#= render "shared/flashes" %>
     <%= yield %>
-    <p class="notice"><%#= notice %></p>
-    <p class="alert"><%#= alert %></p>
+    <%= render "shared/flashes" %>
+    <%#= notice %>
+    <%#= alert %>
   </body>
 </html>
