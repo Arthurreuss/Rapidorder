@@ -1,7 +1,6 @@
 .header-container {
   margin-bottom: 0;
   margin: auto;
-  margin-top: 5vh;
   width: 90vw;
 }
 
@@ -27,5 +26,31 @@
   height: 100%;
   width: 25%;
   overflow: scroll;
+
+}
+
+.btn-dashboard {
+  padding: 10px 15px;
+  background-color: white;
+  text-decoration: none;
+  color: black;
+  border-radius: 5px;
+  justify-content: center;
+}
+
+.btn-dashboard:hover {
+  color: $project-grey;
+}
+
+.name-restaurant {
+
+}
+
+.edit-pen {
+  color: black;
+}
+
+.edit-pen:hover {
+  color: $project-grey;
 
 }

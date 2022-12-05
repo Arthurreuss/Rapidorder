@@ -1,18 +1,22 @@
-.btn-product{
-  margin-right: 15px;
-  margin-bottom: 15px;
-}
+
 
 .drink-image{
-  height: 116px;
-  width: 95px;
-  margin-right: 10px;
+  height: 12vh;
+  width: 12vh;
   border-radius: 10px;
+}
+
+.outer-drinks-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin: 1vh;
 }
 
 
 .test{
-  width: 90vw;
+  width: 100vw;
   margin: auto;
 }
 
@@ -21,8 +25,11 @@
 }
 
 .categories-drink-card{
-  width: 100%;
+  width: 90%;
+  height: 12vh;
   border-radius: 10px;
+  margin: auto;
+  margin-top: 1.8vh;
 }
 
 .box1 {
@@ -43,6 +50,7 @@
   display: flex;
   background-color: white;
   border-radius: 10px;
+  height: 12vh;
 }
 
 .box3 {
@@ -54,4 +62,8 @@
 
 .p-beer p {
   text-align: start!important;
+}
+
+.description p {
+  margin-bottom: 0;
 }

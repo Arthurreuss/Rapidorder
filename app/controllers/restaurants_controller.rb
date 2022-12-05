@@ -2,6 +2,9 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @table = params[:table]
+    @categories = @restaurant.categories
+    @categories_drinks = @categories.select { |category| category.product_type == "Drink" }
+    @categories_meals = @categories.select { |category| category.product_type == "Meal" }
   end
 
   def new
@@ -18,7 +21,12 @@ class RestaurantsController < ApplicationController
           @table.restaurant = @restaurant
           @table.save
         end
-        format.html { redirect_to restaurant_path(@restaurant), notice: "Successfully created Restaurant" }
+        @restaurant.category_names.split.each do |name|
+          @category = Category.new({ name: name })
+          @category.restaurant = @restaurant
+          @category.save
+        end
+        format.html { redirect_to restaurant_dashboard_admin_path(@restaurant), notice: "Successfully created Restaurant" }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -41,7 +49,15 @@ class RestaurantsController < ApplicationController
         @table.save
       end
     end
-    redirect_to restaurant_path(@restaurant)
+    unless @category_names != @restaurant.category_names
+      Category.where(restaurant_id: @restaurant.id).each { |t| t.destroy }
+      @restaurant.category_names.split.each do |name|
+        @category = Category.new({ name: name })
+        @category.restaurant = @restaurant
+        @category.save
+      end
+    end
+    redirect_to restaurant_dashboard_admin_path(@restaurant)
   end
 
   def destroy
@@ -53,6 +69,6 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :description, :address, :table_names)
+    params.require(:restaurant).permit(:name, :description, :address, :table_names, :category_names)
   end
 end

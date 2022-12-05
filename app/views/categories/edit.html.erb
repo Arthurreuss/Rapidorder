@@ -1,18 +1,14 @@
-<%= simple_form_for(@restaurant) do |f| %>
+<%= simple_form_for [@restaurant, @category] do |f| %>
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
         <div class="form-new">
-          <h1>Edit Restaurant</h1>
+          <h1>Edit Category</h1>
           <%= f.input :name %>
-          <%= f.input :description %>
-          <%= f.input :address %>
-          <%= f.input :table_names %>
-          <p>*Use spaces to seperate your tables names</p>
-          <%= f.input :category_names %>
-          <p>*Use spaces to seperate your category names</p>
+          <%= f.input :product_type, collection: ["Meal", "Drink"] %>
           <%= f.input :photo, as: :file %>
         </div>
         <div class="submit-btn">
           <%= f.submit %>
         </div>
+
     <% end %>

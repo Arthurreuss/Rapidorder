@@ -1,16 +1,22 @@
-<h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
+
 <%= simple_form_for [@restaurant, @product] do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <div class="form-new">
+    <h1>New Product</h1>
     <%= f.input :name %>
     <%= f.input :price %>
     <%= f.input :description %>
     <%= f.label "Allergies  " %>
-    <%= f.collection_check_boxes :allergy_ids, Allergy.all, :id, :name%>
+    <div class="allergy-checkboxes">
+      <%= f.collection_check_boxes :allergy_ids, Allergy.all, :id, :name %>
+    </div>
     <%#= f.association :product_allergies, as: :checkboxes  %>
-    <%= f.input :category, collection: %w[Softdrinks Beer Wine Cocktails Pizza Burgers Pasta Tapas] %>
+    <%= f.input :category, collection: Category.all %>
     <%= f.input :product_type, collection: ["Meal", "Drink"] %>
     <%= f.input :photo, as: :file %>
-    <%= f.button :submit %>
+    </div>
+    <div class="submit-btn">
+      <%= f.submit %>
+    </div>
 <% end %>
