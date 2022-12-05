@@ -8,7 +8,7 @@
       <div class="img-btn-previous"><%= image_tag "button-previous.png" %></div>
     <% end %>
     <%# <input type="button" onclick="history.back()"> %>
-    <h2>Meals</h2>
+    <h2>Drinks</h2>
     <%= link_to restaurant_restaurant_drinks_path(@restaurant), class: "previous-button" do %>
       <div class="img-btn-next"><%= image_tag "Button-next.png" %></div>
     <% end %>
@@ -17,7 +17,7 @@
   <div class="accordion" id="accordionPanelsStayOpenExample" data-controller="cartcounter">
     <% @categories.each do |category|%>
       <div class="accordion-item text-center">
-        <h2 class="test" id=<%=arr2[sum]%>>
+        <h2 class="test" id=<%=arr3[sum]%>>
           <button class="categories-card rounded text-center collapsed <% if @category.present? %><%=  @category.name != category.name ? 'collapsed' : '' %><% end%>" type="button" data-bs-toggle="collapse" data-bs-target=<%= arr[sum]%> aria-expanded="false<%#= @category != 'beers' ? 'false' : 'true' %>" aria-controls=<%= arr2[sum]%>>
             <%= category.name %>
           </button>
