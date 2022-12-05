@@ -1,4 +1,84 @@
 // Specific CSS for your home-page
-.background-color {
-  background-color: $project-background;
+.home-banner {
+  border: solid black 2px;
+  height: 70vh;
+  background-image: url("https://files.slack.com/files-pri/T02NE0241-F04DAPJEYSK/screenshot_2022-12-05_at_12.41.48.png");
+}
+
+.home-container-1 {
+  border: solid black 2px;
+  width: 40vw;
+  height: 19vh;
+  margin-top: 45vh;
+  margin-left: 5vw;
+  padding: 15px;
+}
+
+.home-box-1 {
+  border: solid;
+  width: 25vw;
+  padding-left: 10px;
+}
+
+.home-box-2 {
+  border: solid;
+  padding-left: 10px;
+}
+
+.home-banner-2 {
+  height: 137vh;
+  border: solid;
+  padding: 15px;
+}
+
+.how-it-works {
+  height: 10vh;
+}
+
+.home-all-cards {
+  display: flex;
+  height: 50vh;
+  border: solid;
+  margin-bottom: 3vh;
+}
+
+.home-card-1 {
+  width: 26vw;
+  border: solid;
+}
+
+.home-card-2 {
+  width: 26vw;
+  border: solid;
+  margin-left: 11vw;
+}
+
+.home-card-3 {
+  width: 26vw;
+  border: solid;
+  margin-left: 11vw;
+}
+
+.restaurants-with-rapidorder {
+  height: 10vh;
+}
+
+.home-cards__card p{
+  width: 30vw;
+  border: solid;
+  height: 50vh;
+}
+
+.home-cards__card {
+  padding: 10px;
+}
+
+.home-cards {
+  display: flex;
+  overflow: scroll;
+}
+
+.footer {
+  border: solid;
+  height: 20vh;
 }
