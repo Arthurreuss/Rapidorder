@@ -1,20 +1,36 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ['output']
+  static outlets = ['totalprice']
+  static targets = ['output', 'price']
+  static values = {
+    id: Number,
+    price: Number
+  }
 
   connect() {
-    console.log("Hello from our first Stimulus controller");
   }
 
   decrement() {
      if (this.count > 1) {
       this.count--;
+      const id = this.idValue;
+      const cart = JSON.parse(localStorage.getItem('cart'));
+      const indexObject = cart.findIndex(obj => obj.id == id);
+      cart[indexObject].amount -= 1;
+      localStorage.setItem("cart", JSON.stringify(cart));
+      this.totalpriceOutlet.changeTotal(-cart[indexObject].price);
     }
   }
 
   increment() {
     this.count++;
+    const id = this.idValue;
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    const indexObject = cart.findIndex(obj => obj.id == id);
+    cart[indexObject].amount += 1;
+    localStorage.setItem("cart", JSON.stringify(cart));
+    this.totalpriceOutlet.changeTotal(cart[indexObject].price);
   }
 
   get count() {
@@ -24,23 +40,8 @@ export default class extends Controller {
   set count(value) {
     this.data.set("count", value);
     this.outputTarget.textContent = this.count;
+    const price = this.priceValue;
+    const total = price * this.count;
+    this.priceTarget.textContent = `€ ${total}`;
   }
 }
-
-
-// const totalCount = document.getElementById("total-count");
-// let count = 1;
-// totalCount.innerHTML = count;
-
-// const handleIncrement = () => {
-//   count++;
-//   totalCount.innerHTML = count;
-// };
-// const handleDecrement = () => {
-//   count--;
-//   totalCount.innerHTML = count;
-// };
-// const incrementCount = document.getElementById("increment-count");
-// const decrementCount = document.getElementById("decrement-count");
-// incrementCount.addEventListener("click", handleIncrement);
-// decrementCount.addEventListener("click", handleDecrement);

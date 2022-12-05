@@ -2,10 +2,6 @@ import { Application, Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="shoppingcart"
 export default class extends Controller {
-  // static values = {
-  //   amount: Number,
-  //   id: Number
-  // }
   static targets = ["card"];
 
   connect() {

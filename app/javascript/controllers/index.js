@@ -39,3 +39,6 @@ application.register("shoppingcart", ShoppingcartController)
 
 import ToggleController from "./toggle_controller"
 application.register("toggle", ToggleController)
+
+import TotalpriceController from "./totalprice_controller"
+application.register("totalprice", TotalpriceController)

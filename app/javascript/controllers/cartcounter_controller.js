@@ -21,7 +21,6 @@ export default class extends Controller {
       cart_amount += element.amount;
     });
     cart_amount;
-    // this.cartcounterTarget.classList.remove('d-none');
     this.outputTarget.innerHTML = `(${cart_amount})`;
   }
 }

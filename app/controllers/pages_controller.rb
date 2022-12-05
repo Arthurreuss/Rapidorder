@@ -52,7 +52,9 @@ class PagesController < ApplicationController
 
     cart.map! do |order|
       { product: Product.find(order[:id]),
-      amount: order[:amount] }
+        amount: order[:amount],
+        price: order[:price]
+      }
     end
     respond_to do |format|
       format.text {

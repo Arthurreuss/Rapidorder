@@ -6,30 +6,33 @@
     <h1 class="h1-position">Cart</h1>
   </div>
   <div class="shoppingcart-cards-container">
-   <div data-shoppingcart-target="card">
+    <div data-shoppingcart-target="card">
     </div>
   </div>
-  <div class="tips">
-    <span class="add-tip">Add tip:</span>
-    <div class="btn-group" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-color button-group-2 br-0">0%</button>
-      <button type="button" class="btn btn-color button-group-2">5%</button>
-      <button type="button" class="btn btn-color button-group-2">10%</button>
-      <button type="button" class="btn btn-color button-group-2 br-15">15%</button>
+  <div id="totalprice" data-controller='totalprice'>
+    <div class="tips">
+      <span class="add-tip">Add tip:</span>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <%# <button type="button" class="btn btn-color button-group-2 br-0" data-action="totalprice#addTip">0%</button> %>
+        <button type="button" class="btn btn-color button-group-2" data-action="totalprice#addTip5" data-totalprice-tip5-value="">5%</button>
+        <button type="button" class="btn btn-color button-group-2" data-action="totalprice#addTip10" data-totalprice-tip10-value="">10%</button>
+        <button type="button" class="btn btn-color button-group-2 br-15" data-action="totalprice#addTip15" data-totalprice-tip15-value="">15%</button>
+      </div>
     </div>
+    <div class="items">
+      <span>Items</span>
+      <span data-totalprice-target="output"></span>
+    </div>
+    <div class="tip">
+      <span>Tip</span>
+      <span data-totalprice-target="tip"></span>
+    </div>
+    <div class="total">
+      <span>Total</span>
+      <span data-totalprice-target="grandtotal"></span>
+    </div>
+    <%= link_to checkout_path do %>
+      <div class="btn btn-color pay-button"><strong>Pay Now</strong></div>
+    <% end %>
   </div>
-  <div class="items">
-    <span>Items</span>
-    <span>99,9€</span>
-  </div>
-  <div class="tip">
-    <span>Tip</span>
-    <span>9,9€</span>
-  </div>
-  <div class="total">
-    <span>Total</span>
-    <span>109,8€</span>
-  </div>
-  <%= link_to checkout_path do %>
-    <div class="btn btn-color pay-button"><strong>Pay Now</strong></div>
-  <% end %>
+</div>
