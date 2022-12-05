@@ -28,7 +28,23 @@ class PagesController < ApplicationController
     end
   end
 
-  def cart
+  def render_confirmation
+  end
+
+  def confirmation
+    cart = params['_json']
+
+    cart.map! do |order|
+      { product: Product.find(order[:id]),
+        amount: order[:amount],
+        price: order[:price]
+      }
+    end
+    respond_to do |format|
+      format.text {
+        render partial: "shared/shoppingcart_cards", locals: {cart: cart}, formats: [:html]
+      }
+    end
   end
 
   def generate_qr_codes

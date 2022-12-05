@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :products, only: %i[destroy]
+  resources :products, only: %i[destroy] do
+    resources :reviews, only: %i[create]
+  end
   resources :orders, only: %i[create index show]
   resources :categories, only: %i[destroy]
   resources :tables, only: %i[destroy]
@@ -35,8 +37,11 @@ Rails.application.routes.draw do
     resources :products, only: %i[new create update edit index]
     get 'meals', to: "products#meals", as: "restaurant_meals"
     get 'drinks', to: "products#drinks", as: "restaurant_drinks"
-  end
 
+  end
+  get 'confirmation', to: "pages#render_confirmation", as: 'render_confirmation'
+  post 'confirmation', to: 'pages#confirmation', as: 'confirmation'
+  get 'reviews', to: 'reviews#new', as: 'reviews'
   get "cart", to: "pages#cart"
   post "cart", to: "pages#render_cart"
   get 'checkout', to: 'pages#checkout', as: 'checkout'
