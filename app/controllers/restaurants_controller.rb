@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
+    @products = Product.all
     @table = params[:table]
     @categories = @restaurant.categories
     @categories_drinks = @categories.select { |category| category.product_type == "Drink" }
@@ -69,6 +70,6 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :description, :address, :table_names, :category_names)
+    params.require(:restaurant).permit(:name, :description, :address, :table_names, :category_names, :photo)
   end
 end
