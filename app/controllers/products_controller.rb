@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
   end
 
   def meals
+    @table = params[:table]
     @restaurant = Restaurant.find(params[:restaurant_id])
     @categories = Category.where(product_type: 'Meal').select { |category| category.restaurant == @restaurant }
     if params[:category_id].present?

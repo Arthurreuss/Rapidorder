@@ -9,7 +9,7 @@
     <% end %>
     <%# <input type="button" onclick="history.back()"> %>
     <h1>Drinks</h1>
-    <%= link_to restaurant_restaurant_meals_path(@restaurant), class: "previous-button" do %>
+    <%= link_to restaurant_restaurant_meals_path(@restaurant, {table: @table}), class: "previous-button" do %>
       <div class="img-btn-next"><%= image_tag "Button-next.png" %></div>
     <% end %>
   </div>
