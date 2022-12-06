@@ -8,7 +8,7 @@
       <div class="img-btn-previous"><%= image_tag "button-previous.png" %></div>
     <% end %>
     <%# <input type="button" onclick="history.back()"> %>
-    <h2>Meals</h2>
+    <h1>Meals</h1>
     <%= link_to restaurant_restaurant_drinks_path(@restaurant), class: "previous-button" do %>
       <div class="img-btn-next"><%= image_tag "Button-next.png" %></div>
     <% end %>
@@ -76,6 +76,7 @@
         <div class="btn btn-color pay-button sticky" data-controller="cartcounter"><strong>View Cart</strong><span class="cart-counter" data-cartcounter-target="output"></span></div>
       </div>
     <% end %>
+    <div style="height: 15vh;">
     </div>
   </div>
 </div>
