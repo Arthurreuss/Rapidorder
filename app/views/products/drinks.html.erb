@@ -16,7 +16,7 @@
   <%#= render "shared/productcard_drinks" %>
   <div class="accordion" id="accordionPanelsStayOpenExample" data-controller="cartcounter">
     <% @categories.each do |category|%>
-      <div class="accordion-item text-center">
+      <div class="accordion-item text-center" id='<%= category.name %>'>
         <h2 class="test" id=<%=arr3[sum]%>>
           <button class="categories-card rounded text-center collapsed <% if @category.present? %><%=  @category.name != category.name ? 'collapsed' : '' %><% end%>" type="button" data-bs-toggle="collapse" data-bs-target=<%= arr[sum]%> aria-expanded="false<%#= @category != 'beers' ? 'false' : 'true' %>" aria-controls=<%= arr2[sum]%>>
             <%= category.name %>
