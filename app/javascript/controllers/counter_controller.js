@@ -1,22 +1,21 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static outlets = ['totalprice']
-  static targets = ['output', 'price']
+  static outlets = ["totalprice"];
+  static targets = ["output", "price"];
   static values = {
     id: Number,
-    price: Number
-  }
+    price: Number,
+  };
 
-  connect() {
-  }
+  connect() {}
 
   decrement() {
-     if (this.count > 1) {
+    if (this.count > 1) {
       this.count--;
       const id = this.idValue;
-      const cart = JSON.parse(localStorage.getItem('cart'));
-      const indexObject = cart.findIndex(obj => obj.id == id);
+      const cart = JSON.parse(localStorage.getItem("cart"));
+      const indexObject = cart.findIndex((obj) => obj.id == id);
       cart[indexObject].amount -= 1;
       localStorage.setItem("cart", JSON.stringify(cart));
       this.totalpriceOutlet.changeTotal(-cart[indexObject].price);
@@ -26,8 +25,8 @@ export default class extends Controller {
   increment() {
     this.count++;
     const id = this.idValue;
-    const cart = JSON.parse(localStorage.getItem('cart'));
-    const indexObject = cart.findIndex(obj => obj.id == id);
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    const indexObject = cart.findIndex((obj) => obj.id == id);
     cart[indexObject].amount += 1;
     localStorage.setItem("cart", JSON.stringify(cart));
     this.totalpriceOutlet.changeTotal(cart[indexObject].price);

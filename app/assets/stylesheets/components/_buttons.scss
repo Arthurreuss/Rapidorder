@@ -13,7 +13,13 @@
   height: 100%;
 }
 
-.img-btn-next img{
+.img-btn-next-tramsparent {
+  background-color: $project-background;
+  width: 5vh;
+  height: 5vh;
+}
+
+.img-btn-next img {
   height: 4vh;
   margin-top: 0.5vh;
   margin-left: 1.6vh;

@@ -28,7 +28,23 @@ class PagesController < ApplicationController
     end
   end
 
-  def cart
+  def render_confirmation
+  end
+
+  def confirmation
+    cart = params['_json']
+
+    cart.map! do |order|
+      { product: Product.find(order[:id]),
+        amount: order[:amount],
+        price: order[:price]
+      }
+    end
+    respond_to do |format|
+      format.text {
+        render partial: "shared/shoppingcart_cards", locals: {cart: cart}, formats: [:html]
+      }
+    end
   end
 
   def generate_qr_codes
@@ -63,17 +79,9 @@ class PagesController < ApplicationController
     end
   end
 
-    # receives json object.
-    # retrieve array of product instances
-    # render partial using array
-
   def update_status
     @order = Order.find(params[:order_id])
     @order.update(status: true)
     redirect_to restaurant_dashboard_user_path
   end
-
-  private
-
-
 end

@@ -8,7 +8,7 @@
       <div class="img-btn-previous"><%= image_tag "button-previous.png" %></div>
     <% end %>
     <%# <input type="button" onclick="history.back()"> %>
-    <h2>Drinks</h2>
+    <h1>Drinks</h1>
     <%= link_to restaurant_restaurant_meals_path(@restaurant), class: "previous-button" do %>
       <div class="img-btn-next"><%= image_tag "Button-next.png" %></div>
     <% end %>
@@ -30,7 +30,7 @@
                   <div class="all-boxes">
                     <%= cl_image_tag product.photo.key, class: 'drink-image'%>
                     <div class="outer-drinks-card">
-                      <div class="d-flex justify-content-between">
+                      <div class="d-flex justify-content-between" style="overflow: hidden;">
                         <div class="title">
                           <h2 class="mb-0"><%= product.name %></h2>
                         </div>
@@ -41,21 +41,23 @@
                       </div>
                       <div class="d-flex align-bottom justify-content-between">
                         <h3 class="price">€ <%= product.price %></h3>
-                        <div class="order-button btn-color btn-product me-2"><i class="fa-solid fa-plus fa-l" data-action="click->product#updatecart"></i></div>
+                        <div class="order-button btn-color btn-product me-2"><i class="fa-solid fa-plus fa-l" data-action="click->product#updatecart"></i>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
+          <% sum += 1 %>
         </div>
-        <% sum += 1 %>
       </div>
+    <% end %>
+    <div style="height: 15vh;">
     </div>
+    <%= link_to cart_path do %>
+      <div class="btn btn-color pay-button sticky"><strong>View Cart<span class="cart-counter" data-cartcounter-target="output"></span></strong></div>
     <% end %>
   </div>
-    <%= link_to cart_path do %>
-      <div class="btn btn-color pay-button sticky"><strong>View Cart</strong></div>
-    <% end %>
 </div>
