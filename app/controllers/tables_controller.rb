@@ -20,14 +20,16 @@ class TablesController < ApplicationController
   end
 
   def update
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @table = Table.find(params[:id])
     @table.update(table_params)
-    redirect_to dashboard_admin_path
+    redirect_to restaurant_dashboard_admin_path(@restaurant)
   end
 
   def destroy
     @table = Table.find(params[:id])
     @table.destroy
+    redirect_to restaurant_dashboard_admin_path(@restaurant)
   end
 
   private

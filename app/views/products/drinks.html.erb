@@ -1,7 +1,9 @@
+<link href="dist/css/star-rating.min.css" rel="stylesheet">
 <% sum = 0 %>
 <% arr = ["#panelsStayOpen-collapseOne", "#panelsStayOpen-collapseTwo", "#panelsStayOpen-collapseThree", "#panelsStayOpen-collapseFour", "#panelsStayOpen-collapseFive", "#panelsStayOpen-collapseSix", "#panelsStayOpen-collapseSeven", "#panelsStayOpen-collapseEight",] %>
 <% arr2 = ["panelsStayOpen-collapseOne", "panelsStayOpen-collapseTwo", "panelsStayOpen-collapseThree", "panelsStayOpen-collapseFour", "panelsStayOpen-collapseFive", "panelsStayOpen-collapseSix", "panelsStayOpen-collapseSeven", "panelsStayOpen-collapseEight",] %>
 <% arr3 = ["panelsStayOpen-headingOne", "panelsStayOpen-headingTwo", "panelsStayOpen-headingThree", "panelsStayOpen-headingFour", "panelsStayOpen-headingFive", "panelsStayOpen-headingSix", "panelsStayOpen-headingSeven", "panelsStayOpen-headingEight",] %>
+<link href="dist/css/star-rating.min.css" rel="stylesheet">
 <div class="wrapper">
   <div class="product-title d-flex justify-content-between p-2">
     <%= link_to :back, class: "previous-button" do %>
@@ -9,7 +11,7 @@
     <% end %>
     <%# <input type="button" onclick="history.back()"> %>
     <h1>Drinks</h1>
-    <%= link_to restaurant_restaurant_meals_path(@restaurant, { table: @table }), { class: "previous-button" } do %>
+    <%= link_to restaurant_restaurant_meals_path(@restaurant, {table: @table}), class: "previous-button" do %>
       <div class="img-btn-next"><%= image_tag "Button-next.png" %></div>
     <% end %>
   </div>
@@ -30,11 +32,11 @@
                     <div class="all-boxes">
                       <%= cl_image_tag product.photo.key, class: 'drink-image'%>
                       <div class="outer-drinks-card">
-                        <div class="d-flex justify-content-between" style="overflow: hidden;">
+                        <div class="d-flex justify-content-between">
                           <div class="title">
-                            <h2 class="mb-0"><%= product.name %></h2>
+                            <h3 class="mb-0"><%= product.name %></h3>
                           </div>
-                          <p class="me-2 mb-0"><% 5.times do %> ⭐ <% end %></p>
+                          <%= render partial: 'shared/stars_rating', locals: {product: product} %>
                         </div>
                         <div class="description text-start">
                           <p><%= product.description %></p>
