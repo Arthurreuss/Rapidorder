@@ -37,6 +37,9 @@ application.register("get", GetController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import OverageController from "./overage_controller"
+application.register("overage", OverageController)
+
 import ProductController from "./product_controller"
 application.register("product", ProductController)
 

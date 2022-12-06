@@ -63,6 +63,10 @@ class PagesController < ApplicationController
     end
   end
 
+  def cart
+    @products = Product.all
+  end
+
   def render_cart
     cart = params['_json']
 
