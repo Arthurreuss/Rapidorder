@@ -41,6 +41,13 @@ export default class extends Controller {
     this.outputTarget.textContent = this.count;
     const price = this.priceValue;
     const total = price * this.count;
-    this.priceTarget.textContent = `€ ${total}`;
+    this.priceTarget.textContent = `${this.#formatNumber(total)}`;
+  }
+
+  #formatNumber(number) {
+    return Intl.NumberFormat("nl-NL", {
+      style: "currency",
+      currency: "EUR",
+    }).format(number);
   }
 }
