@@ -11,7 +11,6 @@
 }
 
 .home-container-1 {
-  border: solid black 2px;
   width: 40vw;
   height: 19vh;
   margin-top: 45vh;
@@ -20,13 +19,11 @@
 }
 
 .home-box-1 {
-  border: solid;
   width: 25vw;
   padding-left: 10px;
 }
 
 .home-box-2 {
-  border: solid;
   padding-left: 10px;
 }
 
@@ -43,25 +40,37 @@
 .home-all-cards {
   display: flex;
   height: 50vh;
-  border: solid;
   margin-bottom: 3vh;
 }
 
 .home-card-1 {
   width: 26vw;
-  border: solid;
+  padding: 15px;
 }
+
+.home-card-1 h3 {
+ text-align: center;
+}
+
+.home-card-2 h3 {
+  text-align: center;
+ }
+
+ .home-card-3 h3 {
+  text-align: center;
+ }
+
 
 .home-card-2 {
   width: 26vw;
-  border: solid;
   margin-left: 11vw;
+  padding: 15px;
 }
 
 .home-card-3 {
   width: 26vw;
-  border: solid;
   margin-left: 11vw;
+  padding: 15px;
 }
 
 .restaurants-with-rapidorder {
@@ -86,4 +95,35 @@
 .footer {
   border: solid;
   height: 20vh;
+}
+
+.animation {
+  display: block;
+  position: relative;
+  background-color: rgba(152, 104, 104, 1);;
+  border-radius: 4px;
+  z-index: 0;
+  overflow: hidden;
+  border: 1px solid rgba(152, 104, 104, 1);;
+
+  &:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    top: -4px;
+    border: 1px solid #cccccc;
+    background-color: white;
+  }
+
+  &:hover:before {
+    transform: scale(2.15);
+  }
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+}
+.links i{
+  font-size: xx-large;
+  margin: 4vw;
 }

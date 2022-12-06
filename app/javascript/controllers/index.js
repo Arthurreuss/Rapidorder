@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import BtnColorController from "./btn_color_controller"
+application.register("btn-color", BtnColorController)
+
 import CarouselController from "./carousel_controller"
 application.register("carousel", CarouselController)
 
@@ -16,11 +19,17 @@ application.register("cartcounter", CartcounterController)
 import CheckoutController from "./checkout_controller"
 application.register("checkout", CheckoutController)
 
+import ConfirmationController from "./confirmation_controller"
+application.register("confirmation", ConfirmationController)
+
 import CounterController from "./counter_controller"
 application.register("counter", CounterController)
 
 import DownloadQrCodeController from "./download_qr_code_controller"
 application.register("download-qr-code", DownloadQrCodeController)
+
+import FormSubmitController from "./form_submit_controller"
+application.register("form-submit", FormSubmitController)
 
 import GetController from "./get_controller"
 application.register("get", GetController)
@@ -36,6 +45,9 @@ application.register("removeproduct", RemoveproductController)
 
 import ShoppingcartController from "./shoppingcart_controller"
 application.register("shoppingcart", ShoppingcartController)
+
+import StarRatingController from "./star_rating_controller"
+application.register("star-rating", StarRatingController)
 
 import ToggleController from "./toggle_controller"
 application.register("toggle", ToggleController)
