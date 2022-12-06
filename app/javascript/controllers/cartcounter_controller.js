@@ -15,6 +15,7 @@ export default class extends Controller {
   }
 
   updatecounter(){
+
     const cart = JSON.parse(localStorage.getItem('cart'));
     let cart_amount = 0;
     cart.forEach(element => {

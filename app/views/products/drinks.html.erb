@@ -21,43 +21,43 @@
           <button class="categories-card rounded text-center collapsed <% if @category.present? %><%=  @category.name != category.name ? 'collapsed' : '' %><% end%>" type="button" data-bs-toggle="collapse" data-bs-target=<%= arr[sum]%> aria-expanded="false<%#= @category != 'beers' ? 'false' : 'true' %>" aria-controls=<%= arr2[sum]%>>
             <%= category.name %>
           </button>
-        </h2>
-        <div id=<%= arr2[sum]%> class="accordion-collapse collapse <% if @category.present? %><%= @category.name != category.name ? '' : 'show' %><% end%>" aria-labelledby=<%=arr3[sum]%>>
-          <div class="accordion-body">
-            <% category.products.each do |product| %>
-              <div class="accordion-body" data-controller="product" data-product-id-value='<%= product.id %>'>
-                <div class="categories-drink-card">
-                  <div class="all-boxes">
-                    <%= cl_image_tag product.photo.key, class: 'drink-image'%>
-                    <div class="outer-drinks-card">
-                      <div class="d-flex justify-content-between" style="overflow: hidden;">
-                        <div class="title">
-                          <h2 class="mb-0"><%= product.name %></h2>
+          </h2>
+          <div id=<%= arr2[sum]%> class="accordion-collapse collapse <% if @category.present? %><%= @category.name != category.name ? '' : 'show' %><% end%>" aria-labelledby=<%=arr3[sum]%>>
+            <div class="accordion-body">
+              <% category.products.each do |product| %>
+                <div class="accordion-body" data-controller="product" data-product-id-value='<%= product.id %>' data-product-price-value='<%= product.price%>'>
+                  <div class="categories-drink-card">
+                    <div class="all-boxes">
+                      <%= cl_image_tag product.photo.key, class: 'drink-image'%>
+                      <div class="outer-drinks-card">
+                        <div class="d-flex justify-content-between" style="overflow: hidden;">
+                          <div class="title">
+                            <h2 class="mb-0"><%= product.name %></h2>
+                          </div>
+                          <p class="me-2 mb-0"><% 5.times do %> ⭐ <% end %></p>
                         </div>
-                        <p class="me-2 mb-0"><% 5.times do %> ⭐ <% end %></p>
-                      </div>
-                      <div class="description text-start">
-                        <p><%= product.description %></p>
-                      </div>
-                      <div class="d-flex align-bottom justify-content-between">
-                        <h3 class="price">€ <%= product.price %></h3>
-                        <div class="order-button btn-color btn-product me-2"><i class="fa-solid fa-plus fa-l" data-action="click->product#updatecart"></i>
+                        <div class="description text-start">
+                          <p><%= product.description %></p>
+                        </div>
+                        <div class="d-flex align-bottom justify-content-between">
+                          <h3 class="price">€ <%= product.price %></h3>
+                          <div class="order-button btn-color btn-product me-2"><i class="fa-solid fa-plus fa-l" data-action="click->product#updatecart click->cartcounter#updatecounter"></i>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
+          <% sum += 1 %>
         </div>
-        <% sum += 1 %>
+      <% end %>
+      <div style="height: 15vh;">
       </div>
-    <% end %>
-    <div style="height: 15vh;">
+      <%= link_to cart_path do %>
+        <div class="btn btn-color pay-button sticky"><strong>View Cart<span class="cart-counter" data-cartcounter-target="output"></span></strong></div>
+      <% end %>
     </div>
-    <%= link_to cart_path do %>
-      <div class="btn btn-color pay-button sticky"><strong>View Cart<span class="cart-counter" data-cartcounter-target="output"></span></strong></div>
-    <% end %>
   </div>
-</div>
