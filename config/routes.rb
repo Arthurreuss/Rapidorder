@@ -31,7 +31,6 @@ Rails.application.routes.draw do
     get 'dashboard_admin', to: "pages#dashboard_admin", as: "dashboard_admin"
     get 'dashboard_user', to: "pages#dashboard_user", as: "dashboard_user"
     get 'update_status', to: "pages#update_status", as: "update_status"
-    get "cart", to: "pages#cart"
     resources :tables, only: %i[new create edit update]
     resources :categories, only: %i[new create edit update]
     get 'checkout', to: 'pages#checkout', as: 'checkout'

@@ -15,7 +15,6 @@
   </div>
   <%#= render "shared/productcard_drinks" %>
   <div class="accordion" id="accordionExample" data-controller="cartcounter">
-
     <% @categories.each do |category|%>
       <div class="accordion-item text-center" >
         <h2 class="test " id=<%=arr3[sum]%>>
@@ -47,7 +46,7 @@
                         <p><%= product.description %></p>
                       </div>
                       <div class="price-button d-flex justify-content-between align-bottom">
-                        <p class="price"><%= product.price %> €</p>
+                        <p class="price"><%= number_to_currency(product.price, unit: '€ ', separator: ",")%></p>
                         <div class="order-button btn-color btn-product">
                           <i class="fa-solid fa-plus fa-l margin-plus-favicon" data-action='click->product#updatecart click->cartcounter#updatecounter'></i>
                         </div>
@@ -68,4 +67,3 @@
       <% end %>
     </div>
   </div>
-
