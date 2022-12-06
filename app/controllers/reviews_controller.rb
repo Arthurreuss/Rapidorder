@@ -8,11 +8,7 @@ class ReviewsController < ApplicationController
     @product = Product.find(params[:product_id])
     @review = Review.new(review_params)
     @review.product = @product
-    if @review.save
-      format.html { redirect_to restaurants_path, notice: "Review successfully created" }
-    else
-      format.html { render :new, status: :unprocessable_entity }
-    end
+    @review.save
   end
 
   def render_confirmation

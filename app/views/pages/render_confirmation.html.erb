@@ -1,13 +1,11 @@
-<link href="css/star-rating.css" rel="stylesheet">
 <h1>confirmation page!</h1>
 <div class="container">
   <div class="row">
     <div class="col-xs-4">
-      <%= simple_form_for(@product, @review, data: { controller: "submit" }) do |f| %>
-        <%# <%= f.input :rating, collection: (1..5).to_a, input_html: {data: { controller: "star-rating", action: "click->form-submit#submit", options: {"tooltip":false}} }  %>
-        <%# <%= f.submit %>
-        <%# <% end %>
-        <%# </div></div> %>
-      </div>
       <div data-controller="confirmation" data-confirmation-target="card">
       </div>
+      <%= simple_form_for [@product, @review] do |f| %>
+        <%= f.input :rating, collection: (1..5).to_a, input_html: {data: { controller: "star-rating", action: "click->form-submit#submit", options: {"tooltip":false}} }  %>
+        <%= f.submit class: "d-none" %>
+      <% end %>
+    </div>

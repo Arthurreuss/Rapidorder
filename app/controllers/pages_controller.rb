@@ -29,6 +29,8 @@ class PagesController < ApplicationController
   end
 
   def render_confirmation
+    @review = Review.new
+    @product = Product.find(1)
   end
 
   def confirmation
