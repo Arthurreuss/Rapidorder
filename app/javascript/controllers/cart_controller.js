@@ -9,10 +9,6 @@ export default class extends Controller {
   connect() {
     if (localStorage.getItem("cart") === null) {
       let cart = [];
-      console.log(this.tableValue);
-      const table = { table: this.tableValue };
-      console.log(table);
-      cart.push(table);
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   }
