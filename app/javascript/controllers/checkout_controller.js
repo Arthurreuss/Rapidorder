@@ -11,7 +11,7 @@ export default class extends Controller {
       paypal.Buttons().render("#paypal-button-container");
       setTimeout(() => {
         window.location.href = "http://localhost:3000/confirmation";
-      }, 10000);
+      }, 8000);
     });
   }
 }

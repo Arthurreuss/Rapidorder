@@ -9,11 +9,10 @@
     <% end %>
     <%# <input type="button" onclick="history.back()"> %>
     <h1>Meals</h1>
-    <%= link_to restaurant_restaurant_drinks_path(@restaurant), class: "previous-button" do %>
+    <%= link_to restaurant_restaurant_drinks_path(@restaurant, { table: @table }), { class: "previous-button" } do %>
       <div class="img-btn-next"><%= image_tag "Button-next.png" %></div>
     <% end %>
   </div>
-  <%#= render "shared/productcard_drinks" %>
   <div class="accordion" id="accordionExample" data-controller="cartcounter">
     <% @categories.each do |category|%>
       <div class="accordion-item text-center" >

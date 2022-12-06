@@ -2,58 +2,55 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application"
+import { application } from "./application";
 
-import BtnColorController from "./btn_color_controller"
-application.register("btn-color", BtnColorController)
+import BtnColorController from "./btn_color_controller";
+application.register("btn-color", BtnColorController);
 
-import CarouselController from "./carousel_controller"
-application.register("carousel", CarouselController)
+import CarouselController from "./carousel_controller";
+application.register("carousel", CarouselController);
 
-import CartController from "./cart_controller"
-application.register("cart", CartController)
+import CartController from "./cart_controller";
+application.register("cart", CartController);
 
-import CartcounterController from "./cartcounter_controller"
-application.register("cartcounter", CartcounterController)
+import CartcounterController from "./cartcounter_controller";
+application.register("cartcounter", CartcounterController);
 
-import CheckoutController from "./checkout_controller"
-application.register("checkout", CheckoutController)
+import CheckoutController from "./checkout_controller";
+application.register("checkout", CheckoutController);
 
-import ConfirmationController from "./confirmation_controller"
-application.register("confirmation", ConfirmationController)
+import ConfirmationController from "./confirmation_controller";
+application.register("confirmation", ConfirmationController);
 
-import CounterController from "./counter_controller"
-application.register("counter", CounterController)
+import CounterController from "./counter_controller";
+application.register("counter", CounterController);
 
-import DownloadQrCodeController from "./download_qr_code_controller"
-application.register("download-qr-code", DownloadQrCodeController)
+import DownloadQrCodeController from "./download_qr_code_controller";
+application.register("download-qr-code", DownloadQrCodeController);
 
-import FormSubmitController from "./form_submit_controller"
-application.register("form-submit", FormSubmitController)
+import FormSubmitController from "./form_submit_controller";
+application.register("form-submit", FormSubmitController);
 
-import GetController from "./get_controller"
-application.register("get", GetController)
+import GetController from "./get_controller";
+application.register("get", GetController);
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import HelloController from "./hello_controller";
+application.register("hello", HelloController);
 
-import OverageController from "./overage_controller"
-application.register("overage", OverageController)
+import ProductController from "./product_controller";
+application.register("product", ProductController);
 
-import ProductController from "./product_controller"
-application.register("product", ProductController)
+import RemoveproductController from "./removeproduct_controller";
+application.register("removeproduct", RemoveproductController);
 
-import RemoveproductController from "./removeproduct_controller"
-application.register("removeproduct", RemoveproductController)
+import ShoppingcartController from "./shoppingcart_controller";
+application.register("shoppingcart", ShoppingcartController);
 
-import ShoppingcartController from "./shoppingcart_controller"
-application.register("shoppingcart", ShoppingcartController)
+import StarRatingController from "./star_rating_controller";
+application.register("star-rating", StarRatingController);
 
-import StarRatingController from "./star_rating_controller"
-application.register("star-rating", StarRatingController)
+import ToggleController from "./toggle_controller";
+application.register("toggle", ToggleController);
 
-import ToggleController from "./toggle_controller"
-application.register("toggle", ToggleController)
-
-import TotalpriceController from "./totalprice_controller"
-application.register("totalprice", TotalpriceController)
+import TotalpriceController from "./totalprice_controller";
+application.register("totalprice", TotalpriceController);
