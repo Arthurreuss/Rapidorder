@@ -31,19 +31,16 @@ Rails.application.routes.draw do
     get 'dashboard_admin', to: "pages#dashboard_admin", as: "dashboard_admin"
     get 'dashboard_user', to: "pages#dashboard_user", as: "dashboard_user"
     get 'update_status', to: "pages#update_status", as: "update_status"
-    get "cart", to: "pages#cart"
     resources :tables, only: %i[new create edit update]
     resources :categories, only: %i[new create edit update]
-    get 'checkout', to: 'pages#checkout', as: 'checkout'
     resources :products, only: %i[new create update edit index]
     get 'meals', to: "products#meals", as: "restaurant_meals"
     get 'drinks', to: "products#drinks", as: "restaurant_drinks"
-
   end
-  get 'confirmation', to: "pages#render_confirmation", as: 'render_confirmation'
-  post 'confirmation', to: 'pages#confirmation', as: 'confirmation'
-  get 'reviews', to: 'reviews#new', as: 'reviews'
   get "cart", to: "pages#cart"
+  get 'checkout', to: 'pages#checkout', as: 'checkout'
+  get 'confirmation', to: "pages#render_confirmation", as: 'confirmation'
+  post 'confirmation', to: 'pages#confirmation'
   post "cart", to: "pages#render_cart"
   # Defines the root path route ("/")
   # root "articles#index"

@@ -4,13 +4,13 @@
       <div class="img-btn-previous"><%= image_tag "button-previous.png" %></div>
     <% end %>
     <h1 class="h1-position text-center">Cart</h1>
-      <div class="img-btn-next-tramsparent"></div>
+    <div class="img-btn-next-tramsparent"></div>
   </div>
   <div class="shoppingcart-cards-container">
     <div data-shoppingcart-target="card">
     </div>
   </div>
-  <div id="totalprice" data-controller='totalprice'>
+  <div id="totalprice" data-controller='totalprice overage'>
     <div class="tips">
       <span class="add-tip">Add tip:</span>
       <div class="btn-group" role="group" aria-label="Basic example">
@@ -32,7 +32,7 @@
       <span>Total</span>
       <span data-totalprice-target="grandtotal"></span>
     </div>
-    <%= link_to restaurant_checkout_path do %>
+    <%= link_to checkout_path do %>
       <div class="btn btn-color pay-button"><strong>Pay Now</strong></div>
     <% end %>
   </div>

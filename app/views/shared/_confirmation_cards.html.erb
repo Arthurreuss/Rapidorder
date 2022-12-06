@@ -1,0 +1,18 @@
+
+<% cart.each do |order| %>
+    <%# @table = Table.where( name: order[:table]) %>
+    <%# @order = Order.new(amount: order[:amount]) %>
+    <%# @order.table = @table %>
+    <%# @order.product = order[:product] %>
+    <%# @order.save %>
+    <div class="flex-grow-1">
+        <h3 class="pt-3"><%= order[:amount] %> x <%= order[:product].name %> </h3>
+        <p class="pt-2">Price: <%= order[:product].price * order[:amount] %>€</p>
+    </div>
+    <div>
+      <%= simple_form_for [order[:product], Review.new], data: { controller: "form-submit", form_submit_id_value: order[:product].id } do |f|  %>
+      <%= f.input :rating, collection: (1..5).to_a, input_html: {data: { controller: "star-rating", action: "change->form-submit#submit", options: {"tooltip":false}} }  %>
+      <%= f.submit class: "d-none" %>
+      <% end %>
+    </div>
+<% end %>
