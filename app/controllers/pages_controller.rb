@@ -1,8 +1,16 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[cart home]
+  skip_before_action :authenticate_user!, only: %i[home cart checkout render_confirmation confirmation render_cart]
 
   def home
-    @restaurants = Restaurant.where(user_id: current_user.id)
+    if current_user.present?
+      @restaurants = Restaurant.where(user_id: current_user.id)
+    end
+  end
+
+  def cart
+  end
+
+  def checkout
   end
 
   def dashboard_admin

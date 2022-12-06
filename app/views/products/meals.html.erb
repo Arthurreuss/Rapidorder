@@ -38,19 +38,19 @@
                       </div>
                     </div>
                     <div class="half-card text-start">
-                      <p class="width-100"><% 5.times do %> ⭐ <% end %></p>
-                      <div class="title-price ">
-                        <h2 class="title"><%= product.name %></h2>
-                      </div>
-                      <div class="description">
-                        <p><%= product.description %></p>
-                      </div>
-                      <div class="price-button d-flex justify-content-between align-bottom">
-                        <p class="price"><%= number_to_currency(product.price, unit: '€ ', separator: ",")%></p>
-                        <div class="order-button btn-color btn-product">
-                          <i class="fa-solid fa-plus fa-l margin-plus-favicon" data-action='click->product#updatecart click->cartcounter#updatecounter'></i>
+                        <div>
+                        <%= render partial: 'shared/stars_rating', locals: {product: product} %>
+                        <h3 class="title"><%= product.name %></h3 >
                         </div>
-                      </div>
+                        <div class="description">
+                          <p><%= product.description %></p>
+                        </div>
+                        <div class="price-button d-flex justify-content-between align-bottom">
+                          <p class="price"><%= number_to_currency(product.price, unit: '€ ', separator: ",")%></p>
+                          <div class="order-button btn-color btn-product">
+                            <i class="fa-solid fa-plus fa-l margin-plus-favicon" data-action='click->product#updatecart click->cartcounter#updatecounter'></i>
+                          </div>
+                        </div>
                     </div>
                   </div>
                 </div>

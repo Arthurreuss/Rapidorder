@@ -39,8 +39,8 @@ Rails.application.routes.draw do
   end
   get "cart", to: "pages#cart"
   get 'checkout', to: 'pages#checkout', as: 'checkout'
-  get 'confirmation', to: "pages#render_confirmation", as: 'render_confirmation'
-  post 'confirmation', to: 'pages#confirmation', as: 'confirmation'
+  get 'confirmation', to: "pages#render_confirmation", as: 'confirmation'
+  post 'confirmation', to: 'pages#confirmation'
   post "cart", to: "pages#render_cart"
   # Defines the root path route ("/")
   # root "articles#index"

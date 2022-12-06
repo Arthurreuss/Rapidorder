@@ -29,7 +29,9 @@
 
 .half-card {
   margin: 1vh;
+  margin-left: 0 !important;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -102,4 +104,11 @@ i {
 .margin-plus-favicon {
   margin-left: 1.2vw;
   margin-bottom: 1vw;
+}
+
+.star-container {
+  color: $project-red;
+  font-size: 7px;
+  text-align: end;
+
 }

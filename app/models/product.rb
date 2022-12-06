@@ -11,4 +11,9 @@ class Product < ApplicationRecord
   validates :description, presence: true, length: { minimum: 5 }
   validates :category, presence: true
   validates :product_type, presence: true, inclusion: { in: %w[Drink Meal] }
+
+  def average_rating
+    return nil if reviews.empty?
+    ((reviews.sum(0.0) { |review| review.rating }) / reviews.size.to_f).round(1)
+  end
 end

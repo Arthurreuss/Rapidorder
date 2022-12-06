@@ -20,9 +20,10 @@ class CategoriesController < ApplicationController
   end
 
   def update
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @category = Category.find(params[:id])
     @category.update(category_params)
-    redirect_to dashboard_admin_path
+    redirect_to restaurant_dashboard_admin_path(@restaurant)
   end
 
   def destroy
