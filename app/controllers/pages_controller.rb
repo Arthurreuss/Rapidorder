@@ -1,8 +1,16 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[cart home]
+  skip_before_action :authenticate_user!, only: %i[home cart checkout render_confirmation confirmation render_cart]
 
   def home
-    @restaurants = Restaurant.where(user_id: current_user.id)
+    if current_user.present?
+      @restaurants = Restaurant.where(user_id: current_user.id)
+    end
+  end
+
+  def cart
+  end
+
+  def checkout
   end
 
   def dashboard_admin
@@ -28,21 +36,29 @@ class PagesController < ApplicationController
     end
   end
 
-  def render_confirmation
-  end
-
   def confirmation
     cart = params['_json']
 
     cart.map! do |order|
       { product: Product.find(order[:id]),
         amount: order[:amount],
-        price: order[:price]
+        price: order[:price],
+        table: order[:table]
       }
     end
+
+    cart.each do |order|
+      product = order[:product]
+      table = Table.where(name: order[:table]).first
+      order = Order.new(amount: order[:amount])
+      order.table = table
+      order.product = product
+      order.save!
+    end
+
     respond_to do |format|
       format.text {
-        render partial: "shared/shoppingcart_cards", locals: {cart: cart}, formats: [:html]
+        render partial: "shared/confirmation_cards", locals: {cart: cart}, formats: [:html]
       }
     end
   end
@@ -61,6 +77,10 @@ class PagesController < ApplicationController
       )
       @array_qr_codes << @svg
     end
+  end
+
+  def cart
+    @products = Product.all
   end
 
   def render_cart

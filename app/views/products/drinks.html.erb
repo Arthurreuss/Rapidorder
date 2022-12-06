@@ -1,22 +1,24 @@
+<link href="dist/css/star-rating.min.css" rel="stylesheet">
 <% sum = 0 %>
 <% arr = ["#panelsStayOpen-collapseOne", "#panelsStayOpen-collapseTwo", "#panelsStayOpen-collapseThree", "#panelsStayOpen-collapseFour", "#panelsStayOpen-collapseFive", "#panelsStayOpen-collapseSix", "#panelsStayOpen-collapseSeven", "#panelsStayOpen-collapseEight",] %>
 <% arr2 = ["panelsStayOpen-collapseOne", "panelsStayOpen-collapseTwo", "panelsStayOpen-collapseThree", "panelsStayOpen-collapseFour", "panelsStayOpen-collapseFive", "panelsStayOpen-collapseSix", "panelsStayOpen-collapseSeven", "panelsStayOpen-collapseEight",] %>
 <% arr3 = ["panelsStayOpen-headingOne", "panelsStayOpen-headingTwo", "panelsStayOpen-headingThree", "panelsStayOpen-headingFour", "panelsStayOpen-headingFive", "panelsStayOpen-headingSix", "panelsStayOpen-headingSeven", "panelsStayOpen-headingEight",] %>
-<div class="wrapper" data-controller="cart">
+<link href="dist/css/star-rating.min.css" rel="stylesheet">
+<div class="wrapper">
   <div class="product-title d-flex justify-content-between p-2">
     <%= link_to :back, class: "previous-button" do %>
       <div class="img-btn-previous"><%= image_tag "button-previous.png" %></div>
     <% end %>
     <%# <input type="button" onclick="history.back()"> %>
     <h1>Drinks</h1>
-    <%= link_to restaurant_restaurant_meals_path(@restaurant), class: "previous-button" do %>
+    <%= link_to restaurant_restaurant_meals_path(@restaurant, {table: @table}), class: "previous-button" do %>
       <div class="img-btn-next"><%= image_tag "Button-next.png" %></div>
     <% end %>
   </div>
   <%#= render "shared/productcard_drinks" %>
   <div class="accordion" id="accordionPanelsStayOpenExample" data-controller="cartcounter">
     <% @categories.each do |category|%>
-      <div class="accordion-item text-center">
+      <div class="accordion-item text-center" id='<%= category.name %>'>
         <h2 class="test" id=<%=arr3[sum]%>>
           <button class="categories-card rounded text-center collapsed <% if @category.present? %><%=  @category.name != category.name ? 'collapsed' : '' %><% end%>" type="button" data-bs-toggle="collapse" data-bs-target=<%= arr[sum]%> aria-expanded="false<%#= @category != 'beers' ? 'false' : 'true' %>" aria-controls=<%= arr2[sum]%> style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path category.photo.key   %>')">
             <%= category.name %>
@@ -25,22 +27,22 @@
           <div id=<%= arr2[sum]%> class="accordion-collapse collapse <% if @category.present? %><%= @category.name != category.name ? '' : 'show' %><% end%>" aria-labelledby=<%=arr3[sum]%>>
             <div class="accordion-body">
               <% category.products.each do |product| %>
-                <div class="accordion-body" data-controller="product" data-product-id-value='<%= product.id %>' data-product-price-value='<%= product.price%>'>
+                <div class="accordion-body" data-controller="product" data-product-id-value='<%= product.id %>' data-product-price-value='<%= product.price%>' data-product-table-value="<%= @table %>">
                   <div class="categories-drink-card">
                     <div class="all-boxes">
                       <%= cl_image_tag product.photo.key, class: 'drink-image'%>
                       <div class="outer-drinks-card">
-                        <div class="d-flex justify-content-between" style="overflow: hidden;">
+                        <div class="d-flex justify-content-between">
                           <div class="title">
-                            <h2 class="mb-0"><%= product.name %></h2>
+                            <h3 class="mb-0"><%= product.name %></h3>
                           </div>
-                          <p class="me-2 mb-0"><% 5.times do %> ⭐ <% end %></p>
+                          <%= render partial: 'shared/stars_rating', locals: {product: product} %>
                         </div>
                         <div class="description text-start">
                           <p><%= product.description %></p>
                         </div>
                         <div class="d-flex align-bottom justify-content-between">
-                          <h3 class="price">€ <%= product.price %></h3>
+                          <h3 class="price"><%= number_to_currency(product.price, unit: '€ ', separator: ",") %></h3>
                           <div class="order-button btn-color btn-product me-2"><i class="fa-solid fa-plus fa-l" data-action="click->product#updatecart click->cartcounter#updatecounter"></i>
                           </div>
                         </div>

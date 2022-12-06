@@ -1,5 +1,9 @@
 class ProductsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[meals drinks]
+
+
   def drinks
+    @table = params[:table]
     @restaurant = Restaurant.find(params[:restaurant_id])
     @categories = Category.where(product_type: 'Drink').select { |category| category.restaurant == @restaurant }
     if params[:category_id].present?
@@ -13,6 +17,7 @@ class ProductsController < ApplicationController
   end
 
   def meals
+    @table = params[:table]
     @restaurant = Restaurant.find(params[:restaurant_id])
     @categories = Category.where(product_type: 'Meal').select { |category| category.restaurant == @restaurant }
     if params[:category_id].present?
@@ -38,7 +43,7 @@ class ProductsController < ApplicationController
     end
     respond_to do |format|
       if @product.save
-        format.html { redirect_to restaurant_restaurant_drinks_path, notice: "Successfully created Product" }
+        format.html { redirect_to restaurant_dashboard_admin_path(@restaurant), notice: "Successfully created Product" }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -46,18 +51,21 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @product = Product.find(params[:id])
   end
 
   def update
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @product = Product.find(params[:id])
     @product.update(product_params)
-    redirect_to dashboard_admin_path
+    redirect_to restaurant_dashboard_admin_path(@restaurant)
   end
 
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
+    redirect_to restaurant_dashboard_admin_path(@restaurant)
   end
 
   private

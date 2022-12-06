@@ -1,6 +1,9 @@
 class RestaurantsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[show]
+
   def show
     @restaurant = Restaurant.find(params[:id])
+    @products = Product.all
     @table = params[:table]
     @categories = @restaurant.categories
     @categories_drinks = @categories.select { |category| category.product_type == "Drink" }
