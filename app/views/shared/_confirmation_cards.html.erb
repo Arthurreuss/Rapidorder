@@ -1,7 +1,10 @@
 
 <% cart.each do |order| %>
-    <%# @table = Table.where{name: order[:table_name]} %>
-    <%# Order.create!(amount: order[:amount], product_id: order[:product].id, table_id: @table.id) %>
+    <%# @table = Table.where( name: order[:table]) %>
+    <%# @order = Order.new(amount: order[:amount]) %>
+    <%# @order.table = @table %>
+    <%# @order.product = order[:product] %>
+    <%# @order.save %>
     <div class="flex-grow-1">
         <h3 class="pt-3"><%= order[:amount] %> x <%= order[:product].name %> </h3>
         <p class="pt-2">Price: <%= order[:product].price * order[:amount] %>€</p>

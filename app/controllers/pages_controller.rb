@@ -34,9 +34,20 @@ class PagesController < ApplicationController
     cart.map! do |order|
       { product: Product.find(order[:id]),
         amount: order[:amount],
-        price: order[:price]
+        price: order[:price],
+        table: order[:table]
       }
     end
+
+    cart.each do |order|
+      product = order[:product]
+      table = Table.where(name: order[:table]).first
+      order = Order.new(amount: order[:amount])
+      order.table = table
+      order.product = product
+      order.save!
+    end
+
     respond_to do |format|
       format.text {
         render partial: "shared/confirmation_cards", locals: {cart: cart}, formats: [:html]
