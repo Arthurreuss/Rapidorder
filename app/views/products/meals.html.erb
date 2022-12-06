@@ -25,7 +25,7 @@
           <div id=<%= arr2[sum]%> class="accordion-collapse collapse <% if @category.present? %><%= @category.name != category.name ? '' : 'show' %><% end%>" aria-labelledby=<%=arr3[sum]%> data-bs-parent="#accordionExample">
             <div class="accordion-body">
               <% category.products.each do |product| %>
-                <div class="accordion-body" data-controller="product" data-product-id-value='<%= product.id %>' data-product-price-value='<%= product.price%>'>
+                <div class="accordion-body" data-controller="product" data-product-id-value='<%= product.id %>' data-product-price-value='<%= product.price%>' data-product-table-value="<%= @table %>">
                   <div class="outer-meal-card d-flex" >
                     <div class="img-allergy">
                       <%= cl_image_tag product.photo.key, class: 'food-image'%>
