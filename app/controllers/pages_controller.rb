@@ -28,9 +28,6 @@ class PagesController < ApplicationController
     end
   end
 
-  def render_confirmation
-  end
-
   def confirmation
     cart = params['_json']
 
@@ -42,7 +39,7 @@ class PagesController < ApplicationController
     end
     respond_to do |format|
       format.text {
-        render partial: "shared/shoppingcart_cards", locals: {cart: cart}, formats: [:html]
+        render partial: "shared/confirmation_cards", locals: {cart: cart}, formats: [:html]
       }
     end
   end
