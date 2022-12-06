@@ -1,19 +1,14 @@
   <% cart.each do |order| %>
-<div class="border cart-cards position-relative mt-2"  data-controller="removeproduct" data-removeproduct-target="remove" data-removeproduct-id-value="<%= order[:product].id %>" data-removeproduct-totalprice-outlet="#totalprice">
+  <div class="border cart-cards position-relative mt-2"  data-controller="removeproduct" data-removeproduct-target="remove" data-removeproduct-id-value="<%= order[:product].id %>" data-removeproduct-totalprice-outlet="#totalprice">
     <a><i class="fa-solid fa-xmark position-absolute mark btn-color x" data-action="click->removeproduct#remove"></i></a>
-
     <div class="img" style="background: none; object-fit: cover;">
       <%= cl_image_tag order[:product].photo.key%>
     </div>
-
     <div class="flex-grow-1">
-
       <div class="title-card">
         <h2 class="pt-2"><%= order[:product].name %></h2>
       </div>
-
       <div class="d-flex justify-content-between align-items-end" data-controller="counter" data-counter-count="<%= order[:amount] %>" data-counter-id-value="<%= order[:product].id %>" data-counter-price-value="<%= order[:product].price %>" data-counter-totalprice-outlet="#totalprice">
-
         <div class=" btn-group " role="group" aria-label="Basic example" data-controller="get">
           <button type="button" id="decrement-count" class="btn btn-color btn-margin br-minus button-group-1" data-action="counter#decrement">
             <i class="fa-solid fa-minus"></i>
@@ -23,9 +18,8 @@
             <i class="fa-solid fa-plus"></i>
           </button>
         </div>
-
-        <span class="fs-4 price" data-counter-target="price">€ <%= order[:product].price * order[:amount] %></span>
+        <span class="fs-4 price" data-counter-target="price"><%= number_to_currency((order[:product].price * order[:amount]), unit: '€ ', separator: ",") %></span>
       </div>
     </div>
   </div>
-      <% end %>
+<% end %>
