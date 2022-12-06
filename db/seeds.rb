@@ -21,13 +21,19 @@ Allergy.create(name: "Tree Nuts", url: "https://get.apicbase.com/wp-content/uplo
 Allergy.create(name: "Sesame Seeds", url: "https://get.apicbase.com/wp-content/uploads/2020/04/sesame-seeds.svg")
 Allergy.create(name: "Sulphur Dioxide", url: "https://get.apicbase.com/wp-content/uploads/2020/04/sulphur-dioxide.svg")
 
-Order.destroy_all
-Product.destroy_all
-Restaurant.destroy_all
-User.destroy_all
+# Order.destroy_all
+# Product.destroy_all
+# Restaurant.destroy_all
+# User.destroy_all
 
-User.create(first_name: "Massimo", last_name: "Russo", password: "123456", email: "massimorussow@gmail.com")
-Restaurant.create(name: 'Ginos', description: 'Traditional Italien Restaurant since 1965', address: 'Doctor Izquierdo 70', user_id: 1)
+user = User.create(first_name: "Massimo", last_name: "Russo", password: "123456", email: "massimorussow@gmail.com")
+
+file = File.open(File.join(__dir__, 'images_seed/restaurant.jpg'))
+restaurant = Restaurant.create(name: 'Ginos', description: 'Traditional Italien Restaurant since 1965', address: 'Doctor Izquierdo 70', user: user)
+restaurant.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+unless restaurant.save
+  p restaurant.errors.messages
+end
 
 file = File.open(File.join(__dir__, 'images_seed/pizzac.jpg'))
 category = Category.new(name: "Pizza", restaurant_id: 1, product_type: "Meal")
@@ -176,7 +182,6 @@ product = Product.new(
 
 file = File.open(File.join(__dir__, './images_seed/calamares.jpg'))
 #file = file.read
-
 product = Product.new(
   name: 'Calamares',
   price: 18,

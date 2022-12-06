@@ -15,11 +15,10 @@
   </div>
   <%#= render "shared/productcard_drinks" %>
   <div class="accordion" id="accordionExample" data-controller="cartcounter">
-
     <% @categories.each do |category|%>
       <div class="accordion-item text-center" >
         <h2 class="test " id=<%=arr3[sum]%>>
-          <button class="categories-card rounded text-center <% if @category.present? %><%=  @category.name != category.name ? 'collapsed' : 'show' %><% end%>" type="button" data-bs-toggle="collapse" data-bs-target=<%= arr[sum]%> aria-expanded="false<%#= @category != 'beers' ? 'false' : 'true' %>" aria-controls=<%= arr2[sum]%>>
+          <button class="categories-card rounded text-center <% if @category.present? %><%=  @category.name != category.name ? 'collapsed' : 'show' %><% end%>" type="button" data-bs-toggle="collapse" data-bs-target=<%= arr[sum]%> aria-expanded="false<%#= @category != 'beers' ? 'false' : 'true' %>" aria-controls=<%= arr2[sum]%> style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path category.photo.key %>')">
             <%= category.name %>
           </button>
           </h2>
@@ -64,8 +63,7 @@
       <div style="height: 15vh;">
       </div>
       <%= link_to cart_path do %>
-        <div class="btn btn-color pay-button sticky"><strong>View Cart<span class="cart-counter" data-cartcounter-target="output"></span></strong></div>
+        <button class="btn btn-color pay-button sticky"><strong> View Cart<span class="cart-counter" data-cartcounter-target="output"></span></strong></button>
       <% end %>
     </div>
   </div>
-

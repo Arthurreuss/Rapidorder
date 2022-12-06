@@ -1,14 +1,15 @@
-<div class="show-restaurant-banner" >
-  <div class="show-restaurant-logo"></div>
+<div class="show-restaurant-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @restaurant.photo.key %>')">
+  <div class="show-restaurant-logo"><%= image_tag "rapid-order-logo.png" %> </div>
+
   <div class="show-restaurant-title p-2">
     <h3><%= @restaurant.name %></h3>
     <div class="restaurant-table rounded p-1 text-center"> Table: <%= @table %></div>
   </div>
 </div>
 <div class="show-restaurant-special-offer-card mt-4 p-2 mx-auto rounded text-end">
-  <div class="mt-4 p-2">
+  <div class="special-offer-button">
     <h3>Daily Menu</h3>
-    <p class="special-offer-price rounded p-1 " > € 12,50 </p>
+    <div class="special-offer-price rounded p-1 " > € 12,50 </div>
   </div>
 </div>
 <div class="show-restaurant-categories mt-4 p-2">
