@@ -1,6 +1,24 @@
-<h1>Confirmation Page!</h1>
-<div class="container">
+<div class="confirmation-navbar">
+  <h1>Confirmation</h1>
+</div>
+<div class="container" data-controller="totalprice">
+  <div class="mt-4 your-order">
+    <h2>Your order:</h2>
+  </div>
   <div data-controller="confirmation" data-confirmation-target="card">
   </div>
+  <div class="confirmation-box2">
+    <div class="items font-size-1">
+      <span>Items</span>
+      <span data-totalprice-target="output"></span>
+    </div>
+    <div class="tip font-size-1">
+      <span>Tip</span>
+      <span data-totalprice-target="tip"></span>
+    </div>
+    <div class="total font-size-1">
+      <span>Total</span>
+      <span data-totalprice-target="grandtotal"></span>
+    </div>
+  </div>
 </div>
-
