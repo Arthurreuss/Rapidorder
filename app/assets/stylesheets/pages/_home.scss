@@ -1,13 +1,24 @@
 // Specific CSS for your home-page
+.whole-page {
+  background-color: white;
+}
+
 .background-color {
   background-color: $project-background;
 }
 
 .home-banner {
+  background-color: rgba(152, 104, 104, 0.5);
   border: solid black 2px;
   height: 70vh;
-  background-image: url("banner-home.png");
   background-size: cover;
+}
+
+.figma-image {
+  background-image: url("Test3.jpg");
+  background-size: cover;
+  height:70vh;
+  width:70vw;
 }
 
 .home-container-1 {
