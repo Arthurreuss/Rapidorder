@@ -39,68 +39,68 @@ unless restaurant1.save
   p restaurant1.errors.messages
 end
 
-Table.create(name: "1", restaurant_id: restaurant1)
-Table.create(name: "2", restaurant_id: restaurant1)
-Table.create(name: "3", restaurant_id: restaurant1)
-Table.create(name: "4", restaurant_id: restaurant1)
-Table.create(name: "5", restaurant_id: restaurant1)
-Table.create(name: "6", restaurant_id: restaurant1)
-Table.create(name: "7", restaurant_id: restaurant1)
-Table.create(name: "8", restaurant_id: restaurant1)
-Table.create(name: "9", restaurant_id: restaurant1)
-Table.create(name: "10", restaurant_id: restaurant1)
+Table.create(name: "1", restaurant: restaurant1)
+Table.create(name: "2", restaurant: restaurant1)
+Table.create(name: "3", restaurant: restaurant1)
+Table.create(name: "4", restaurant: restaurant1)
+Table.create(name: "5", restaurant: restaurant1)
+Table.create(name: "6", restaurant: restaurant1)
+Table.create(name: "7", restaurant: restaurant1)
+Table.create(name: "8", restaurant: restaurant1)
+Table.create(name: "9", restaurant: restaurant1)
+Table.create(name: "10", restaurant: restaurant1)
 
 file = File.open(File.join(__dir__, 'images_seed/pizzac.jpg'))
-category1 = Category.new(name: "Pizza", restaurant_id: restaurant1, product_type: "Meal")
+category1 = Category.new(name: "Pizza", restaurant: restaurant1, product_type: "Meal")
 category1.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
 unless category1.save
   p category1.errors.messages
 end
 
 file = File.open(File.join(__dir__, 'images_seed/pastac.jpg'))
-category2 = Category.new(name: "Pasta", restaurant_id: restaurant1, product_type: "Meal")
+category2 = Category.new(name: "Pasta", restaurant: restaurant1, product_type: "Meal")
 category2.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
 unless category2.save
   p category2.errors.messages
 end
 
 file = File.open(File.join(__dir__, 'images_seed/tapasc.jpg'))
-category3 = Category.new(name: "Tapas", restaurant_id: restaurant1, product_type: "Meal")
+category3 = Category.new(name: "Tapas", restaurant: restaurant1, product_type: "Meal")
 category3.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
 unless category3.save
   p category3.errors.messages
 end
 
 file = File.open(File.join(__dir__, 'images_seed/burgerc.jpg'))
-category4 = Category.new(name: "Burger", restaurant_id: restaurant1, product_type: "Meal")
+category4 = Category.new(name: "Burger", restaurant: restaurant1, product_type: "Meal")
 category4.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
 unless category4.save
   p category4.errors.messages
 end
 
 file = File.open(File.join(__dir__, 'images_seed/lemonade.jpg'))
-category5 = Category.new(name: "Softdrink", restaurant_id: restaurant1, product_type: "Drink")
+category5 = Category.new(name: "Softdrink", restaurant: restaurant1, product_type: "Drink")
 category5.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
 unless category5.save
   p category5.errors.messages
 end
 
 file = File.open(File.join(__dir__, 'images_seed/cocktails.jpg'))
-category6 = Category.new(name: "Cocktail", restaurant_id: restaurant1, product_type: "Drink")
+category6 = Category.new(name: "Cocktail", restaurant: restaurant1, product_type: "Drink")
 category6.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
 unless category6.save
   p category6.errors.messages
 end
 
 file = File.open(File.join(__dir__, 'images_seed/wines.jpg'))
-category7 = Category.new(name: "Wine", restaurant_id: restaurant1, product_type: "Drink")
+category7 = Category.new(name: "Wine", restaurant: restaurant1, product_type: "Drink")
 category7.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
 unless category7.save
   p category7.errors.messages
 end
 
 file = File.open(File.join(__dir__, 'images_seed/beers.jpg'))
-category8 = Category.new(name: "Beer", restaurant_id: restaurant1, product_type: "Drink")
+category8 = Category.new(name: "Beer", restaurant: restaurant1, product_type: "Drink")
 category8.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
 unless category8.save
   p category8.errors.messages
@@ -114,9 +114,9 @@ product1 = Product.new(
   name: 'Pizza Margherita',
   price: 12,
   description: "Pizza with mozarella and basil",
-  category_id: category1,
+  category: category1,
   product_type: 'Meal',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product1.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product1.save
@@ -131,9 +131,9 @@ product2 = Product.new(
   name: 'Pizza Pepperoni',
   price: 13,
   description: "Pizza with mozzarella and pepperoni",
-  category_id: category1,
+  category: category1,
   product_type: 'Meal',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product2.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product2.save
@@ -148,9 +148,9 @@ product3 = Product.new(
   name: 'Pizza Quatro Formaggi',
   price: 14,
   description: "Pizza with four types of cheese",
-  category_id: category1,
+  category: category1,
   product_type: 'Meal',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product3.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product3.save
@@ -165,9 +165,9 @@ product4 = Product.new(
   name: 'Pizza Prosciutto e Funghi',
   price: 13,
   description: "Pizza with mozzarella, ham and mushrooms",
-  category_id: category1,
+  category: category1,
   product_type: 'Meal',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product4.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product4.save
@@ -182,9 +182,9 @@ product5 = Product.new(
   name: 'Mahou',
   price: 3,
   description: "Light Spanish beer",
-  category_id: category8,
+  category: category8,
   product_type: 'Drink',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product5.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product5.save
@@ -199,9 +199,9 @@ product6 = Product.new(
   name: 'Heineken',
   price: 2,
   description: "Very light German beer",
-  category_id: category8,
+  category: category8,
   product_type: 'Drink',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product6.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product6.save
@@ -216,9 +216,9 @@ product7 = Product.new(
   name: 'Desperados',
   price: 4,
   description: "Beer with tequile",
-  category_id: category8,
+  category: category8,
   product_type: 'Drink',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product7.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product7.save
@@ -233,9 +233,9 @@ product8 = Product.new(
   name: 'Budweiser',
   price: 2,
   description: "Bad American beer",
-  category_id: category8,
+  category: category8,
   product_type: 'Drink',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product8.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product8.save
@@ -250,9 +250,9 @@ product9 = Product.new(
   name: 'Spaguetti carbonara',
   price: 15,
   description: "Spaguetti with bacon, egg and cheese",
-  category_id: category2,
+  category: category2,
   product_type: 'Meal',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product9.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product9.save
@@ -267,9 +267,9 @@ product10 = Product.new(
   name: 'Tagliatelle alla bolognese',
   price: 14,
   description: "Tagliatelle with beef, tomato and parmesan cheese",
-  category_id: category2,
+  category: category2,
   product_type: 'Meal',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product10.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product10.save
@@ -284,9 +284,9 @@ product11 = Product.new(
   name: 'Fusilli al pesto',
   price: 15,
   description: "Macaroni with pesto sauce and parmesan cheese",
-  category_id: category2,
+  category: category2,
   product_type: 'Meal',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product11.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product11.save
@@ -301,9 +301,9 @@ product12 = Product.new(
   name: 'Gnocchi alla sorrentina',
   price: 16,
   description: "Gnocchi with tomato sauce, mozzarella and basil",
-  category_id: category2,
+  category: category2,
   product_type: 'Meal',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product12.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product12.save
@@ -318,9 +318,9 @@ product13 = Product.new(
   name: 'Glass of red wine',
   price: 5,
   description: "Glass of Ramon Bilbao",
-  category_id: category7,
+  category: category7,
   product_type: 'Drink',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product13.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product13.save
@@ -335,9 +335,9 @@ product14 = Product.new(
   name: 'Glass of white wine',
   price: 6,
   description: "Glass of Jose Pariente",
-  category_id: category7,
+  category: category7,
   product_type: 'Drink',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product14.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product14.save
@@ -352,9 +352,9 @@ product15 = Product.new(
   name: 'Glass of rose wine',
   price: 8,
   description: "Glass of Marques de Murrieta",
-  category_id: category7,
+  category: category7,
   product_type: 'Drink',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product15.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product15.save
@@ -369,9 +369,9 @@ product16 = Product.new(
   name: 'Glass of champagne',
   price: 9,
   description: "Glass of Moet & Chandon ",
-  category_id: category7,
+  category: category7,
   product_type: 'Drink',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product16.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product16.save
@@ -386,9 +386,9 @@ product17 = Product.new(
   name: 'Tortilla de patata',
   price: 16,
   description: "The best tortilla in Madrid",
-  category_id: category3,
+  category: category3,
   product_type: 'Meal',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product17.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product17.save
@@ -403,9 +403,9 @@ product18 = Product.new(
   name: 'Croquetas',
   price: 12,
   description: '8 ham croquetas',
-  category_id: category3,
+  category: category3,
   product_type: 'Meal',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product18.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product18.save
@@ -420,9 +420,9 @@ product19 = Product.new(
   name: 'Patatas bravas',
   price: 8,
   description: 'Potatoes with sauce',
-  category_id: category3,
+  category: category3,
   product_type: 'Meal',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product19.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product19.save
@@ -437,9 +437,9 @@ product20 = Product.new(
   name: 'Calamares',
   price: 18,
   description: 'Fried calamari',
-  category_id: category3,
+  category: category3,
   product_type: 'Meal',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product20.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product20.save
@@ -454,9 +454,9 @@ product21 = Product.new(
   name: 'Cheeseburger',
   price: 14,
   description: "Burger with cheese and bacon",
-  category_id: category4,
+  category: category4,
   product_type: 'Meal',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product21.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product21.save
@@ -471,9 +471,9 @@ product22 = Product.new(
   name: 'Double Bacon Cheeseburger',
   price: 14,
   description: "Two grilled patties with cheese and bacon",
-  category_id: category4,
+  category: category4,
   product_type: 'Meal',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product22.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product22.save
@@ -488,9 +488,9 @@ product23 = Product.new(
   name: 'Eggburger',
   price: 14,
   description: "Burger with egg and avocado",
-  category_id: category4,
+  category: category4,
   product_type: 'Meal',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product23.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product23.save
@@ -505,9 +505,9 @@ product24 = Product.new(
   name: 'Veggie Burger',
   price: 14,
   description: "Burger with fake meat, cheese, lettuce and tomato",
-  category_id: category4,
+  category: category4,
   product_type: 'Meal',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product24.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product24.save
@@ -522,9 +522,9 @@ product25 = Product.new(
   name: 'Coca-cola',
   price: 2,
   description: "Cocacola",
-  category_id: category5,
+  category: category5,
   product_type: 'Drink',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product25.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product25.save
@@ -539,9 +539,9 @@ product26 = Product.new(
   name: 'Sprite',
   price: 2,
   description: 'Sprite',
-  category_id: category5,
+  category: category5,
   product_type: 'Drink',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product26.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product26.save
@@ -556,9 +556,9 @@ product27 = Product.new(
   name: 'Fanta',
   price: 2,
   description: 'Lemon fanta',
-  category_id: category5,
+  category: category5,
   product_type: 'Drink',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product27.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product27.save
@@ -573,9 +573,9 @@ product28 = Product.new(
   name: 'Aquarius',
   price: 2,
   description: 'Lemon aquarius',
-  category_id: category5,
+  category: category5,
   product_type: 'Drink',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product28.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product28.save
@@ -590,9 +590,9 @@ product29 = Product.new(
   name: 'Mojito',
   price: 11,
   description: "Rum, lime juice, cane sugar and mint",
-  category_id: category6,
+  category: category6,
   product_type: 'Drink',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product29.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product29.save
@@ -607,9 +607,9 @@ product30 = Product.new(
   name: 'Negroni',
   price: 12,
   description: "Gin, campari and vermouth",
-  category_id: category6,
+  category: category6,
   product_type: 'Drink',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product30.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product30.save
@@ -624,9 +624,9 @@ product31 = Product.new(
   name: 'Daiquiri',
   price: 12,
   description: "White rum, lime juice and syrup",
-  category_id: category6,
+  category: category6,
   product_type: 'Drink',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product31.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product31.save
@@ -641,9 +641,9 @@ product32 = Product.new(
   name: 'Aperol Spritz',
   price: 10,
   description: "Prosecco, Aperol and soda",
-  category_id: category6,
+  category: category6,
   product_type: 'Drink',
-  restaurant_id: restaurant1
+  restaurant: restaurant1
 )
   product32.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
   unless product32.save
@@ -655,7 +655,7 @@ product32 = Product.new(
 #   description: "The best spanish beer",
 #   category: 'Beer',
 #   product_type: 'Drink',
-#   restaurant_id: restaurant'1',
+#   restaurant: restaurant'1',
 #   photo: {  File.open('downloads/mahou.jpg')
 #     product.photo.attach(io: file, filename: "mahou.jpg", content_type: "image/jpg") product.save}
 # },
@@ -665,307 +665,307 @@ product32 = Product.new(
 #   description: "With cheese, lettuce and tomato",
 #   category: 'Burguer',
 #   product_type: 'Meal',
-#   restaurant_id: restaurant'1',
+#   restaurant: restaurant'1',
 #   photo: {  File.open('downloads/burgerpic.jpg'),
 #     product.photo.attach(io: image, filename: "burgerpic.jpg", content_type: "image/jpg")}
 # },
 # ])
 ProductAllergy.create(
-  product_id: product1,
-  allergy_id: allergy2
+  product: product1,
+  allergy: allergy2
 )
 
 ProductAllergy.create(
-  product_id: product1,
-  allergy_id: allergy9
+  product: product1,
+  allergy: allergy9
 )
 
 ProductAllergy.create(
-  product_id: product2,
-  allergy_id: allergy1
+  product: product2,
+  allergy: allergy1
 )
 
 ProductAllergy.create(
-  product_id: product2,
-  allergy_id: allergy9
+  product: product2,
+  allergy: allergy9
 )
 
 ProductAllergy.create(
-  product_id: product3,
-  allergy_id: allergy1
+  product: product3,
+  allergy: allergy1
 )
 
 ProductAllergy.create(
-  product_id: product3,
-  allergy_id: allergy9
+  product: product3,
+  allergy: allergy9
 )
 
 ProductAllergy.create(
-  product_id: product4,
-  allergy_id: allergy1
+  product: product4,
+  allergy: allergy1
 )
 
 ProductAllergy.create(
-  product_id: product4,
-  allergy_id: allergy9
+  product: product4,
+  allergy: allergy9
 )
 
 ProductAllergy.create(
-  product_id: product5,
-  allergy_id: allergy2
+  product: product5,
+  allergy: allergy2
 )
 
 ProductAllergy.create(
-  product_id: product5,
-  allergy_id: allergy14
+  product: product5,
+  allergy: allergy14
 )
 
 ProductAllergy.create(
-  product_id: product6,
-  allergy_id: allergy2
+  product: product6,
+  allergy: allergy2
 )
 
 ProductAllergy.create(
-  product_id: product6,
-  allergy_id: allergy14
+  product: product6,
+  allergy: allergy14
 )
 
 ProductAllergy.create(
-  product_id: product7,
-  allergy_id: allergy2
+  product: product7,
+  allergy: allergy2
 )
 
 ProductAllergy.create(
-  product_id: product7,
-  allergy_id: allergy14
+  product: product7,
+  allergy: allergy14
 )
 
 ProductAllergy.create(
-  product_id: product8,
-  allergy_id: allergy2
+  product: product8,
+  allergy: allergy2
 )
 
 ProductAllergy.create(
-  product_id: product8,
-  allergy_id: allergy14
+  product: product8,
+  allergy: allergy14
 )
 
 ProductAllergy.create(
-  product_id: product9,
-  allergy_id: allergy2
+  product: product9,
+  allergy: allergy2
 )
 
 ProductAllergy.create(
-  product_id: product9,
-  allergy_id: allergy4
+  product: product9,
+  allergy: allergy4
 )
 
 ProductAllergy.create(
-  product_id: product9,
-  allergy_id: allergy9
+  product: product9,
+  allergy: allergy9
 )
 
 ProductAllergy.create(
-  product_id: product10,
-  allergy_id: allergy2
+  product: product10,
+  allergy: allergy2
 )
 
 ProductAllergy.create(
-  product_id: product10,
-  allergy_id: allergy4
+  product: product10,
+  allergy: allergy4
 )
 
 ProductAllergy.create(
-  product_id: product10,
-  allergy_id: allergy9
+  product: product10,
+  allergy: allergy9
 )
 
 ProductAllergy.create(
-  product_id: product11,
-  allergy_id: allergy2
+  product: product11,
+  allergy: allergy2
 )
 
 ProductAllergy.create(
-  product_id: product11,
-  allergy_id: allergy4
+  product: product11,
+  allergy: allergy4
 )
 
 ProductAllergy.create(
-  product_id: product11,
-  allergy_id: allergy9
+  product: product11,
+  allergy: allergy9
 )
 
 ProductAllergy.create(
-  product_id: product12,
-  allergy_id: allergy2
+  product: product12,
+  allergy: allergy2
 )
 
 ProductAllergy.create(
-  product_id: product12,
-  allergy_id: allergy4
+  product: product12,
+  allergy: allergy4
 )
 
 ProductAllergy.create(
-  product_id: product12,
-  allergy_id: allergy9
+  product: product12,
+  allergy: allergy9
 )
 
 ProductAllergy.create(
-  product_id: product13,
-  allergy_id: allergy14
+  product: product13,
+  allergy: allergy14
 )
 
 ProductAllergy.create(
-  product_id: product14,
-  allergy_id: allergy14
+  product: product14,
+  allergy: allergy14
 )
 
 ProductAllergy.create(
-  product_id: product15,
-  allergy_id: allergy14
+  product: product15,
+  allergy: allergy14
 )
 
 ProductAllergy.create(
-  product_id: product16,
-  allergy_id: allergy14
+  product: product16,
+  allergy: allergy14
 )
 
 ProductAllergy.create(
-  product_id: product17,
-  allergy_id: allergy4
+  product: product17,
+  allergy: allergy4
 )
 
 ProductAllergy.create(
-  product_id: product18,
-  allergy_id: allergy2
+  product: product18,
+  allergy: allergy2
 )
 
 ProductAllergy.create(
-  product_id: product18,
-  allergy_id: allergy9
+  product: product18,
+  allergy: allergy9
 )
 
 ProductAllergy.create(
-  product_id: product19,
-  allergy_id: allergy2
+  product: product19,
+  allergy: allergy2
 )
 
 ProductAllergy.create(
-  product_id: product20,
-  allergy_id: allergy2
+  product: product20,
+  allergy: allergy2
 )
 
 ProductAllergy.create(
-  product_id: product20,
-  allergy_id: allergy3
+  product: product20,
+  allergy: allergy3
 )
 
 ProductAllergy.create(
-  product_id: product20,
-  allergy_id: allergy4
+  product: product20,
+  allergy: allergy4
 )
 
 ProductAllergy.create(
-  product_id: product20,
-  allergy_id: allergy5
+  product: product20,
+  allergy: allergy5
 )
 
 ProductAllergy.create(
-  product_id: product21,
-  allergy_id: allergy2
+  product: product21,
+  allergy: allergy2
 )
 
 ProductAllergy.create(
-  product_id: product21,
-  allergy_id: allergy8
+  product: product21,
+  allergy: allergy8
 )
 
 ProductAllergy.create(
-  product_id: product21,
-  allergy_id: allergy11
+  product: product21,
+  allergy: allergy11
 )
 
 ProductAllergy.create(
-  product_id: product21,
-  allergy_id: allergy14
+  product: product21,
+  allergy: allergy14
 )
 
 ProductAllergy.create(
-  product_id: product22,
-  allergy_id: allergy2
+  product: product22,
+  allergy: allergy2
 )
 
 ProductAllergy.create(
-  product_id: product22,
-  allergy_id: allergy8
+  product: product22,
+  allergy: allergy8
 )
 
 ProductAllergy.create(
-  product_id: product22,
-  allergy_id: allergy11
+  product: product22,
+  allergy: allergy11
 )
 
 ProductAllergy.create(
-  product_id: product22,
-  allergy_id: allergy14
+  product: product22,
+  allergy: allergy14
 )
 
 ProductAllergy.create(
-  product_id: product23,
-  allergy_id: allergy2
+  product: product23,
+  allergy: allergy2
 )
 
 ProductAllergy.create(
-  product_id: product23,
-  allergy_id: allergy8
+  product: product23,
+  allergy: allergy8
 )
 
 ProductAllergy.create(
-  product_id: product23,
-  allergy_id: allergy11
+  product: product23,
+  allergy: allergy11
 )
 
 ProductAllergy.create(
-  product_id: product23,
-  allergy_id: allergy14
+  product: product23,
+  allergy: allergy14
 )
 
 ProductAllergy.create(
-  product_id: product24,
-  allergy_id: allergy2
+  product: product24,
+  allergy: allergy2
 )
 
 ProductAllergy.create(
-  product_id: product24,
-  allergy_id: allergy7
+  product: product24,
+  allergy: allergy7
 )
 
 ProductAllergy.create(
-  product_id: product24,
-  allergy_id: allergy8
+  product: product24,
+  allergy: allergy8
 )
 
 ProductAllergy.create(
-  product_id: product24,
-  allergy_id: allergy14
+  product: product24,
+  allergy: allergy14
 )
 
 ProductAllergy.create(
-  product_id: product29,
-  allergy_id: allergy14
+  product: product29,
+  allergy: allergy14
 )
 
 ProductAllergy.create(
-  product_id: product30,
-  allergy_id: allergy14
+  product: product30,
+  allergy: allergy14
 )
 
 ProductAllergy.create(
-  product_id: product31,
-  allergy_id: allergy14
+  product: product31,
+  allergy: allergy14
 )
 
 ProductAllergy.create(
-  product_id: product32,
-  allergy_id: allergy14
+  product: product32,
+  allergy: allergy14
 )
