@@ -39,23 +39,21 @@ class PagesController < ApplicationController
   def confirmation
     cart = params['_json']
 
+    cart.each do |order|
+      @product = Product.find(order[:id])
+      table = Table.where(name: order[:table]).first
+      order = Order.new(amount: order[:amount])
+      order.table = table
+      order.product = @product
+      order.save!
+    end
+
     cart.map! do |order|
       { product: Product.find(order[:id]),
         amount: order[:amount],
         price: order[:price],
         table: order[:table]
       }
-    end
-
-    cart.each do |order|
-      console.log(order)
-      product = order[:product]
-      table = Table.where(name: order[:table]).first
-      console.log(table)
-      order = Order.new(amount: order[:amount])
-      order.table = table
-      order.product = product
-      order.save!
     end
 
     respond_to do |format|

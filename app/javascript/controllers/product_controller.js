@@ -8,9 +8,7 @@ export default class extends Controller {
     table: String,
   };
 
-  connect() {
-    console.log(this.tableValue)
-  }
+  connect() {}
 
   updatecart() {
     const id = this.idValue;

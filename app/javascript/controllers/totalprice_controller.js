@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
-import { end } from "@popperjs/core";
+// import { end } from "@popperjs/core";
 
 // Connects to data-controller="totalprice"
 export default class extends Controller {
