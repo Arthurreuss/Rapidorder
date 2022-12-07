@@ -6,8 +6,21 @@
   width: 90vw;
   height: 20vh;
   background-color: lightgrey;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7v_OZJJVNhTbQwp9C5p4L_bLpGBC6Fafl3Q&usqp=CAU");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
 }
 
+.special-offer-button {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.special-offer-button h3 {
+  font-weight: bolder;
+  color: white;
+}
 // .show-restaurant-categories-card{
 //   // background-color: lightgrey;
 // }
@@ -20,7 +33,10 @@
 .show-restaurant-categories-card{
   width: 85vw;
   height: 11vh;
+
 }
+
+
 
 .swiper-slide{
   // background-image: url("https://source.unsplash.com/xBFTjrMIC0c");
@@ -53,7 +69,22 @@
   // left: 55vw;
   float: right;
   background-color: $project-red;
-  width: 25vw;
+  width: 20vw;
+  color: white;
+  text-align: center;
+
 }
 
 // footer
+
+.show-restaurant-banner{
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.show-restaurant-logo img{
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+}

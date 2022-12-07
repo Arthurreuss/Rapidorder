@@ -1,0 +1,18 @@
+<% unless product.average_rating.nil? %>
+    <div class="star-container">
+      <% product.average_rating.to_i.times do %>
+      <i class="fa-solid fa-star fa-2x"></i>
+      <% end %>
+      <% difference = product.average_rating - product.average_rating.to_i %>
+      <% if difference > 0.5 %>
+        <i class="fa-regular fa-star-half-stroke fa-2x"></i>
+        <% (5 -(product.average_rating.to_i + 1)).times do %>
+        <i class="fa-regular fa-star fa-2x"></i>
+        <% end %>
+      <% else %>
+        <% (5 - product.average_rating.to_i).times do %>
+        <i class="fa-regular fa-star fa-2x"></i>
+        <% end %>
+      <% end %>
+    </div>
+<% end %>

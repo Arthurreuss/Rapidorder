@@ -20,7 +20,7 @@
           <% orders.each do |order| %>
             <%= link_to restaurant_update_status_path(:order_id => order.id) do %>
               <div>
-                <p><%= order.id %></p>
+                <p><%= order.amount %> x <%= order.product.name %></p>
               </div>
             <% end %>
           <% end %>
@@ -44,7 +44,7 @@
           <% orders.each do |order| %>
             <%= link_to restaurant_update_status_path(:order_id => order.id) do %>
               <div>
-                <p><%= order.id %></p>
+                <p><%= order.amount %> x <%= order.product.name %></p>
               </div>
             <% end %>
           <% end %>
