@@ -61,9 +61,26 @@
     <% end %>
   </div>
    <div class="product-container">
-    <div class="border text-center pt-1 sticky-top bg-white" style="z-index: -100;">
+    <div class="border text-center pt-1 sticky-top bg-white" style="z-index: 0;">
       <h2 >Statistics</h2>
     </div>
+      <% arr = [] %>
+      <% sum3 = 0 %>
+      <% @products.each do |product| %>
+      <% orders = Order.all.select { |order| order.product_id == product.id } %>
+      <% arr << {product.name => orders.sum { |order| order.amount.to_i } }%>
+      <% end %>
+      <% arr2 = arr.sort_by { |k| k.values }%>
+      <%# raise %>
+      <div class="border text-center d-flex justify-content-between ps-2" style="z-index: -102;">
+        <p><strong>Your most ordered products</strong></p>
+      </div>
+      <% arr2.reverse.each do |hash| %>
+      <% sum3 += 1 %>
+      <div class="border text-center d-flex justify-content-between ps-2 pe-2" style="z-index: -102;">
+      <p><%= sum3 %>.</p><p><%= hash.keys.first %></p><p><%= hash.values.first %> x</p>
 
+      </div>
+      <% end %>
   </div>
 </div>

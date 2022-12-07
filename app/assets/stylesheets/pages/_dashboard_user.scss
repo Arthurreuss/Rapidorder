@@ -24,12 +24,6 @@
   margin: 0 !important;
 }
 
-.order-card {
-  width: 30% !important;
-  padding: 2%;
-  margin: 2%;
-}
-
 .img-height{
  height: 11vh;
 }
@@ -37,4 +31,21 @@
 .sticky {
   position: sticky;
   bottom: 0;
+}
+
+.project-red {
+  background-color: $project-red;
+  width: 100%;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  text-align: center;
+}
+
+.order-card {
+  padding: 4%;
+}
+
+.order-column {
+  margin: 2%;
+  width: 30%;
 }
