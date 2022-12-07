@@ -1,25 +1,28 @@
 <div class="placeholder-top"></div>
 <div class="confirmation-navbar">
-  <h1>Confirmation</h1>
-</div>
-<div class="container" data-controller="totalprice">
-  <div class="mt-4 your-order">
-    <h2>Your order:</h2>
+  <%#= link_to restaurant_path(@product.restaurant_id, {table: @table}), class: "previous-button" do %>
+    <div class="img-btn-previous"><%= image_tag "button-previous.png" %></div>
+    <%# end %>
+    <h1>Confirmation</h1>
   </div>
-  <div data-controller="confirmation" data-confirmation-target="card">
+  <div class="container" data-controller="totalprice">
+    <div class="mt-4 your-order">
+      <h2>Your order:</h2>
+    </div>
+    <div data-controller="confirmation" data-confirmation-target="card">
+    </div>
+    <div class="confirmation-box2">
+      <div class="total font-size-1">
+        <span>Total</span>
+        <span data-totalprice-target="grandtotal"></span>
+      </div>
+      <div class="items font-size-1 d-none">
+        <span>Items</span>
+        <span data-totalprice-target="output"></span>
+      </div>
+      <div class="tip font-size-1 d-none">
+        <span>Tip</span>
+        <span data-totalprice-target="tip"></span>
+      </div>
+    </div>
   </div>
-  <div class="confirmation-box2">
-    <div class="items font-size-1">
-      <span>Items</span>
-      <span data-totalprice-target="output"></span>
-    </div>
-    <div class="tip font-size-1">
-      <span>Tip</span>
-      <span data-totalprice-target="tip"></span>
-    </div>
-    <div class="total font-size-1">
-      <span>Total</span>
-      <span data-totalprice-target="grandtotal"></span>
-    </div>
-  </div>
-</div>

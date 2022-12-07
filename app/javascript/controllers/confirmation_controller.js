@@ -1,11 +1,10 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="confirmation"
 export default class extends Controller {
   static targets = ["card"];
 
   connect() {
-    console.log("connected");
     const csrfToken = document.querySelector("[name='csrf-token']").content;
     fetch("/confirmation", {
       method: "POST",
@@ -21,4 +20,4 @@ export default class extends Controller {
         this.cardTarget.innerHTML = data;
       });
   }
-  }
+}

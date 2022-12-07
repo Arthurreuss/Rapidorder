@@ -1,13 +1,8 @@
 <% cart.each do |order| %>
   <div class="confirmation-card">
-    <%# @table = Table.where( name: order[:table]) %>
-    <%# @order = Order.new(amount: order[:amount]) %>
-    <%# @order.table = @table %>
-    <%# @order.product = order[:product] %>
-    <%# @order.save %>
     <div class="flex-grow-1 confirmation-box1">
       <h3 class="pt-3"><%= order[:amount] %> x <%= order[:product].name %> </h3>
-      <h3 class="pt-2"> <%= order[:product].price * order[:amount] %>€</h3>
+      <h3 class="pt-2"> <%= number_to_currency(order[:product].price * order[:amount], unit: '€ ', separator: ",", format: "%n %u") %></h3>
     </div>
     <div>
       <%= simple_form_for [order[:product], Review.new], data: { controller: "form-submit", form_submit_id_value: order[:product].id } do |f|  %>

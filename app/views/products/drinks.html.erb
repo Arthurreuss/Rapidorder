@@ -22,7 +22,7 @@
       <div id="<%= category.name %>" class="accordion-item text-center">
         <h2 class="test" id=<%=arr3[sum]%>>
           <button class="categories-card rounded text-center collapsed <% if @category.present? %><%=  @category.name != category.name ? 'collapsed' : '' %><% end%>" type="button" data-bs-toggle="collapse" data-bs-target=<%= arr[sum]%> aria-expanded="false<%#= @category != 'beers' ? 'false' : 'true' %>" aria-controls=<%= arr2[sum]%> style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path category.photo.key   %>')">
-            <%= category.name %>v
+            <%= category.name %>
           </button>
         </h2>
         <div id=<%= arr2[sum]%> class="accordion-collapse collapse <% if @category.present? %><%= @category.name != category.name ? '' : 'show' %><% end%>" aria-labelledby=<%=arr3[sum]%>>
@@ -61,7 +61,7 @@
     <% end %>
     <div style="height: 15vh;">
     </div>
-    <%= link_to cart_path do %>
+    <%= link_to cart_path, restaurant: @restaurant.id do %>
       <div class="btn btn-color pay-button sticky"><strong>View Cart<span class="cart-counter" data-cartcounter-target="output"></span></strong></div>
     <% end %>
   </div>

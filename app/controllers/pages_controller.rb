@@ -40,13 +40,11 @@ class PagesController < ApplicationController
     cart = params['_json']
 
     cart.each do |order|
-      # console.log(order)
-      product = Product.find(order[:id])
+      @product = Product.find(order[:id])
       table = Table.where(name: order[:table]).first
-      # console.log(table)
       order = Order.new(amount: order[:amount])
       order.table = table
-      order.product = product
+      order.product = @product
       order.save!
     end
 
@@ -57,7 +55,6 @@ class PagesController < ApplicationController
         table: order[:table]
       }
     end
-
 
     respond_to do |format|
       format.text {

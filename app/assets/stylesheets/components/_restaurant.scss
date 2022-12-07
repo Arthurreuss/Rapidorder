@@ -1,5 +1,6 @@
-// .wrapper{
-//   background-color: $project-background;
+// .show-restaurant-title h3{
+//   font-size: 60px;
+//   font-weight: bold;
 // }
 
 .show-restaurant-special-offer-card{
@@ -22,14 +23,6 @@
   font-weight: bolder;
   color: white;
 }
-// .show-restaurant-categories-card{
-//   // background-color: lightgrey;
-// }
-
-// .show-restaurant-categories{
-//   // width: 85vw
-//   // height: 100%;
-// }
 
 .show-restaurant-categories-card{
   width: 85vw;
@@ -37,23 +30,13 @@
 
 }
 
-
-
 .swiper-slide{
-  // background-image: url("https://source.unsplash.com/xBFTjrMIC0c");
-  // background-color: black;
-  // background-size: cover;
   height: 25vw;
   width: 25vw;
   border-radius: 10px;
   object-fit: cover;
   margin-right: 1vw;
 }
-
-// #drink-1{
-//   background-image: url('../../images/beer.jpg');
-//   background-size: coverr;
-// }
 
 .swiper-wrapper{
   overflow-x: auto;
@@ -65,9 +48,6 @@
 }
 
 .special-offer-price{
-  // position: relative;
-  // top: -1vh;
-  // left: 55vw;
   float: right;
   background-color: $project-red;
   width: 20vw;
