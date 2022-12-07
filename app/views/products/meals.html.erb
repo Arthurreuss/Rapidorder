@@ -45,7 +45,7 @@
                       <p><%= product.description %></p>
                     </div>
                     <div class="price-button d-flex justify-content-between align-bottom">
-                      <p class="price"><%= number_to_currency(product.price, unit: '€ ', separator: ",")%></p>
+                      <p class="price"><%= number_to_currency(product.price, unit: '€ ', separator: ",", format: "%n %u")%></p>
                       <div class="order-button btn-color btn-product">
                         <i class="fa-solid fa-plus fa-l margin-plus-favicon" data-action='click->product#updatecart click->cartcounter#updatecounter'></i>
                       </div>
