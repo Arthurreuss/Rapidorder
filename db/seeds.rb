@@ -35,6 +35,17 @@ unless restaurant.save
   p restaurant.errors.messages
 end
 
+Table.create(name: "1", restaurant_id: 1)
+Table.create(name: "2", restaurant_id: 1)
+Table.create(name: "3", restaurant_id: 1)
+Table.create(name: "4", restaurant_id: 1)
+Table.create(name: "5", restaurant_id: 1)
+Table.create(name: "6", restaurant_id: 1)
+Table.create(name: "7", restaurant_id: 1)
+Table.create(name: "8", restaurant_id: 1)
+Table.create(name: "9", restaurant_id: 1)
+Table.create(name: "10", restaurant_id: 1)
+
 file = File.open(File.join(__dir__, 'images_seed/pizzac.jpg'))
 category = Category.new(name: "Pizza", restaurant_id: 1, product_type: "Meal")
 category.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
