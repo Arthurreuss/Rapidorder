@@ -23,10 +23,12 @@ export default class extends Controller {
     const tip = JSON.parse(localStorage.getItem("tip"));
     if (tip) {
       this.tipTotal = tip;
-      this.grandTotal = this.total + this.tipTotal;
-    };
+      // this.grandTotal = this.total + this.tipTotal;
+    }
     this.tipTarget.textContent = `${this.#formatNumber(this.tipTotal)}`;
-    this.grandtotalTarget.textContent = ` ${this.#formatNumber(this.grandTotal)}`;
+    this.grandtotalTarget.textContent = ` ${this.#formatNumber(
+      this.total + this.tipTotal
+    )}`;
     localStorage.setItem("total", this.total);
   }
 
@@ -39,7 +41,7 @@ export default class extends Controller {
     )}`;
     this.tipTarget.textContent = `${this.#formatNumber(this.tipTotal)}`;
     localStorage.setItem("total", this.grandTotal);
-    localStorage.setItem("tip", this.tipTotal)
+    localStorage.setItem("tip", this.tipTotal);
   }
 
   changeTotal(price) {
