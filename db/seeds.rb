@@ -902,7 +902,7 @@ ProductAllergy.create(
 
 ProductAllergy.create(
   product_id: product22,
-  allergy_id: allergy211
+  allergy_id: allergy11
 )
 
 ProductAllergy.create(
