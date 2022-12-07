@@ -4,9 +4,6 @@
 
 import { application } from "./application";
 
-import BtnColorController from "./btn_color_controller";
-application.register("btn-color", BtnColorController);
-
 import CarouselController from "./carousel_controller";
 application.register("carousel", CarouselController);
 

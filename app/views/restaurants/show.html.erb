@@ -1,7 +1,5 @@
-
 <div class="show-restaurant-banner" data-controller="cart" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @restaurant.photo.key %>')">
   <div class="show-restaurant-logo"><%= image_tag "rapid-order-logo.png" %> </div>
-
   <div class="show-restaurant-title p-2">
     <h3><%= @restaurant.name %></h3>
     <div class="restaurant-table rounded p-1 text-center"> Table: <%= @table %></div>
@@ -21,47 +19,25 @@
         <div class="swiper-slide p-2 me-2" id="this is the place holder dont change this id" ></div>
       <% end %>
       <% @categories_drinks.each do |category| %>
-        <%= link_to restaurant_restaurant_drinks_path(@restaurant, { anchor: category.name }, { category_id: category.id, table: @table }) do %>
+        <%= link_to restaurant_restaurant_drinks_path(@restaurant, anchor: category.name, category_id: category.id, table: @table ) do %>
           <div class="swiper-slide p-2 me-2" id="cocktails" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)), url('data:image/png;base64,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');"></div>
         <% end %>
       <% end %>
-      <%#= link_to restaurant_restaurant_drinks_path(@restaurant, { category: 'beers' }) do %>
-        <%# <div class="swiper-slide p-2 me-2" id="beer" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)), url('https://www.creativefabrica.com/wp-content/uploads/2021/03/17/beer-drink-glass-icon-logo-vector-design-Graphics-9698504-1.jpg');"></div> %>
-        <%# end %>
-        <%#= link_to restaurant_restaurant_drinks_path(@restaurant, { category: 'softdrinks' }) do %>
-          <%# <div class="swiper-slide p-2 me-2" id="softdrinks" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)), url('https://c8.alamy.com/compes/2b3frx2/icono-de-refresco-2b3frx2.jpg');"></div> %>
-          <%# end %>
-          <%#= link_to restaurant_restaurant_drinks_path(@restaurant, { category: 'wine' }) do %>
-            <%# <div class="swiper-slide p-2 me-2" id="wine" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)), url('https://static.vecteezy.com/system/resources/previews/002/732/063/non_2x/full-glass-of-red-wine-icon-illustration-free-vector.jpg');"></div> %>
-            <%# end %>
-          </div>
-        </div>
-      </div>
-      <div class="show-restaurant-categories mt-4 p-2">
-        <h3 class="show-category-title p-2 m-auto">Food</h3>
-        <div class="show-restaurant-categories-card m-auto">
-          <div class="swiper-wrapper d-flex justify-content-center align-items-center">
-            <%= link_to restaurant_restaurant_meals_path(@restaurant) do%>
-              <div class="swiper-slide p-2 me-2" id="nothing" ></div>
-            <% end %>
-            <% @categories_meals.each do |category| %>
-              <%= link_to restaurant_restaurant_meals_path(@restaurant, { anchor: category.name }, { category_id: category.id, table: @table }) do %>
-                <%= cl_image_tag category.photo.key, class: "swiper-slide" %>
-                <%# <div class="swiper-slide p-2 me-2" id="cocktails" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)), url('data:image/png;base64,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');"></div> %>
-              <% end %>
-            <% end %>
-            <%#= link_to restaurant_restaurant_meals_path(@restaurant, { category: 'burgers' }) do%>
-              <%# <div class="swiper-slide p-2 me-2" id="burgers" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)), url('https://static.vecteezy.com/system/resources/previews/001/500/415/original/burger-icon-free-vector.jpg');"></div> %>
-              <%# end %>
-              <%#= link_to restaurant_restaurant_meals_path(@restaurant, { category: 'pasta' }) do%>
-                <%# <div class="swiper-slide p-2 me-2" id="pasta" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)), url('https://media.istockphoto.com/id/1293399641/de/vektor/icon-heben-pasta-mit-einer-gabel.jpg?s=612x612&w=0&k=20&c=PE6GxT3d0lWKmTUEO8U_bisugOW7LXI5wPEDYPg415U=');"></div> %>
-                <%# end %>
-                <%#= link_to restaurant_restaurant_meals_path(@restaurant, { category: 'pizza' }) do%>
-                  <%# <div class="swiper-slide p-2 me-2" id="pizza" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)), url('https://static.vecteezy.com/ti/gratis-vektor/p3/1505050-pizza-slice-symbol-kostenlos-vektor.jpg');"></div> %>
-                  <%# end %>
-                  <%#= link_to restaurant_restaurant_meals_path(@restaurant, { category: 'tapas' }) do%>
-                    <%# <div class="swiper-slide p-2 me-2" id="tapas" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)), url('https://image.shutterstock.com/image-vector/tapas-line-icon-olive-cheese-260nw-571589659.jpg');"></div> %>
-                    <%# end %>
-                  </div>
-                </div>
-              </div>
+    </div>
+  </div>
+</div>
+<div class="show-restaurant-categories mt-4 p-2">
+  <h3 class="show-category-title p-2 m-auto">Food</h3>
+  <div class="show-restaurant-categories-card m-auto">
+    <div class="swiper-wrapper d-flex justify-content-center align-items-center">
+      <%= link_to restaurant_restaurant_meals_path(@restaurant) do%>
+        <div class="swiper-slide p-2 me-2" id="nothing" ></div>
+      <% end %>
+      <% @categories_meals.each do |category| %>
+        <%= link_to restaurant_restaurant_meals_path(@restaurant, anchor: category.name, category_id: category.id, table: @table ) do %>
+          <%= cl_image_tag category.photo.key, class: "swiper-slide" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
