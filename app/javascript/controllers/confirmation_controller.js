@@ -19,5 +19,9 @@ export default class extends Controller {
       .then((data) => {
         this.cardTarget.innerHTML = data;
       });
+
+    setTimeout(() => {
+      localStorage.clear();
+    }, 50000);
   }
 }
