@@ -6,31 +6,36 @@
 .background-color {
   background-color: $project-background;
 }
-
+.navbar-home {
+  min-width: -webkit-fill-available;
+  z-index: 100;
+  background-color: rgba(152, 104, 104, 0.5);
+}
 .home-banner {
   background-color: rgba(152, 104, 104, 0.5);
-  border: solid black 2px;
   height: 70vh;
   background-size: cover;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
 }
 
 .figma-image {
   background-image: url("Test3.jpg");
   background-size: cover;
-  height:70vh;
-  width:70vw;
+  margin-top: 4vh;
+  width: 47vw;
 }
 
 .home-container-1 {
-  width: 40vw;
+  width: 32vw;
   height: 19vh;
-  margin-top: 45vh;
-  margin-left: 5vw;
   padding: 15px;
+  text-align: center;
+  margin-top: 8vh;
 }
 
 .home-box-1 {
-  width: 25vw;
   padding-left: 10px;
 }
 
@@ -40,7 +45,6 @@
 
 .home-banner-2 {
   height: 137vh;
-  border: solid;
   padding: 15px;
 }
 
@@ -97,6 +101,9 @@
 .home-cards__card {
   padding: 10px;
 }
+.home-cards__card img {
+  border-radius: 10px;
+}
 
 .home-cards {
   display: flex;
@@ -104,37 +111,52 @@
 }
 
 .footer {
-  border: solid;
-  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15vh;
+  background-color: rgba(152, 104, 104, 0.5);
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.footer-links a {
+  color: black;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  color: white;
+  font-size: 35px;
+}
+.footer .fa-heart {
+  color: #D23333;
 }
 
 .animation {
   display: block;
   position: relative;
-  background-color: rgba(152, 104, 104, 1);;
+  background-color: rgba(152, 104, 104, 1);
   border-radius: 4px;
   z-index: 0;
   overflow: hidden;
-  border: 1px solid rgba(152, 104, 104, 1);;
+  border: 1px solid rgba(152, 104, 104, 1);
+  color: white;
+  padding: 3%;
+  transition: all 0.2s ease-out;
 
   &:hover {
-    transition: all 0.2s ease-out;
+    // transition: all 1s ease-out;
     box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
     top: -4px;
-    border: 1px solid #cccccc;
+    border: 1px solid rgba(152, 104, 104, 1);
     background-color: white;
+    color: rgba(152, 104, 104, 1);
   }
 
   &:hover:before {
     transform: scale(2.15);
   }
-}
-
-.links {
-  display: flex;
-  justify-content: center;
-}
-.links i{
-  font-size: xx-large;
-  margin: 4vw;
 }
