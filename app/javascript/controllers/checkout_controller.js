@@ -9,9 +9,9 @@ export default class extends Controller {
         "AZ6mg8z-fSKBI8oMSU29gsgDxzw65DUC1lC0VQ5Yq-d-u8sz8rWiTv0wENaimMPhF4x-BRWVoGpZ49Cg",
     }).then((paypal) => {
       paypal.Buttons().render("#paypal-button-container");
-      setTimeout(() => {
-        window.location.href = "http://localhost:3000/confirmation";
-      }, 8000);
+      // setTimeout(() => {
+      //   window.location.href = "http://localhost:3000/confirmation";
+      // }, 8000);
     });
   }
 }

@@ -48,8 +48,10 @@ class PagesController < ApplicationController
     end
 
     cart.each do |order|
+      console.log(order)
       product = order[:product]
       table = Table.where(name: order[:table]).first
+      console.log(table)
       order = Order.new(amount: order[:amount])
       order.table = table
       order.product = product

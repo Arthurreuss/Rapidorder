@@ -57,7 +57,7 @@ export default class extends Controller {
   }
 
   #formatNumber(number) {
-    return Intl.NumberFormat("nl-NL", {
+    return Intl.NumberFormat("es-ES", {
       style: "currency",
       currency: "EUR",
     }).format(number);

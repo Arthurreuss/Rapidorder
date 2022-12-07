@@ -21,7 +21,7 @@
           </button>
         </div>
         <div style="padding-right: 1vh;" >
-        <span  class="fs-4 price text-bottom" data-counter-target="price"><%= number_to_currency((order[:product].price * order[:amount]), unit: '€ ', separator: ",") %></span>
+          <span  class="fs-4 price text-bottom" data-counter-target="price"><%= number_to_currency((order[:product].price * order[:amount]), unit: '€ ', separator: ",", format: "%n %u") %></span>
         </div>
       </div>
     </div>

@@ -35,6 +35,17 @@ unless restaurant.save
   p restaurant.errors.messages
 end
 
+Table.create(name: "1", restaurant_id: 1)
+Table.create(name: "2", restaurant_id: 1)
+Table.create(name: "3", restaurant_id: 1)
+Table.create(name: "4", restaurant_id: 1)
+Table.create(name: "5", restaurant_id: 1)
+Table.create(name: "6", restaurant_id: 1)
+Table.create(name: "7", restaurant_id: 1)
+Table.create(name: "8", restaurant_id: 1)
+Table.create(name: "9", restaurant_id: 1)
+Table.create(name: "10", restaurant_id: 1)
+
 file = File.open(File.join(__dir__, 'images_seed/pizzac.jpg'))
 category = Category.new(name: "Pizza", restaurant_id: 1, product_type: "Meal")
 category.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
@@ -63,10 +74,33 @@ unless category.save
   p category.errors.messages
 end
 
-category = Category.create(name: "Softdrink", restaurant_id: 1, product_type: "Drink")
-category = Category.create(name: "Cocktail", restaurant_id: 1, product_type: "Drink")
-category = Category.create(name: "Wine", restaurant_id: 1, product_type: "Drink")
-category = Category.create(name: "Beer", restaurant_id: 1, product_type: "Drink")
+file = File.open(File.join(__dir__, 'images_seed/lemonade.jpg'))
+category = Category.new(name: "Softdrink", restaurant_id: 1, product_type: "Drink")
+category.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+unless category.save
+  p category.errors.messages
+end
+
+file = File.open(File.join(__dir__, 'images_seed/cocktails.jpg'))
+category = Category.new(name: "Cocktail", restaurant_id: 1, product_type: "Drink")
+category.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+unless category.save
+  p category.errors.messages
+end
+
+file = File.open(File.join(__dir__, 'images_seed/wines.jpg'))
+category = Category.new(name: "Wine", restaurant_id: 1, product_type: "Drink")
+category.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+unless category.save
+  p category.errors.messages
+end
+
+file = File.open(File.join(__dir__, 'images_seed/beers.jpg'))
+category = Category.new(name: "Beer", restaurant_id: 1, product_type: "Drink")
+category.photo.attach(io: file, filename: "nes.jpg", content_type: "image/jpg")
+unless category.save
+  p category.errors.messages
+end
 
 file = File.open(File.join(__dir__, './images_seed/pizzamargarita.jpg'))
 #file = file.read
