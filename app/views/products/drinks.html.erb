@@ -5,6 +5,7 @@
 <% arr3 = ["panelsStayOpen-headingOne", "panelsStayOpen-headingTwo", "panelsStayOpen-headingThree", "panelsStayOpen-headingFour", "panelsStayOpen-headingFive", "panelsStayOpen-headingSix", "panelsStayOpen-headingSeven", "panelsStayOpen-headingEight",] %>
 <link href="dist/css/star-rating.min.css" rel="stylesheet">
 <div class="wrapper">
+  <div class="placeholder-top"></div>
   <div class="product-title d-flex justify-content-between p-2">
     <%= link_to :back, class: "previous-button" do %>
       <div class="img-btn-previous"><%= image_tag "button-previous.png" %></div>
@@ -38,13 +39,15 @@
                         </div>
                         <%= render partial: 'shared/stars_rating', locals: {product: product} %>
                       </div>
-                      <div class="description text-start">
-                        <p><%= product.description %></p>
-                      </div>
-                      <div class="d-flex align-bottom justify-content-between">
-                        <h3 class="price"><%= number_to_currency(product.price, unit: '€ ', separator: ",", format: "%n %u") %></h3>
-                        <div class="order-button btn-color btn-product me-2"><i class="fa-solid fa-plus fa-l" data-action="click->product#updatecart click->cartcounter#updatecounter"></i>
+                      <div class="d-flex justify-content-between">
+                        <div class="description text-start">
+                          <p><%= product.description %></p>
                         </div>
+                        <div class="order-button btn-color btn-product"><i class="fa-solid fa-plus fa-l margin-plus-favicon-drinks" data-action="click->product#updatecart click->cartcounter#updatecounter"></i>
+                        </div>
+                      </div>
+                      <div class=" align-bottom">
+                        <h3 class="price text-start"><%= number_to_currency(product.price, unit: '€ ', separator: ",", format: "%n %u") %></h3>
                       </div>
                     </div>
                   </div>

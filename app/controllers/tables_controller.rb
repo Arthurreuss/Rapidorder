@@ -9,9 +9,9 @@ class TablesController < ApplicationController
     @table = Table.new(table_params)
     @table.restaurant = @restaurant
     if @table.save
-      format.html { redirect_to restaurant_dashboard_admin_path(@restaurant), notice: "Successfully created Table" }
+      redirect_to restaurant_dashboard_admin_path(@restaurant)
     else
-      format.html { render :new, status: :unprocessable_entity }
+      render "restaurants/#{@restaurant.id}/tables/new", status: :unprocessable_entity
     end
   end
 

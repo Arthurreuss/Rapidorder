@@ -10,17 +10,17 @@
     </div>
     <div class="width-100 rows-container col">
       <% @tables.each do |table| %>
-        <div class="order-card border">
-          <div>
-            <h3><%= table.id %></h3>
+        <div class="border order-column">
+          <div class="project-red">
+            <h3>Table: <%= table.name %></h3>
           </div>
           <% orders = table.orders %>
           <% orders = orders.select { |order| order.product.product_type == "Meal"} %>
           <% orders = orders.select { |order| order.status == false } %>
           <% orders.each do |order| %>
-            <%= link_to restaurant_update_status_path(:order_id => order.id) do %>
-              <div>
-                <p><%= order.amount %> x <%= order.product.name %></p>
+            <%= link_to restaurant_update_status_path(:order_id => order.id), style: "text-decoration: none; color: black;" do %>
+              <div class="order-card">
+                <p style="margin-bottom: 0 !Important;"><%= order.amount %> x <%= order.product.name %></p>
               </div>
             <% end %>
           <% end %>
@@ -34,17 +34,17 @@
     </div>
     <div class="width-100 rows-container">
             <% @tables.each do |table| %>
-        <div class="order-card border">
-          <div>
-            <h3><%= table.id %></h3>
+        <div class="order-column border">
+          <div class="project-red">
+            <h3>Table: <%= table.name %></h3>
           </div>
           <% orders = table.orders %>
           <% orders = orders.select { |order| order.product.product_type == "Drink"} %>
           <% orders = orders.select { |order| order.status == false } %>
           <% orders.each do |order| %>
-            <%= link_to restaurant_update_status_path(:order_id => order.id) do %>
-              <div>
-                <p><%= order.amount %> x <%= order.product.name %></p>
+            <%= link_to restaurant_update_status_path(:order_id => order.id), style: "text-decoration: none; color: black;" do %>
+              <div class="order-card">
+                <p style="margin-bottom: 0 !Important;"><%= order.amount %> x <%= order.product.name %></p>
               </div>
             <% end %>
           <% end %>
