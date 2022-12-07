@@ -20,8 +20,14 @@ export default class extends Controller {
       this.total += price;
     });
     this.outputTarget.textContent = `${this.#formatNumber(this.total)}`;
-    this.tipTarget.textContent = `${this.#formatNumber(this.tip)}`;
-    this.grandtotalTarget.textContent = ` ${this.#formatNumber(this.total)}`;
+    const tip = JSON.parse(localStorage.getItem("tip"));
+    if (tip) {
+      this.tipTotal = tip;
+      this.grandTotal = this.total + this.tipTotal;
+    };
+    this.tipTarget.textContent = `${this.#formatNumber(this.tipTotal)}`;
+    this.grandtotalTarget.textContent = ` ${this.#formatNumber(this.grandTotal)}`;
+    localStorage.setItem("total", this.total);
   }
 
   addTip({ params: { tip } }) {
@@ -32,6 +38,8 @@ export default class extends Controller {
       this.grandTotal
     )}`;
     this.tipTarget.textContent = `${this.#formatNumber(this.tipTotal)}`;
+    localStorage.setItem("total", this.grandTotal);
+    localStorage.setItem("tip", this.tipTotal)
   }
 
   changeTotal(price) {
@@ -43,6 +51,7 @@ export default class extends Controller {
     this.grandtotalTarget.textContent = `${this.#formatNumber(
       this.grandTotal
     )}`;
+    localStorage.setItem("total", this.grandTotal);
   }
 
   removeProduct(price) {
@@ -54,6 +63,7 @@ export default class extends Controller {
     this.grandtotalTarget.textContent = `${this.#formatNumber(
       this.grandTotal
     )}`;
+    localStorage.setItem("total", this.grandTotal);
   }
 
   #formatNumber(number) {
