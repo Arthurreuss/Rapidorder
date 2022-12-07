@@ -344,7 +344,7 @@ product14 = Product.new(
     p product14.errors.messages
   end
 
-file = File.open(File.join(__dir__, './images_seed/rosewine.jpg'))
+file = File.open(File.join(__dir__, './images_seed/rosewinex.jpg'))
 #file = file.read
 
 #15
