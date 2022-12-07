@@ -7,11 +7,30 @@ export default class extends Controller {
     loadScript({
       "client-id":
         "AZ6mg8z-fSKBI8oMSU29gsgDxzw65DUC1lC0VQ5Yq-d-u8sz8rWiTv0wENaimMPhF4x-BRWVoGpZ49Cg",
+        currency: "EUR"
     }).then((paypal) => {
-      paypal.Buttons().render("#paypal-button-container");
+      paypal.Buttons({
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(()=> {
+            window.location.href = "http://localhost:3000/confirmation";
+          })
+        },
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              amount: {
+
+                value: localStorage.getItem("total"),
+              }
+            }]
+          })
+
+        }
+      }).render("#paypal-button-container");
       // setTimeout(() => {
       //   window.location.href = "http://localhost:3000/confirmation";
       // }, 8000);
+
     });
   }
 }
