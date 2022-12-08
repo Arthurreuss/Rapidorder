@@ -1,17 +1,16 @@
-
 <div>
   <div class="show-restaurant-banner" data-controller="cart" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @restaurant.photo.key %>')">
     <%= link_to root_path do %>
       <div class="show-restaurant-logo"><%= image_tag "rapid-order-logo.png" %> </div>
-     <% end %>
+    <% end %>
     <div class="show-restaurant-title p-2">
       <h3><%= @restaurant.name %></h3>
       <div class="d-flex table-buttons">
         <div class="restaurant-table rounded p-1 text-center"> Table: <%= @table %></div>
         <div class="d-flex justify-content-around table-buttons1">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
       </div>
     </div>
@@ -49,10 +48,8 @@
         <%= link_to restaurant_restaurant_meals_path(@restaurant, anchor: category.name, category_id: category.id, table: @table ) do %>
           <%= cl_image_tag category.photo.key, class: "swiper-slide" %>
         <% end %>
-        <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
-<div class="placeholder"></div>
-<div class="placeholder"></div>
+</div>

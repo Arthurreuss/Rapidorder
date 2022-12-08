@@ -2,22 +2,29 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="order"
 export default class extends Controller {
-  static targets = ["output"];
+  static targets = ["output", "ordername"];
   static values = {
-    orderid: Number,
     restaurantid: Number,
+    orderid: Number,
   };
+
+  initialize() {
+    this.count = 0;
+  }
 
   connect() {}
 
   change() {
-    this.outputTarget.classList.remove("btn-danger");
-    this.outputTarget.classList.add("btn-success");
-    setTimeout(() => {
-      this.outputTarget.classList.add("d-none");
-    }, 10000);
-    setTimeout(() => {
-      window.location.href = `//localhost:3000/restaurants/${this.restaurantidValue}/update_status?order_id=${this.orderidValue}`;
-    }, 11000);
+    this.count += 1;
+    if (this.count == 1) {
+      this.ordernameTarget.classList.remove("wait");
+      this.ordernameTarget.classList.add("ready");
+    }
+    if (this.count == 2) {
+      fetch(
+        `/restaurants/${this.restaurantidValue}/update_status?order_id=${this.orderidValue}`
+      );
+      this.outputTarget.outerHTML = "";
+    }
   }
 }

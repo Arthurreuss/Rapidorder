@@ -22,6 +22,6 @@ export default class extends Controller {
 
     setTimeout(() => {
       localStorage.clear();
-    }, 50000);
+    }, 5000);
   }
 }
