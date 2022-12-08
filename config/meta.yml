@@ -1,0 +1,5 @@
+meta_product_name: "Rapid Order"
+meta_title: "Rapid Order - No more waiting times"
+meta_description: "With Rapid Order you can immediately place and pay for your order. So you never have to wait any longer than necessary to receive your drink or food"
+meta_image: "rapid-order-logo.png" # should exist in `app/assets/images/`
+twitter_account: "@rapidorder"

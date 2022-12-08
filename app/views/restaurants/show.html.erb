@@ -19,7 +19,7 @@
         <div class="swiper-slide p-2 me-2" id="this is the place holder dont change this id" ></div>
       <% end %>
       <% @categories_drinks.each do |category| %>
-        <%= link_to restaurant_restaurant_drinks_path(@restaurant, anchor: category.name, category_id: category.id, table: @table, target: "_top" ) do %>
+        <%= link_to restaurant_restaurant_drinks_path(@restaurant, anchor: category.name, category_id: category.id, table: @table ) do %>
           <%= cl_image_tag category.photo.key, class: "swiper-slide" %>
         <% end %>
       <% end %>
