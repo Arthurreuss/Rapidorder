@@ -1,11 +1,13 @@
 <div class="show-restaurant-banner" data-controller="cart" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @restaurant.photo.key %>')">
-  <div class="show-restaurant-logo"><%= image_tag "rapid-order-logo.png" %> </div>
+  <%= link_to root_path do %>
+    <div class="show-restaurant-logo"><%= image_tag "rapid-order-logo.png" %> </div>
+  <% end %>
   <div class="show-restaurant-title p-2">
     <h3><%= @restaurant.name %></h3>
     <div class="restaurant-table rounded p-1 text-center"> Table: <%= @table %></div>
   </div>
 </div>
-<div class="show-restaurant-special-offer-card mt-4 p-2 mx-auto rounded text-end">
+<div class="show-restaurant-special-offer-card mt-4 p-3 mx-auto rounded text-end">
   <div class="special-offer-button">
     <h3>Daily Menu</h3>
     <div class="special-offer-price rounded p-1 " >12.50 €</div>
@@ -16,7 +18,7 @@
   <div class="show-restaurant-categories-card m-auto">
     <div class="swiper-wrapper d-flex justify-content-center align-items-center">
       <%= link_to restaurant_restaurant_drinks_path(@restaurant, { category: 'nothing'}) do %>
-        <div class="swiper-slide p-2 me-2" id="this is the place holder dont change this id" ></div>
+        <div class="swiper-slide-placeholder p-2 me-2" id="this is the place holder dont change this id" ></div>
       <% end %>
       <% @categories_drinks.each do |category| %>
         <%= link_to restaurant_restaurant_drinks_path(@restaurant, anchor: category.name, category_id: category.id, table: @table ) do %>
@@ -31,7 +33,7 @@
   <div class="show-restaurant-categories-card m-auto">
     <div class="swiper-wrapper d-flex justify-content-center align-items-center">
       <%= link_to restaurant_restaurant_meals_path(@restaurant) do%>
-        <div class="swiper-slide p-2 me-2" id="nothing" ></div>
+        <div class="swiper-slide-placeholder p-2 me-2" id="nothing" ></div>
       <% end %>
       <% @categories_meals.each do |category| %>
         <%= link_to restaurant_restaurant_meals_path(@restaurant, anchor: category.name, category_id: category.id, table: @table ) do %>
@@ -41,3 +43,5 @@
     </div>
   </div>
 </div>
+<div class="placeholder"></div>
+<div class="placeholder"></div>

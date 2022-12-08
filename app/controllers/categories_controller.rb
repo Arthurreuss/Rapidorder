@@ -9,9 +9,9 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     @category.restaurant = @restaurant
     if @category.save
-      format.html { redirect_to restaurant_dashboard_admin_path(@restaurant), notice: "Successfully created Category" }
+      redirect_to restaurant_dashboard_admin_path(@restaurant)
     else
-      format.html { render :new, status: :unprocessable_entity }
+      render "restaurants/#{@restaurant.id}/categories/new", status: :unprocessable_entity
     end
   end
 

@@ -6,7 +6,6 @@
 .show-restaurant-special-offer-card{
   width: 90vw;
   height: 20vh;
-  background-color: lightgrey;
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7v_OZJJVNhTbQwp9C5p4L_bLpGBC6Fafl3Q&usqp=CAU");
   background-size: cover;
   background-repeat: no-repeat;
@@ -26,21 +25,27 @@
 
 .show-restaurant-categories-card{
   width: 85vw;
-  height: 11vh;
+  height: 20vh;
 
 }
 
 .swiper-slide{
-  height: 25vw;
-  width: 25vw;
+  height: 35vw;
+  width: 35vw;
   border-radius: 10px;
   object-fit: cover;
   margin-right: 1vw;
 }
 
+.swiper-slide-placeholder {
+  height: 35vw;
+  width: 58vw;
+  margin-right: 1vw;
+}
+
 .swiper-wrapper{
   overflow-x: auto;
-  height: 15vh;
+  height: 20vh;
 }
 
 .show-category-title{
