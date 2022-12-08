@@ -12,3 +12,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+a:hover {
+  color: rgba(152, 104, 104, 0.5) !important;
+}

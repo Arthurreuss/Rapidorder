@@ -13,6 +13,22 @@
   color: white;
 }
 
+.table-buttons {
+  padding-right: 0px;
+}
+
+.table-buttons1 {
+ padding-left: 15vw;
+ width: 71%;
+}
+
+.table-buttons a{
+  color: white;
+  font-size: x-large;
+}
+.table-buttons a:active {
+  color: rgba(152, 104, 104, 0.5);
+}
 .special-offer-button {
   padding-top: 20%;
   display: flex;
@@ -26,8 +42,6 @@
 
 .show-restaurant-categories-card{
   width: 85vw;
-  height: 11vh;
-
 }
 
 .swiper-slide{
@@ -68,4 +82,7 @@
   width: inherit;
   height: inherit;
   border-radius: 50%;
+}
+.show-restaurant-logo {
+  margin-left: 74vw
 }
