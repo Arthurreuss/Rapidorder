@@ -7,7 +7,7 @@
 <div class="wrapper">
   <div class="placeholder-top"></div>
   <div class="product-title d-flex justify-content-between p-2">
-    <%= link_to :back, class: "previous-button" do %>
+    <%= link_to restaurant_path(@restaurant), class: "previous-button" do %>
       <div class="img-btn-previous"><%= image_tag "button-previous.png" %></div>
     <% end %>
     <%# <input type="button" onclick="history.back()"> %>
@@ -17,7 +17,8 @@
     <% end %>
   </div>
   <%#= render "shared/productcard_drinks" %>
-  <div class="accordion" id="accordionPanelsStayOpenExample" data-controller="cartcounter">
+  <div data-controller="cartcounter" style="overflow: scroll; height: 74vh;">
+  <div class="accordion" id="accordionPanelsStayOpenExample">
     <% @categories.each do |category|%>
       <div id="<%= category.name %>" class="accordion-item text-center">
         <h2 class="test" id=<%=arr3[sum]%>>
@@ -46,7 +47,7 @@
                         <div class="order-button btn-color btn-product"><i class="fa-solid fa-plus fa-l margin-plus-favicon-drinks" data-action="click->product#updatecart click->cartcounter#updatecounter"></i>
                         </div>
                       </div>
-                      <div class=" align-bottom">
+                      <div class="align-bottom">
                         <h3 class="price text-start"><%= number_to_currency(product.price, unit: '€ ', separator: ",", format: "%n %u") %></h3>
                       </div>
                     </div>
@@ -59,10 +60,11 @@
         <% sum += 1 %>
       </div>
     <% end %>
-    <div style="height: 15vh;">
+    <div style="height: 5vh;">
     </div>
+  </div>
     <%= link_to cart_path, restaurant: @restaurant.id do %>
-      <div class="btn btn-color pay-button sticky"><strong>View Cart<span class="cart-counter" data-cartcounter-target="output"></span></strong></div>
+      <div class="btn btn-color pay-button sticky mb-3"><strong class="align-middle p-3">View Cart<span class="cart-counter" data-cartcounter-target="output"></span></strong></div>
     <% end %>
   </div>
 </div>
