@@ -113,7 +113,7 @@ file = File.open(File.join(__dir__, './images_seed/pizzamargarita.jpg'))
 product1 = Product.new(
   name: 'Pizza Margherita',
   price: 12,
-  description: "Pizza with mozarella and basil",
+  description: "Pizza with mozzarella and basil",
   category: category1,
   product_type: 'Meal',
   restaurant: restaurant1
@@ -181,7 +181,7 @@ file = File.open(File.join(__dir__, './images_seed/mahou4.jpg'))
 product5 = Product.new(
   name: 'Mahou',
   price: 3,
-  description: "Light Spanish beer",
+  description: "Spanish beer",
   category: category8,
   product_type: 'Drink',
   restaurant: restaurant1
@@ -198,7 +198,7 @@ file = File.open(File.join(__dir__, './images_seed/heineken.jpg'))
 product6 = Product.new(
   name: 'Heineken',
   price: 2,
-  description: "Very light German beer",
+  description: "German beer",
   category: category8,
   product_type: 'Drink',
   restaurant: restaurant1
@@ -215,7 +215,7 @@ file = File.open(File.join(__dir__, './images_seed/desperados.jpg'))
 product7 = Product.new(
   name: 'Desperados',
   price: 4,
-  description: "Beer with tequile",
+  description: "Beer with tequila",
   category: category8,
   product_type: 'Drink',
   restaurant: restaurant1
@@ -232,7 +232,7 @@ file = File.open(File.join(__dir__, './images_seed/budweiser.jpg'))
 product8 = Product.new(
   name: 'Budweiser',
   price: 2,
-  description: "Bad American beer",
+  description: "American beer",
   category: category8,
   product_type: 'Drink',
   restaurant: restaurant1
@@ -264,7 +264,7 @@ file = File.open(File.join(__dir__, './images_seed/bolognese.jpg'))
 
 #10
 product10 = Product.new(
-  name: 'Tagliatelle alla bolognese',
+  name: 'Tagliatelle bolognese',
   price: 14,
   description: "Tagliatelle with beef, tomato and parmesan cheese",
   category: category2,
@@ -315,7 +315,7 @@ file = File.open(File.join(__dir__, './images_seed/glassrioja.jpg'))
 
 #13
 product13 = Product.new(
-  name: 'Glass of red wine',
+  name: 'Red wine',
   price: 5,
   description: "Glass of Ramon Bilbao",
   category: category7,
@@ -332,7 +332,7 @@ file = File.open(File.join(__dir__, './images_seed/whitewine.jpg'))
 
 #14
 product14 = Product.new(
-  name: 'Glass of white wine',
+  name: 'White wine',
   price: 6,
   description: "Glass of Jose Pariente",
   category: category7,
@@ -349,7 +349,7 @@ file = File.open(File.join(__dir__, './images_seed/rosewinex.jpg'))
 
 #15
 product15 = Product.new(
-  name: 'Glass of rose wine',
+  name: 'Rose wine',
   price: 8,
   description: "Glass of Marques de Murrieta",
   category: category7,
@@ -366,7 +366,7 @@ file = File.open(File.join(__dir__, './images_seed/champagne.jpg'))
 
 #16
 product16 = Product.new(
-  name: 'Glass of champagne',
+  name: 'Champagne',
   price: 9,
   description: "Glass of Moet & Chandon ",
   category: category7,
@@ -470,7 +470,7 @@ file = File.open(File.join(__dir__, './images_seed/doublecheeseburger.jpg'))
 product22 = Product.new(
   name: 'Double Bacon Cheeseburger',
   price: 14,
-  description: "Two grilled patties with cheese and bacon",
+  description: "Double burger with cheese and bacon",
   category: category4,
   product_type: 'Meal',
   restaurant: restaurant1
@@ -572,7 +572,7 @@ file = File.open(File.join(__dir__, './images_seed/aquarius.jpg'))
 product28 = Product.new(
   name: 'Aquarius',
   price: 2,
-  description: 'Lemon aquarius',
+  description: 'Orange aquarius',
   category: category5,
   product_type: 'Drink',
   restaurant: restaurant1
