@@ -3,6 +3,10 @@
   background-color: white;
 }
 
+.font-size-title {
+  font-size: 70px;
+}
+
 .background-color {
   background-color: $project-background;
 }
@@ -41,10 +45,17 @@
 
 .home-box-1 {
   padding-left: 10px;
+  color: white;
 }
 
 .home-box-2 {
-  padding-left: 10px;
+  padding-left: 20px;
+  color: white;
+}
+
+.container-x {
+  width: 80vw;
+  margin: auto;
 }
 
 .home-banner-2 {
@@ -54,17 +65,19 @@
 
 .how-it-works {
   height: 10vh;
+  margin-top: 5vh;
 }
 
 .home-all-cards {
   display: flex;
+  justify-content: space-between;
   height: 50vh;
   margin-bottom: 3vh;
 }
 
 .home-card-1 {
-  width: 26vw;
-  padding: 15px;
+  width: 20vw;
+  padding: 10px !important;
 }
 
 .home-card-1 h3 {
@@ -81,19 +94,20 @@
 
 
 .home-card-2 {
-  width: 26vw;
-  margin-left: 11vw;
-  padding: 15px;
+  width: 20vw;
+
+  padding: 10px !important;
 }
 
 .home-card-3 {
-  width: 26vw;
-  margin-left: 11vw;
-  padding: 15px;
+  width: 20vw;
+
+  padding: 10px !important;
 }
 
 .restaurants-with-rapidorder {
   height: 10vh;
+  margin-top: 5vh;
 }
 
 .home-cards__card p{
@@ -103,7 +117,8 @@
 }
 
 .home-cards__card {
-  padding: 10px;
+  margin: 10px;
+  margin-left: 0px !important;
 }
 .home-cards__card img {
   border-radius: 10px;
