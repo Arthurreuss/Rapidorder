@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+ProductAllergy.destroy_all
 Allergy.destroy_all
 allergy1 = Allergy.create!(name: "Celery", url: "https://get.apicbase.com/wp-content/uploads/2020/04/celery.svg")
 allergy2 = Allergy.create(name: "Gluten", url: "https://get.apicbase.com/wp-content/uploads/2020/04/cereal.svg")
@@ -25,7 +26,6 @@ Order.destroy_all
 Product.destroy_all
 Restaurant.destroy_all
 User.destroy_all
-ProductAllergy.destroy_all
 Table.destroy_all
 Category.destroy_all
 Review.destroy_all
