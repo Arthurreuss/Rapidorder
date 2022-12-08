@@ -10,18 +10,18 @@
     </div>
     <div class="width-100 rows-container col">
       <% @tables.each do |table| %>
-        <div class="border order-column w-75" style="align-self: center">
-          <div class="project-red">
+        <div class="border order-column w-75 m-1" style="align-self: center">
+          <button class="project-red" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
             <h3>Table: <%= table.name %></h3>
-          </div>
+          </button>
           <% orders = table.orders %>
           <% orders = orders.select { |order| order.product.product_type == "Meal"} %>
           <% orders = orders.select { |order| order.status == false } %>
           <% orders.each do |order| %>
             <%#= link_to restaurant_update_status_path(:order_id => order.id), style: "text-decoration: none; color: black;" do %>
-              <div data-controller="order" data-order-id-value='<%= order.id %>'>
+              <div data-controller="order" data-order-orderid-value='<%= order.id %>' data-order-restaurantid-value='<%= @restaurant.id %>' class="collapse show" id="collapseExample">
                 <button class="order-card p-2 m-2 border border-1 btn btn-danger btn-large" data-action="click->order#change" data-order-target="output" >
-                  <p style="margin-bottom: 0 !Important;"><%= order.amount %> x <%= order.product.name %> <%= order.created_at %></p>
+                  <p style="margin-bottom: 0 !Important;"><%= order.amount %> x <%= order.product.name %> <%= distance_of_time_in_words(Time.current, order.created_at) %> ago</p>
                 </button>
               </div>
               <%# end %>
@@ -34,24 +34,26 @@
       <div class="pt-2 pb-2 text-center border">
         <h2>Drinks</h2>
       </div>
-      <div class="width-100 rows-container">
+      <div class="width-100 rows-container col">
         <% @tables.each do |table| %>
-          <div class="order-column border w-75" style="align-self: center">
-            <div class="project-red">
+          <div class="order-column border w-75 m-1" style="align-self: center">
+            <button class="project-red" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="true" aria-controls="collapseExample2">
               <h3>Table: <%= table.name %></h3>
-            </div>
+            </button>
             <% orders = table.orders %>
             <% orders = orders.select { |order| order.product.product_type == "Drink"} %>
             <% orders = orders.select { |order| order.status == false } %>
             <% orders.each do |order| %>
-              <%= link_to restaurant_update_status_path(:order_id => order.id), style: "text-decoration: none; color: black;" do %>
-                <div class="order-card">
-                  <p style="margin-bottom: 0 !Important;"><%= order.amount %> x <%= order.product.name %></p>
+              <%#= link_to restaurant_update_status_path(:order_id => order.id), style: "text-decoration: none; color: black;" do %>
+                <div data-controller="order" data-order-orderid-value='<%= order.id %>' data-order-restaurantid-value='<%= @restaurant.id %>' class="collapse show" id="collapseExample2">
+                  <button class="order-card p-2 m-2 border border-1 btn btn-danger btn-large" data-action="click->order#change" data-order-target="output" >
+                    <p style="margin-bottom: 0 !Important;"><%= order.amount %> x <%= order.product.name %> <%= distance_of_time_in_words(Time.current, order.created_at) %> ago</p>
+                  </button>
                 </div>
+                <%# end %>
               <% end %>
-            <% end %>
-          </div>
-        <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
