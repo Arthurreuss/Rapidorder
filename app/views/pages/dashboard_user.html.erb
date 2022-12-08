@@ -3,7 +3,7 @@
 <div class="d-flex justify-content-between header-container">
   <h1><%= @restaurant.name %></h1>
 </div>
-<div class="outer-container d-flex">
+<div class="outer-container d-flex justify-content-between">
   <div class="meals-container">
     <div class="pt-2 pb-2 text-center border">
       <h2>Meals</h2>
@@ -11,7 +11,7 @@
     <div class="width-100 rows-container col">
       <% @tables.each do |table| %>
         <div class="border order-column w-75 m-1" style="align-self: center">
-          <button class="project-red" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
+          <button class="project-red">
             <h3>Table: <%= table.name %></h3>
           </button>
           <% orders = table.orders %>
@@ -19,9 +19,9 @@
           <% orders = orders.select { |order| order.status == false } %>
           <% orders.each do |order| %>
             <%#= link_to restaurant_update_status_path(:order_id => order.id), style: "text-decoration: none; color: black;" do %>
-              <div data-controller="order" data-order-orderid-value='<%= order.id %>' data-order-restaurantid-value='<%= @restaurant.id %>' class="collapse show" id="collapseExample">
-                <button class="order-card p-2 m-2 border border-1 btn btn-danger btn-large" data-action="click->order#change" data-order-target="output" >
-                  <p style="margin-bottom: 0 !Important;"><%= order.amount %> x <%= order.product.name %> <%= distance_of_time_in_words(Time.current, order.created_at) %> ago</p>
+              <div data-controller="order" data-order-orderid-value='<%= order.id %>' data-order-restaurantid-value='<%= @restaurant.id %>'>
+                <button class="order-card p-2 m-2 btn btn-large" data-action="click->order#change" data-order-target="output">
+                  <p class="wait" data-order-target="ordername" style="margin-bottom: 0 !Important;"><%= order.amount %> x <%= order.product.name %> <span class="time ps-3"> <%= distance_of_time_in_words(Time.current, order.created_at) %> ago </span></p>
                 </button>
               </div>
               <%# end %>
@@ -36,8 +36,8 @@
       </div>
       <div class="width-100 rows-container col">
         <% @tables.each do |table| %>
-          <div class="order-column border w-75 m-1" style="align-self: center">
-            <button class="project-red" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="true" aria-controls="collapseExample2">
+          <div class="order-column w-75 m-1" style="align-self: center">
+            <button class="project-red">
               <h3>Table: <%= table.name %></h3>
             </button>
             <% orders = table.orders %>
@@ -45,9 +45,9 @@
             <% orders = orders.select { |order| order.status == false } %>
             <% orders.each do |order| %>
               <%#= link_to restaurant_update_status_path(:order_id => order.id), style: "text-decoration: none; color: black;" do %>
-                <div data-controller="order" data-order-orderid-value='<%= order.id %>' data-order-restaurantid-value='<%= @restaurant.id %>' class="collapse show" id="collapseExample2">
-                  <button class="order-card p-2 m-2 border border-1 btn btn-danger btn-large" data-action="click->order#change" data-order-target="output" >
-                    <p style="margin-bottom: 0 !Important;"><%= order.amount %> x <%= order.product.name %> <%= distance_of_time_in_words(Time.current, order.created_at) %> ago</p>
+                <div data-controller="order" data-order-target="output" data-order-orderid-value='<%= order.id %>' data-order-restaurantid-value='<%= @restaurant.id %>'>
+                  <button class="order-card p-2 m-2 btn btn-large" data-action="click->order#change"  >
+                    <p class="wait" data-order-target="ordername" style="margin-bottom: 0 !Important;"><%= order.amount %> x <%= order.product.name %> <span class="time ps-3"> <%= distance_of_time_in_words(Time.current, order.created_at) %> ago </span></p>
                   </button>
                 </div>
                 <%# end %>

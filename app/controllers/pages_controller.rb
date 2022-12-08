@@ -102,6 +102,7 @@ class PagesController < ApplicationController
   def update_status
     @order = Order.find(params[:order_id])
     @order.update(status: true)
-    redirect_to restaurant_dashboard_user_path
+    head :ok;
+    # redirect_to restaurant_dashboard_user_path
   end
 end

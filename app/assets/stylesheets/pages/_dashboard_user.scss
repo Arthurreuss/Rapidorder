@@ -1,19 +1,19 @@
 .meals-container {
   border: solid 1px black;
-  width: calc(100% / 1.5);
+  width: 50%;
   height: 100%;
 }
 
 .drinks-container {
   border: solid 1px black;
-  width: calc(100% / 3);
+  width: 50%;
   height: 100%;
 }
 
 .rows-container {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
   height: 90%;
   overflow: scroll;
 }
@@ -43,6 +43,22 @@
 
 .order-card {
   padding: 4%;
+}
+
+.order-card p {
+  font-size: 18px;
+}
+
+.wait{
+  color: red;
+}
+
+.ready {
+  color: green;
+}
+.time{
+  font-style: italic;
+  color: black;
 }
 
 .order-column {
