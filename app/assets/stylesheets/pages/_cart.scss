@@ -137,8 +137,17 @@
   margin-left: 5% !important;
   margin-bottom: 4vh;
   margin-top: 2vh;
-
 }
+
+.pay-button h2{
+  color: white;
+  margin-top: 1%;
+}
+
+.pay-button h2:active{
+  color: black;
+}
+
 #totalprice {
   width: 100%;
 }
