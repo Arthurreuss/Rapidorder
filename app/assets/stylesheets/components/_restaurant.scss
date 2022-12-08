@@ -6,11 +6,11 @@
 .show-restaurant-special-offer-card{
   width: 90vw;
   height: 20vh;
-  background-color: lightgrey;
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7v_OZJJVNhTbQwp9C5p4L_bLpGBC6Fafl3Q&usqp=CAU");
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("menu.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
+  background-position: center;
 }
 
 .special-offer-button {
