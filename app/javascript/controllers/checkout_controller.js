@@ -13,7 +13,8 @@ export default class extends Controller {
         .Buttons({
           onApprove: function (data, actions) {
             return actions.order.capture().then(() => {
-              window.location.href = "https://rapidorder/confirmation";
+              window.location.href = "/confirmation";
+              // "https://rapidorder/confirmation"
             });
           },
           createOrder: function (data, actions) {

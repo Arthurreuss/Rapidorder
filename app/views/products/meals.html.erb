@@ -13,7 +13,7 @@
       <div class="img-btn-next"><%= image_tag "Button-next.png" %></div>
     <% end %>
   </div>
-  <div class="accordion" id="accordionExample">
+  <div class="accordion" id="accordionExample" data-controller="cartcounter">
     <% @categories.each do |category|%>
       <div id="<%= category.name %>" class="accordion-item text-center">
         <h2 class="test " id=<%=arr3[sum]%>>

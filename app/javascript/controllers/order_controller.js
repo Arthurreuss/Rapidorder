@@ -4,18 +4,20 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
   static targets = ["output"];
   static values = {
-    id: Number,
+    orderid: Number,
+    restaurantid: Number,
   };
 
-  connect() {
-    console.log("hi");
-  }
+  connect() {}
 
   change() {
     this.outputTarget.classList.remove("btn-danger");
     this.outputTarget.classList.add("btn-success");
     setTimeout(() => {
-      `http://localhost:3000/restaurants/1/update_status?order_id=${this.idValue}`;
-    }, 30000);
+      this.outputTarget.classList.add("d-none");
+    }, 10000);
+    setTimeout(() => {
+      window.location.href = `//localhost:3000/restaurants/${this.restaurantidValue}/update_status?order_id=${this.orderidValue}`;
+    }, 11000);
   }
 }
