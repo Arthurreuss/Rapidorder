@@ -49,6 +49,7 @@
         <%= link_to restaurant_restaurant_meals_path(@restaurant, anchor: category.name, category_id: category.id, table: @table ) do %>
           <%= cl_image_tag category.photo.key, class: "swiper-slide" %>
         <% end %>
+        <% end %>
       </div>
     </div>
   </div>
