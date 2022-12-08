@@ -14,10 +14,7 @@ export default class extends Controller {
     this.outputTarget.classList.remove("btn-danger");
     this.outputTarget.classList.add("btn-success");
     setTimeout(() => {
-      this.outputTarget.classList.add("d-none");
-    }, 10000);
-    setTimeout(() => {
-      window.location.href = `//localhost:3000/restaurants/${this.restaurantidValue}/update_status?order_id=${this.orderidValue}`;
-    }, 11000);
+      window.location.href = `/restaurants/${this.restaurantidValue}/update_status?order_id=${this.orderidValue}`;
+    }, 5000);
   }
 }
