@@ -13,6 +13,22 @@
   background-position: center;
 }
 
+.table-buttons {
+  padding-right: 0px;
+}
+
+.table-buttons1 {
+ padding-left: 15vw;
+ width: 71%;
+}
+
+.table-buttons a{
+  color: white;
+  font-size: x-large;
+}
+.table-buttons a:active {
+  color: rgba(152, 104, 104, 0.5);
+}
 .special-offer-button {
   padding-top: 20%;
   display: flex;
@@ -26,21 +42,26 @@
 
 .show-restaurant-categories-card{
   width: 85vw;
-  height: 11vh;
-
+  height: 20vh;
 }
 
 .swiper-slide{
-  height: 25vw;
-  width: 25vw;
+  height: 35vw;
+  width: 35vw;
   border-radius: 10px;
   object-fit: cover;
   margin-right: 1vw;
 }
 
+.swiper-slide-placeholder {
+  height: 35vw;
+  width: 58vw;
+  margin-right: 1vw;
+}
+
 .swiper-wrapper{
   overflow-x: auto;
-  height: 15vh;
+  height: 20vh;
 }
 
 .show-category-title{
@@ -68,4 +89,7 @@
   width: inherit;
   height: inherit;
   border-radius: 50%;
+}
+.show-restaurant-logo {
+  margin-left: 74vw
 }
