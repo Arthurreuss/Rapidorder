@@ -10,15 +10,15 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "arthur-profile.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" style="z-index: 100;" aria-labelledby="navbarDropdown">
               <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
               <% @restaurants.each do |restaurant| %>
                 <div class="dropdown-divider"></div>
-                <%= link_to restaurant.name, restaurant_path(restaurant), class: "dropdown-item"  %>
+                <%= link_to "Mediterano", restaurant_path(restaurant), class: "dropdown-item"  %>
                 <%= link_to "Admin's Dashboard", restaurant_dashboard_admin_path(restaurant), class: "dropdown-item"  %>
-                <%= link_to "User's Dashboard", restaurant_dashboard_user_path(restaurant), class: "dropdown-item"  %>
+                <%= link_to "Waiter's Dashboard", restaurant_dashboard_user_path(restaurant), class: "dropdown-item"  %>
               <% end %>
             </div>
           </li>
