@@ -23,7 +23,6 @@ export default class extends Controller {
     const tip = JSON.parse(localStorage.getItem("tip"));
     if (tip) {
       this.tipTotal = tip;
-      // this.grandTotal = this.total + this.tipTotal;
     }
     this.tipTarget.textContent = `${this.#formatNumber(this.tipTotal)}`;
     this.grandtotalTarget.textContent = ` ${this.#formatNumber(
