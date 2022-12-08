@@ -174,7 +174,7 @@ product4 = Product.new(
     p product4.errors.messages
   end
 
-file = File.open(File.join(__dir__, './images_seed/mahou.jpg'))
+file = File.open(File.join(__dir__, './images_seed/mahou4.jpg'))
 #file = file.read
 
 #5
